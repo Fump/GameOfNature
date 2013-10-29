@@ -20,5 +20,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Add new entry"
+    android:layout_marginTop="20"
     android:typeface="monospace"/>
 </LinearLayout>
