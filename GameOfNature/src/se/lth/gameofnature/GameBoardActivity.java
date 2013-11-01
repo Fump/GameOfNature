@@ -28,6 +28,8 @@ public class GameBoardActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
+		
+		map.unregisterListners();
 	}
 	
 	@Override
@@ -36,6 +38,8 @@ public class GameBoardActivity extends Activity {
 		
 		if(map == null)
 			initMap();
+		
+		map.registerListners();
 	}
 	
 	private void initMap() {
