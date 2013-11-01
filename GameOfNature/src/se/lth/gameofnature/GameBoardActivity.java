@@ -42,7 +42,7 @@ public class GameBoardActivity extends Activity {
 		GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 		        .getMap();
 		
-		map = new GameMap(gMap);
+		map = new GameMap(gMap, this);
 	}
 
 }
