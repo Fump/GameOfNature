@@ -28,18 +28,14 @@ public class GameBoardActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
-		
-		map.unregisterListners();
 	}
 	
 	@Override
 	public void onResume() {
 		super.onResume();
 		
-		if(map == null)
+		if(map == null);
 			initMap();
-		
-		map.registerListners();
 	}
 	
 	private void initMap() {

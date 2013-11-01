@@ -15,8 +15,6 @@ public class GameMap {
 	
 	private MyLocationMarker myLocation;
 	
-	private OrientationManager orientationManager;
-	
 	public static final LatLng ANDREASSONS_MEDOW = 
 			new LatLng(56.148370, 13.393320);
 			
@@ -43,18 +41,5 @@ public class GameMap {
 				.snippet("Here I am"));
 		
 		myLocation = new MyLocationMarker(locationMarker);
-		
-		orientationManager = new OrientationManager(myLocation, context);
-	}
-	
-	public void registerListners() {
-		if(orientationManager == null)
-			orientationManager = new OrientationManager(myLocation, context);
-			
-		orientationManager.regSensorListners();
-	}
-	
-	public void unregisterListners() {
-		orientationManager.unRegisterSensorListner();
 	}
 }

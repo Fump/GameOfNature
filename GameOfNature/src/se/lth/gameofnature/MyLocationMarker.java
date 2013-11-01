@@ -9,12 +9,9 @@ public class MyLocationMarker {
 	
 	public MyLocationMarker(Marker myMarker) {
 		this.myMarker = myMarker;
-		
-		myMarker.setFlat(true);
 	}
 	
 	public void setRotation(float rot) {
-		myMarker.setRotation(rot);
 	}
 	
 	public void setPosition(LatLng pos) {
