@@ -1,10 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Startskärm -->
     <string name="app_name">GameOfNature</string>
-    <string name="action_settings">Settings</string>
     <string name="start_button">Start</string>
+    
+    <!-- Alternativskärm -->    
+    <string name="question_topic">Textfråga</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Spelplan -->
     <string name="title_activity_game_board">GameBoardActivity</string>
+    
+    <!-- Frågeskärm -->
+    <string name="title_activity_question">QuestionActivity</string>
+    <string name="question">Hur många ben har en myra?</string>
+    <string name="answer_1">2</string>
+    <string name="answer_2">4</string>
+    <string name="answer_3">6</string>
+    <string name="answer_4">8</string>
+    
+    <!-- Övriga -->
     <string name="hello_world">Hello world!</string>
+    
+    
 
 </resources>

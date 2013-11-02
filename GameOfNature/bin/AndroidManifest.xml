@@ -34,14 +34,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+		
         <activity
             android:name="se.lth.gameofnature.GameBoardActivity"
             android:label="@string/title_activity_game_board" >
+        </activity>
+		
+		        <activity
+            android:name="se.lth.gameofnature.QuestionActivity"
+            android:label="@string/title_activity_question" >
         </activity>
         
       	<meta-data
 		    android:name="com.google.android.maps.v2.API_KEY"
 		    android:value="AIzaSyAEgdb7FzjANcaUeUnBj9O_TKtSsSqJaZQ"/>
     </application>
-
-</manifest>
