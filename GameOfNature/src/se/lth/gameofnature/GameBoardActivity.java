@@ -9,13 +9,17 @@ import android.view.Menu;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
+	private MyLocationMarker myLocation;
+	private LocationHandler mLocationHandler;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_board);
 		
-		initMap(); 
+		initMapIfNeeded();
+		initLocationHandlerIfNeeded();
 	}
 
 	@Override
@@ -28,21 +32,44 @@ public class GameBoardActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
+		
+		if(mLocationHandler != null)
+			mLocationHandler.stopTracking();
 	}
 	
 	@Override
 	public void onResume() {
 		super.onResume();
 		
-		if(map == null);
-			initMap();
+		initMapIfNeeded();
+		initLocationHandlerIfNeeded();
 	}
 	
-	private void initMap() {
-		GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-		        .getMap();
-		
-		map = new GameMap(gMap, this);
+	/* Sets up a GameMap connected to Google maps if one does not already exist.
+	 */
+	private void initMapIfNeeded() { 
+		if(map == null) {
+			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+			        .getMap();
+			
+			map = new GameMap(gMap, this);
+			
+			myLocation = map.addMyLocationMarker("My Location", 
+					"Here I am", 
+					GameMap.ANDREASSONS_MEDOW, 
+					R.drawable.bug);
+		}
 	}
-
+	
+	/* Sets up a locationHandler object to track the current location of the user 
+	 * is only set up if one does not already exist. Also starts tracking the user.
+	 */
+	public void initLocationHandlerIfNeeded() {
+		if(mLocationHandler == null) {
+			if(mLocationHandler == null)
+				mLocationHandler = new LocationHandler(this, map, myLocation);
+			
+			mLocationHandler.startTracking();
+		}
+	}
 }
