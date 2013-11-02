@@ -14,7 +14,6 @@ public class GameMap {
 	private Context mContext;
 	
 	private MyLocationMarker myLocation;
-	private LocationHandler mLocationHandler;
 	
 	public static final LatLng ANDREASSONS_MEDOW = 
 			new LatLng(56.148370, 13.393320);
@@ -27,34 +26,32 @@ public class GameMap {
 		this.mContext = mContext;
 		
 		setUpMap();
-		setUpLocationHandler();
-		setUpLocationMarker();
 	}
 	
 	private void setUpMap() {
-		map.moveCamera(CameraUpdateFactory.newLatLngZoom(ANDREASSONS_MEDOW, START_ZOOM));
+		setPosAndZoom(ANDREASSONS_MEDOW, START_ZOOM);
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 	}
 	
-	private void setUpLocationHandler() {
-		mLocationHandler = new LocationHandler(mContext);
+	public void setPosition(LatLng pos) {
+		map.moveCamera(CameraUpdateFactory.newLatLng(pos));
 	}
 	
-	private void setUpLocationMarker() {
-		Marker locationMarker = map.addMarker(new MarkerOptions().position(ANDREASSONS_MEDOW)
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.bug))
-				.title("myLocation")
-				.snippet("Here I am"));
+	public void setPosAndZoom(LatLng pos, int zoom) {
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, zoom));
+	}
+	
+	public MyLocationMarker addMyLocationMarker(String title, String snippet, LatLng pos, int imageId) {
+		MarkerOptions mOptions = new MarkerOptions();
 		
+		mOptions.position(pos)
+				.icon(BitmapDescriptorFactory.fromResource(imageId))
+				.title(title)
+				.snippet(snippet);
+		
+		Marker locationMarker = map.addMarker(mOptions);
 		myLocation = new MyLocationMarker(locationMarker);
-		mLocationHandler.setLocationMarker(myLocation);
-	}
-	
-	public void stopListners() {
-		mLocationHandler.stopTracking();
-	}
-	
-	public void startListner() {
-		mLocationHandler.startTracking();
+		
+		return myLocation;
 	}
 }

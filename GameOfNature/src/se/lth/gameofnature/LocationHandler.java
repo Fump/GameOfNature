@@ -3,6 +3,7 @@ package se.lth.gameofnature;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
@@ -21,6 +22,7 @@ public class LocationHandler implements
 	private Context mContext;
 	
 	private MyLocationMarker myLocation;
+	private GameMap map;
 	
 	private LocationClient mLocationClient;
 	
@@ -29,12 +31,10 @@ public class LocationHandler implements
             .setFastestInterval(16)    // 16ms = 60fps
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 	
-	public LocationHandler(Context mContext) {
+	public LocationHandler(Context mContext, GameMap map, MyLocationMarker myLocation) {
 		this.mContext = mContext;
-	}
-	
-	public void setLocationMarker(MyLocationMarker m) {
-		myLocation = m;
+		this.map = map;
+		this.myLocation = myLocation;
 	}
 	
 	public void startTracking() {
@@ -73,6 +73,10 @@ public class LocationHandler implements
 
 	@Override
 	public void onLocationChanged(Location loc) {
-		myLocation.setPosition(new LatLng(loc.getLatitude(), loc.getLongitude()));	
+		LatLng pos = new LatLng(loc.getLatitude(), loc.getLongitude());
+		
+		Toast.makeText(mContext, "Location changed!:", Toast.LENGTH_SHORT).show();
+		myLocation.setPosition(pos);	
+		map.setPosition(pos);
 	}
 }

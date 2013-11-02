@@ -9,13 +9,14 @@ import android.view.Menu;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
+	private MyLocationMarker myLocation;
+	private LocationHandler mLocationHandler;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_board);
-		
-		initMap(); 
 	}
 
 	@Override
@@ -29,8 +30,8 @@ public class GameBoardActivity extends Activity {
 	public void onPause() {
 		super.onPause();
 		
-		if(map != null)
-			map.stopListners();
+		if(mLocationHandler != null)
+			mLocationHandler.stopTracking();
 	}
 	
 	@Override
@@ -39,6 +40,11 @@ public class GameBoardActivity extends Activity {
 		
 		if(map == null);
 			initMap();
+			
+		if(mLocationHandler == null)
+			mLocationHandler = new LocationHandler(this, map, myLocation);
+		
+		mLocationHandler.startTracking();
 	}
 	
 	private void initMap() {
@@ -46,6 +52,10 @@ public class GameBoardActivity extends Activity {
 		        .getMap();
 		
 		map = new GameMap(gMap, this);
+		
+		myLocation = map.addMyLocationMarker("My Location", 
+				"Here I am", 
+				GameMap.ANDREASSONS_MEDOW, 
+				R.drawable.bug);
 	}
-
 }
