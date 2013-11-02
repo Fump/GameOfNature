@@ -11,9 +11,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class GameMap {
 	private GoogleMap map;
-	private Context context;
+	private Context mContext;
 	
 	private MyLocationMarker myLocation;
+	private LocationHandler mLocationHandler;
 	
 	public static final LatLng ANDREASSONS_MEDOW = 
 			new LatLng(56.148370, 13.393320);
@@ -21,17 +22,22 @@ public class GameMap {
 	
 	private static final int START_ZOOM = 15;
 	
-	public GameMap(GoogleMap map, Context context) {
+	public GameMap(GoogleMap map, Context mContext) {
 		this.map = map;
-		this.context = context;
+		this.mContext = mContext;
 		
 		setUpMap();
+		setUpLocationHandler();
 		setUpLocationMarker();
 	}
 	
 	private void setUpMap() {
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(ANDREASSONS_MEDOW, START_ZOOM));
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+	}
+	
+	private void setUpLocationHandler() {
+		mLocationHandler = new LocationHandler(mContext);
 	}
 	
 	private void setUpLocationMarker() {
@@ -41,5 +47,14 @@ public class GameMap {
 				.snippet("Here I am"));
 		
 		myLocation = new MyLocationMarker(locationMarker);
+		mLocationHandler.setLocationMarker(myLocation);
+	}
+	
+	public void stopListners() {
+		mLocationHandler.stopTracking();
+	}
+	
+	public void startListner() {
+		mLocationHandler.startTracking();
 	}
 }

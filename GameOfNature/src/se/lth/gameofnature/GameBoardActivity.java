@@ -28,6 +28,9 @@ public class GameBoardActivity extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
+		
+		if(map != null)
+			map.stopListners();
 	}
 	
 	@Override
