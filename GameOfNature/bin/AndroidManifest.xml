@@ -35,6 +35,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="se.lth.gameofnature.Alternativsida"
+            android:label="@string/title_activity_alternativsida" >
+        </activity>
+        <activity
             android:name="se.lth.gameofnature.GameBoardActivity"
             android:label="@string/title_activity_game_board" >
         </activity>
