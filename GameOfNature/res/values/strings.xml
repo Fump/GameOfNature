@@ -12,7 +12,7 @@
     <string name="action_settings">Settings</string>
      
     <!-- Spelplan -->
-    
+    <string name="title_activity_game_board">GameBoardActivity</string>
     
     <!-- Frågeskärm -->
     <string name="title_activity_question">QuestionActivity</string>
