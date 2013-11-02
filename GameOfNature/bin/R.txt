@@ -64,7 +64,11 @@ int layout activity_game_board 0x7f030000
 int layout activity_start 0x7f030001
 int menu game_board 0x7f090000
 int menu start 0x7f090001
-int string action_settings 0x7f060016
+int string action_settings 0x7f060018
+int string answer_1 0x7f06001c
+int string answer_2 0x7f06001d
+int string answer_3 0x7f06001e
+int string answer_4 0x7f06001f
 int string app_name 0x7f060015
 int string auth_client_needs_enabling_title 0x7f060010
 int string auth_client_needs_installation_title 0x7f060011
@@ -87,9 +91,12 @@ int string common_google_play_services_update_text 0x7f060008
 int string common_google_play_services_update_title 0x7f060007
 int string common_signin_button_text 0x7f06000d
 int string common_signin_button_text_long 0x7f06000e
-int string hello_world 0x7f060019
-int string start_button 0x7f060017
-int string title_activity_game_board 0x7f060018
+int string hello_world 0x7f060020
+int string question 0x7f06001b
+int string question_topic 0x7f060017
+int string start_button 0x7f060016
+int string title_activity_game_board 0x7f060019
+int string title_activity_question 0x7f06001a
 int style AppBaseTheme 0x7f080000
 int style AppTheme 0x7f080001
 int[] styleable MapAttrs { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d }

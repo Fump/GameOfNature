@@ -15,7 +15,7 @@ public class GameBoardActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_board);
 		
-		initMap();
+		initMap(); 
 	}
 
 	@Override
