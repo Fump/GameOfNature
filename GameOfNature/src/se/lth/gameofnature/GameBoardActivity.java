@@ -45,6 +45,8 @@ public class GameBoardActivity extends Activity {
 		initLocationHandlerIfNeeded();
 	}
 	
+	/* Sets up a GameMap connected to Google maps if one does not already exist.
+	 */
 	private void initMapIfNeeded() { 
 		if(map == null) {
 			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
@@ -59,6 +61,9 @@ public class GameBoardActivity extends Activity {
 		}
 	}
 	
+	/* Sets up a locationHandler object to track the current location of the user 
+	 * is only set up if one does not already exist. Also starts tracking the user.
+	 */
 	public void initLocationHandlerIfNeeded() {
 		if(mLocationHandler == null) {
 			if(mLocationHandler == null)

@@ -74,8 +74,7 @@ public class LocationHandler implements
 	@Override
 	public void onLocationChanged(Location loc) {
 		LatLng pos = new LatLng(loc.getLatitude(), loc.getLongitude());
-		
-		Toast.makeText(mContext, "Location changed!:", Toast.LENGTH_SHORT).show();
+
 		myLocation.setPosition(pos);	
 		map.setPosition(pos);
 	}
