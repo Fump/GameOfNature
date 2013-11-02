@@ -17,6 +17,9 @@ public class GameBoardActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_board);
+		
+		initMapIfNeeded();
+		initLocationHandlerIfNeeded();
 	}
 
 	@Override
@@ -38,24 +41,30 @@ public class GameBoardActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		
-		if(map == null);
-			initMap();
-			
-		if(mLocationHandler == null)
-			mLocationHandler = new LocationHandler(this, map, myLocation);
-		
-		mLocationHandler.startTracking();
+		initMapIfNeeded();
+		initLocationHandlerIfNeeded();
 	}
 	
-	private void initMap() {
-		GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-		        .getMap();
-		
-		map = new GameMap(gMap, this);
-		
-		myLocation = map.addMyLocationMarker("My Location", 
-				"Here I am", 
-				GameMap.ANDREASSONS_MEDOW, 
-				R.drawable.bug);
+	private void initMapIfNeeded() { 
+		if(map == null) {
+			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+			        .getMap();
+			
+			map = new GameMap(gMap, this);
+			
+			myLocation = map.addMyLocationMarker("My Location", 
+					"Here I am", 
+					GameMap.ANDREASSONS_MEDOW, 
+					R.drawable.bug);
+		}
+	}
+	
+	public void initLocationHandlerIfNeeded() {
+		if(mLocationHandler == null) {
+			if(mLocationHandler == null)
+				mLocationHandler = new LocationHandler(this, map, myLocation);
+			
+			mLocationHandler.startTracking();
+		}
 	}
 }
