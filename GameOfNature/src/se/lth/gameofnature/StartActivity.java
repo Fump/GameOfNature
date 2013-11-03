@@ -3,6 +3,8 @@ package se.lth.gameofnature;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
+import android.content.Intent;
 
 public class StartActivity extends Activity {
 
@@ -19,4 +21,8 @@ public class StartActivity extends Activity {
 		return true;
 	}
 
+	public void nextScreen(View view){
+		Intent intent = new Intent(this, Alternativsida.class);
+		startActivity(intent);
+	}
 }
