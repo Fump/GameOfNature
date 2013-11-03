@@ -1,2 +1,5 @@
 /com
 /se
+/.gitignore
+/ReceiveTransitionsIntentService
+/ReceiveTransitionsIntentService.class

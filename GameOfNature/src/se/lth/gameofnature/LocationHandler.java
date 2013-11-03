@@ -1,23 +1,34 @@
 package se.lth.gameofnature;
 
+import java.util.ArrayList;
+
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
 import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
+import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.location.LocationClient.OnAddGeofencesResultListener;
+import com.google.android.gms.location.LocationClient.OnRemoveGeofencesResultListener;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationStatusCodes;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
 public class LocationHandler implements 
 	ConnectionCallbacks,
 	OnConnectionFailedListener,
-	LocationListener{
+	LocationListener, 
+	OnAddGeofencesResultListener,
+	OnRemoveGeofencesResultListener {
 	
 	private Context mContext;
 	
@@ -25,6 +36,14 @@ public class LocationHandler implements
 	private GameMap map;
 	
 	private LocationClient mLocationClient;
+	
+	private boolean hasPendingFences;
+	private boolean hasPendingAdd;
+	
+	private ArrayList<Geofence> geofences;
+	private ArrayList<String> geofencesToRemove;
+	
+	private static final int TRACK_RADIUS = 10;
 	
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(5000)         // 5 seconds
@@ -35,6 +54,9 @@ public class LocationHandler implements
 		this.mContext = mContext;
 		this.map = map;
 		this.myLocation = myLocation;
+		
+		geofences = new ArrayList<Geofence>();
+		geofencesToRemove = new ArrayList<String>();
 	}
 	
 	public void startTracking() {
@@ -53,6 +75,45 @@ public class LocationHandler implements
             mLocationClient.disconnect();
         }
 	}
+	
+	public void trackTaskMarker(TaskMarker m) {
+		Geofence g = new Geofence.Builder()
+			.setCircularRegion(m.getPosition().latitude, m.getPosition().longitude, TRACK_RADIUS)
+			.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
+			.setExpirationDuration(Geofence.NEVER_EXPIRE)
+			.setRequestId(m.getId())
+			.build();
+		
+		geofences.add(g);
+		
+		if(mLocationClient.isConnected())
+			mLocationClient.addGeofences(geofences, getTransitionPendingIntent(), this);
+		else {
+			hasPendingFences = true;
+			hasPendingAdd = true;
+		}
+	}
+	
+	public void untrackTaskMarker(TaskMarker m) {
+		geofencesToRemove.add(m.getId());
+		
+		if(mLocationClient.isConnected())
+			mLocationClient.removeGeofences(geofencesToRemove, this);
+		else {
+			hasPendingFences = true;
+			hasPendingAdd = false;
+		}
+	}
+	
+	private PendingIntent getTransitionPendingIntent() {
+		Intent intent = new Intent(mContext, ReceiveTransitionsIntentService.class);
+		
+		return PendingIntent.getService(
+					mContext, 
+					0, 
+					intent, 
+					PendingIntent.FLAG_UPDATE_CURRENT);
+	}
 
 	@Override
 	public void onConnectionFailed(ConnectionResult arg0) {
@@ -64,6 +125,17 @@ public class LocationHandler implements
 		mLocationClient.requestLocationUpdates(
 				REQUEST, 
 				this);
+		
+		if(hasPendingFences) {
+			if(hasPendingAdd)
+				mLocationClient.addGeofences(geofences, getTransitionPendingIntent(), this);
+			else {
+				mLocationClient.removeGeofences(geofencesToRemove, this);
+				geofencesToRemove = new ArrayList<String>();
+			}
+			
+			hasPendingFences = false;
+		}
 	}
 
 	@Override
@@ -77,5 +149,36 @@ public class LocationHandler implements
 
 		myLocation.setPosition(pos);	
 		map.setPosition(pos);
+	}
+
+	@Override
+	public void onAddGeofencesResult(int statusCode, String[] geofenceRequestIds) {
+		 // If adding the geofences was successful
+        if (LocationStatusCodes.SUCCESS == statusCode) {
+            Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
+        } else {
+        	Log.e("Failed to add geofences", "Failed to add geofences");
+        }
+	}
+
+	@Override
+	public void onRemoveGeofencesByPendingIntentResult(int statusCode,
+			PendingIntent intent) {
+		 // If adding the geofences was successful
+        if (LocationStatusCodes.SUCCESS == statusCode) {
+            Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
+        } else {
+        	Log.e("Failed to add geofences", "Failed to add geofences");
+        }
+	}
+
+	@Override
+	public void onRemoveGeofencesByRequestIdsResult(int statusCode, String[] requestIds) {
+		 // If adding the geofences was successful
+        if (LocationStatusCodes.SUCCESS == statusCode) {
+            Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
+        } else {
+        	Log.e("Failed to add geofences", "Failed to add geofences");
+        }
 	}
 }

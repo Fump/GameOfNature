@@ -41,17 +41,8 @@ public class GameMap {
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, zoom));
 	}
 	
-	public MyLocationMarker addMyLocationMarker(String title, String snippet, LatLng pos, int imageId) {
-		MarkerOptions mOptions = new MarkerOptions();
-		
-		mOptions.position(pos)
-				.icon(BitmapDescriptorFactory.fromResource(imageId))
-				.title(title)
-				.snippet(snippet);
-		
-		Marker locationMarker = map.addMarker(mOptions);
-		myLocation = new MyLocationMarker(locationMarker);
-		
-		return myLocation;
+	public void addGameMarker(GameMarker m) {
+		Marker myLocation = map.addMarker(m.createMarker());
+		m.setMarker(myLocation);
 	}
 }
