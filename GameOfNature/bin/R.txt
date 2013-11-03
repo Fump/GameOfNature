@@ -83,8 +83,8 @@ int string auth_client_needs_update_title 0x7f060012
 int string auth_client_play_services_err_notification_msg 0x7f060013
 int string auth_client_requested_by_msg 0x7f060014
 int string auth_client_using_bad_version_title 0x7f06000f
-int string bekräfta 0x7f06001d
-int string colorbackgroundproperties 0x7f06001c
+int string bekräfta 0x7f06001c
+int string colorbackgroundproperties 0x7f06001b
 int string common_google_play_services_enable_button 0x7f060006
 int string common_google_play_services_enable_text 0x7f060005
 int string common_google_play_services_enable_title 0x7f060004
@@ -101,15 +101,15 @@ int string common_google_play_services_update_title 0x7f060007
 int string common_signin_button_text 0x7f06000d
 int string common_signin_button_text_long 0x7f06000e
 int string hello_world 0x7f060025
-int string lagfärg 0x7f06001a
-int string lagnamn 0x7f060019
+int string lagfärg 0x7f060019
+int string lagnamn 0x7f060018
 int string question 0x7f060020
-int string question_topic 0x7f060018
-int string spelkaraktär 0x7f06001b
+int string question_topic 0x7f06001f
+int string spelkaraktär 0x7f06001a
 int string start_button 0x7f060016
 int string title_activity_alternativsida 0x7f060017
-int string title_activity_game_board 0x7f06001e
-int string title_activity_question 0x7f06001f
+int string title_activity_game_board 0x7f06001d
+int string title_activity_question 0x7f06001e
 int style AppBaseTheme 0x7f080000
 int style AppTheme 0x7f080001
 int[] styleable MapAttrs { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d }

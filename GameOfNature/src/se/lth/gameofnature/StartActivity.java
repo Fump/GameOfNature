@@ -3,6 +3,8 @@ package se.lth.gameofnature;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
+import android.content.Intent;
 
 public class StartActivity extends Activity {
 
@@ -17,6 +19,11 @@ public class StartActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.start, menu);
 		return true;
+	}
+	
+	public void nextPage(View view){
+		Intent intent = new Intent(this,Alternativsida.class);
+		startActivity(intent);
 	}
 
 }
