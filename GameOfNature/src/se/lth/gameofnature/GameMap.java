@@ -11,7 +11,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class GameMap {
 	private GoogleMap map;
-	private Context context;
+	private Context mContext;
 	
 	private MyLocationMarker myLocation;
 	
@@ -21,25 +21,37 @@ public class GameMap {
 	
 	private static final int START_ZOOM = 15;
 	
-	public GameMap(GoogleMap map, Context context) {
+	public GameMap(GoogleMap map, Context mContext) {
 		this.map = map;
-		this.context = context;
+		this.mContext = mContext;
 		
 		setUpMap();
-		setUpLocationMarker();
 	}
 	
 	private void setUpMap() {
-		map.moveCamera(CameraUpdateFactory.newLatLngZoom(ANDREASSONS_MEDOW, START_ZOOM));
+		setPosAndZoom(ANDREASSONS_MEDOW, START_ZOOM);
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 	}
 	
-	private void setUpLocationMarker() {
-		Marker locationMarker = map.addMarker(new MarkerOptions().position(ANDREASSONS_MEDOW)
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.bug))
-				.title("myLocation")
-				.snippet("Here I am"));
+	public void setPosition(LatLng pos) {
+		map.moveCamera(CameraUpdateFactory.newLatLng(pos));
+	}
+	
+	public void setPosAndZoom(LatLng pos, int zoom) {
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, zoom));
+	}
+	
+	public MyLocationMarker addMyLocationMarker(String title, String snippet, LatLng pos, int imageId) {
+		MarkerOptions mOptions = new MarkerOptions();
 		
+		mOptions.position(pos)
+				.icon(BitmapDescriptorFactory.fromResource(imageId))
+				.title(title)
+				.snippet(snippet);
+		
+		Marker locationMarker = map.addMarker(mOptions);
 		myLocation = new MyLocationMarker(locationMarker);
+		
+		return myLocation;
 	}
 }
