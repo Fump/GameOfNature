@@ -40,6 +40,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <!-- Top Row -->
         <LinearLayout
+            android:id="@+id/choose_colors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -51,7 +52,8 @@
                 android:background="#FFFF0000"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFF0000" />
+                android:tag="#FFFF0000"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -60,7 +62,8 @@
                 android:background="#FF660000"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF660000" />
+                android:tag="#FF660000"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -69,7 +72,8 @@
                 android:background="#FFFF6600"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFF6600" />
+                android:tag="#FFFF6600"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -78,7 +82,8 @@
                 android:background="#FFFFCC00"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFFCC00" />
+                android:tag="#FFFFCC00"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -87,7 +92,8 @@
                 android:background="#FF009900"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF009900" />
+                android:tag="#FF009900"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -96,7 +102,8 @@
                 android:background="#FF009999"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF009999" />
+                android:tag="#FF009999"
+                android:onClick="colorClicked" />
         </LinearLayout>
         <!-- Bottom Row -->
          <LinearLayout
@@ -111,7 +118,8 @@
                 android:background="#FF0000FF"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF0000FF" />
+                android:tag="#FF0000FF"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -120,7 +128,8 @@
                 android:background="#FF990099"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF990099" />
+                android:tag="#FF990099"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -129,7 +138,8 @@
                 android:background="#FFFF6666"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFF6666" />
+                android:tag="#FFFF6666"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -138,7 +148,8 @@
                 android:background="#FFFFFFFF"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFFFFFF" />
+                android:tag="#FFFFFFFF"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -147,7 +158,8 @@
                 android:background="#FF787878"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF787878" />
+                android:tag="#FF787878"
+                android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="30dp"
@@ -156,7 +168,8 @@
                 android:background="#FF000000"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF000000" />
+                android:tag="#FF000000"
+                android:onClick="colorClicked" />
              </LinearLayout>
     </LinearLayout>
     <!-- Spelkaraktär -->
