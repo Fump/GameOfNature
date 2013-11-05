@@ -1,11 +1,12 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.data;
 
 import java.util.HashMap;
+
+import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 /* Class containing data describing the current game session */
 public class PlayerSession {
 	public static String TASK_MARKER_ID = "TASK_MARKER_ID";
-	
 	
 	public static HashMap<String, TaskMarker> taskMarkers =
 			new HashMap<String, TaskMarker>();

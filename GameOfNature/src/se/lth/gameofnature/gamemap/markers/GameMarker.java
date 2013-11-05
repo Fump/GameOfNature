@@ -1,4 +1,4 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.gamemap.markers;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;

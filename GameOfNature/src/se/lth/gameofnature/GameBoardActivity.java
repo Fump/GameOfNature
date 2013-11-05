@@ -2,6 +2,12 @@ package se.lth.gameofnature;
 
 import java.util.ArrayList;
 
+import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.gamemap.GameMap;
+import se.lth.gameofnature.gamemap.LocationHandler;
+import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
+import se.lth.gameofnature.gamemap.markers.TaskMarker;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -56,15 +62,6 @@ public class GameBoardActivity extends Activity {
 
 	}
 	
-	private void showTaskMarkerDialog(String taskMarkerId) {
-		TaskMarker m = PlayerSession.getTaskMarker(taskMarkerId);
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		 
-		builder.setMessage("Framme! " +  m.title + " " + m.snippet);
-		builder.create().show();
-	}
-	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
 	 */
 	private void initMapIfNeeded() { 
@@ -88,13 +85,7 @@ public class GameBoardActivity extends Activity {
 	 * currently adds only on testmarker in malmö.
 	 */
 	private void initTaskMarkers() {
-		String id = "0";
-	
-		addTaskMarker(new LatLng(55.594540, 13.021855),
-				"Willys",
-				"Här handlar jag",
-				R.drawable.ic_launcher,
-				id);
+		//LADDA IN TASKMARKERS FRÅN NÅGON DATAKÄLLA HÄR. xml/textfil/databas/etc.
 	}
 	
 	/* Adds a new TaskMarker to the map and starts tracking it.

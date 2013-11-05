@@ -1,4 +1,4 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.gamemap.markers;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -18,6 +18,9 @@ public class MyLocationMarker extends GameMarker {
 		this.icon = icon;
 	}
 	
+	/*
+	 * Rotates the markers icon.
+	 */
 	public void setRotation(float rotation) {
 		Matrix matrix = new Matrix();
 		
