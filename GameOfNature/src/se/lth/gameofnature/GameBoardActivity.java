@@ -9,21 +9,21 @@ import com.google.android.gms.maps.model.LatLng;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
 	private MyLocationMarker myLocation;
 	private LocationHandler mLocationHandler;
-	
+
 	public static final String INTENT_SOURCE = "INTENT_SOURCE";
-	public static final String TASK_MARKER_ID = "TASK_MARKER_ID";
-	
-	private ArrayList<TaskMarker> taskMarkers;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +33,9 @@ public class GameBoardActivity extends Activity {
 		initMapIfNeeded();
 		initLocationHandlerIfNeeded();
 		
-		handleIntent(getIntent());
-		
 		initTaskMarkers();
+		
+		handleIntent(getIntent());
 	}
 
 	@Override
@@ -59,14 +59,13 @@ public class GameBoardActivity extends Activity {
 		
 		initMapIfNeeded();
 		initLocationHandlerIfNeeded();
+		initTaskMarkers();
 		
 		handleIntent(getIntent());
-		
-		initTaskMarkers();
 	}
 	
 	private void handleIntent(Intent i) {
-		Bundle extras = i.getExtras();
+		/*Bundle extras = i.getExtras();
 		
 		if(extras != null) {
 			String source = extras.getString(INTENT_SOURCE);
@@ -77,12 +76,11 @@ public class GameBoardActivity extends Activity {
 				String taskMarkerId = extras.getString(TASK_MARKER_ID);
 				showTaskMarkerDialog(taskMarkerId);
 			}
-		}
+		}*/
 	}
 	
 	private void showTaskMarkerDialog(String taskMarkerId) {
-		int id = Integer.parseInt(taskMarkerId);
-		TaskMarker m = taskMarkers.get(id);
+		TaskMarker m = PlayerSession.getTaskMarker(taskMarkerId);
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		 
@@ -109,14 +107,19 @@ public class GameBoardActivity extends Activity {
 	}
 	
 	private void initTaskMarkers() {
-		taskMarkers = new ArrayList<TaskMarker>();
-		
-		TaskMarker test = new TaskMarker(new LatLng(55.594540, 13.021855),
+		addTaskMarker(new LatLng(55.594540, 13.021855),
 				"Willys",
 				"Här handlar jag",
 				R.drawable.ic_launcher,
 				"0");
+	}
+	
+	private void addTaskMarker(LatLng pos, String title, String snippet, 
+			int iconId,String markerId) {
+		TaskMarker test = new TaskMarker(pos, title, snippet, iconId, markerId);
 		
+		PlayerSession.addTaskMarker(markerId, test);
+
 		map.addGameMarker(test);
 		mLocationHandler.trackTaskMarker(test);
 	}
@@ -128,8 +131,8 @@ public class GameBoardActivity extends Activity {
 		if(mLocationHandler == null) {
 			if(mLocationHandler == null)
 				mLocationHandler = new LocationHandler(this, map, myLocation);
-			
-			mLocationHandler.startTracking();
 		}
+		
+		mLocationHandler.startTracking();
 	}
 }

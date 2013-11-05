@@ -37,7 +37,7 @@ public class LocationHandler implements
 	
 	private LocationClient mLocationClient;
 	
-	private boolean hasPendingFences;
+	private boolean hasPendingRemove;
 	private boolean hasPendingAdd;
 	
 	private ArrayList<Geofence> geofences;
@@ -57,6 +57,9 @@ public class LocationHandler implements
 		
 		geofences = new ArrayList<Geofence>();
 		geofencesToRemove = new ArrayList<String>();
+		
+		hasPendingRemove = false;
+		hasPendingAdd = false;
 	}
 	
 	public void startTracking() {
@@ -89,7 +92,6 @@ public class LocationHandler implements
 		if(mLocationClient.isConnected())
 			mLocationClient.addGeofences(geofences, getTransitionPendingIntent(), this);
 		else {
-			hasPendingFences = true;
 			hasPendingAdd = true;
 		}
 	}
@@ -100,8 +102,7 @@ public class LocationHandler implements
 		if(mLocationClient.isConnected())
 			mLocationClient.removeGeofences(geofencesToRemove, this);
 		else {
-			hasPendingFences = true;
-			hasPendingAdd = false;
+			hasPendingRemove = true;
 		}
 	}
 	
@@ -126,15 +127,15 @@ public class LocationHandler implements
 				REQUEST, 
 				this);
 		
-		if(hasPendingFences) {
-			if(hasPendingAdd)
-				mLocationClient.addGeofences(geofences, getTransitionPendingIntent(), this);
-			else {
-				mLocationClient.removeGeofences(geofencesToRemove, this);
-				geofencesToRemove = new ArrayList<String>();
-			}
+		if(hasPendingAdd) {
+			mLocationClient.addGeofences(geofences, getTransitionPendingIntent(), this);
+			hasPendingAdd = false;
+		}
 			
-			hasPendingFences = false;
+		if(hasPendingRemove) {
+			mLocationClient.removeGeofences(geofencesToRemove, this);
+			geofencesToRemove = new ArrayList<String>();
+			hasPendingRemove = false;
 		}
 	}
 
