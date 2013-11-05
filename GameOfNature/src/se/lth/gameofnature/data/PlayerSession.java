@@ -8,7 +8,6 @@ import se.lth.gameofnature.gamemap.markers.TaskMarker;
 public class PlayerSession {
 	public static String TASK_MARKER_ID = "TASK_MARKER_ID";
 	
-	
 	public static HashMap<String, TaskMarker> taskMarkers =
 			new HashMap<String, TaskMarker>();
 	

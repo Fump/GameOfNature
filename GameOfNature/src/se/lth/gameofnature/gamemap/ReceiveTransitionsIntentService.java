@@ -36,6 +36,7 @@ public class ReceiveTransitionsIntentService extends IntentService {
 	                List <Geofence> triggerList =
 	                        LocationClient.getTriggeringGeofences(intent);
 	                
+	                //Opens a dialog window for the TaskMarker, if it isn't already open.
 	                if(!TaskMarkerDialog.active) {
 		                Intent i = new Intent(this, TaskMarkerDialog.class);
 		                

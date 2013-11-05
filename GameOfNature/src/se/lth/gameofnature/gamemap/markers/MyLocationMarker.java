@@ -18,6 +18,9 @@ public class MyLocationMarker extends GameMarker {
 		this.icon = icon;
 	}
 	
+	/*
+	 * Rotates the markers icon.
+	 */
 	public void setRotation(float rotation) {
 		Matrix matrix = new Matrix();
 		

@@ -25,7 +25,6 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationStatusCodes;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 
 public class LocationHandler implements 
 	ConnectionCallbacks,
@@ -47,7 +46,7 @@ public class LocationHandler implements
 	private ArrayList<Geofence> geofencesToAdd;
 	private ArrayList<String> geofencesToRemove;
 	
-	private static final int TRACK_RADIUS = 10;
+	private static final int TRACK_RADIUS = 15;
 	
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(5000)         // 5 seconds
@@ -66,6 +65,9 @@ public class LocationHandler implements
 		hasPendingAdd = false;
 	}
 	
+	/*
+	 * Starts tracking the users current position.
+	 */
 	public void startTracking() {
         if(mLocationClient == null) {
         	mLocationClient = new LocationClient(
@@ -77,12 +79,18 @@ public class LocationHandler implements
         mLocationClient.connect();
 	}
 	
+	/*
+	 * Stops tracking the users current position.
+	 */
 	public void stopTracking() {
 		if (mLocationClient != null) {
             mLocationClient.disconnect();
         }
 	}
 	
+	/*
+	 * Starts tracking the specified TaskMarker.
+	 */
 	public void trackTaskMarker(TaskMarker m) {
 		Geofence g = new Geofence.Builder()
 			.setCircularRegion(m.getPosition().latitude, m.getPosition().longitude, TRACK_RADIUS)
@@ -101,6 +109,9 @@ public class LocationHandler implements
 		}
 	}
 	
+	/*
+	 * Stops tracking the specified TaskMarker
+	 */
 	public void untrackTaskMarker(TaskMarker m) {
 		geofencesToRemove.add(m.getId());
 		
@@ -112,6 +123,10 @@ public class LocationHandler implements
 		}
 	}
 	
+	/*
+	 * Generates a PendingIntent to be sent when a TaskMarker has been detected
+	 * at the users current location.
+	 */
 	private PendingIntent getTransitionPendingIntent() {
 		Intent intent = new Intent(mContext, ReceiveTransitionsIntentService.class);
 		
