@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="#000"
+android:orientation="vertical" >
+
+<TextView
+    android:id="@+id/task_dialog_title"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="10dp"
+    android:gravity="center_horizontal"
+    android:text="Uppgiftspunkt"
+    android:textColor="#fff"
+    android:textSize="16dp" >
+</TextView>
+<TextView
+    android:id="@+id/task_dialog_content"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="10dp"
+    android:gravity="center_horizontal"
+    android:textColor="#fff"
+    android:textSize="16dp" >
+</TextView>
+<LinearLayout  android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginBottom="5dp">
+
+<Button
+    android:id="@+id/task_dialog_ButtonOk"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="Ok"
+    android:textColor="#000"
+    android:textSize="18sp"
+    android:textStyle="bold" >
+</Button>
+
+<Button
+    android:id="@+id/task_dialog_ButtonCancel"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="Cancel"
+    android:textColor="#000"
+    android:textSize="18sp"
+    android:textStyle="bold"
+   >
+</Button>
+</LinearLayout>
+</LinearLayout>

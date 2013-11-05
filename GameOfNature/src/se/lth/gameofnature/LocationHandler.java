@@ -127,7 +127,7 @@ public class LocationHandler implements
 	public void onConnected(Bundle connectionHint) {
 		mLocationClient.requestLocationUpdates(
 				REQUEST, 
-				this);
+				this); //LocationListner
 		
 		if(hasPendingAdd) {
 			mLocationClient.addGeofences(geofencesToAdd, getTransitionPendingIntent(), this);
