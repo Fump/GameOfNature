@@ -1,6 +1,8 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.data;
 
 import java.util.HashMap;
+
+import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 /* Class containing data describing the current game session */
 public class PlayerSession {

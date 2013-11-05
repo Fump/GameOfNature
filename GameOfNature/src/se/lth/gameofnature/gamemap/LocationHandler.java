@@ -1,6 +1,10 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.gamemap;
 
 import java.util.ArrayList;
+
+import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
+import se.lth.gameofnature.gamemap.markers.TaskMarker;
+
 
 import android.app.PendingIntent;
 import android.content.Context;

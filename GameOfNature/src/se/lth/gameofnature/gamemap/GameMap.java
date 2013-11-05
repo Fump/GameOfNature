@@ -1,5 +1,7 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.gamemap;
 
+import se.lth.gameofnature.gamemap.markers.GameMarker;
+import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
 import android.content.Context;
 
 import com.google.android.gms.maps.CameraUpdateFactory;

@@ -1,6 +1,8 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.gamemap.markers;
 
 import java.util.ArrayList;
+
+import se.lth.gameofnature.questions.Question;
 
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -43,6 +45,14 @@ public class TaskMarker extends GameMarker {
 				.snippet(snippet);
 		
 		return mOptions;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public String getSnippet() {
+		return snippet;
 	}
 	
 	public void setActive() {

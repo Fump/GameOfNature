@@ -60,7 +60,7 @@
         </activity>
 
         <service
-            android:name="se.lth.gameofnature.ReceiveTransitionsIntentService"
+            android:name="se.lth.gameofnature.gamemap.ReceiveTransitionsIntentService"
             android:exported="false"
             android:label="@string/app_name" >
         </service>

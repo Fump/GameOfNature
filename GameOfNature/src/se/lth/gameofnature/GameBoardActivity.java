@@ -2,6 +2,12 @@ package se.lth.gameofnature;
 
 import java.util.ArrayList;
 
+import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.gamemap.GameMap;
+import se.lth.gameofnature.gamemap.LocationHandler;
+import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
+import se.lth.gameofnature.gamemap.markers.TaskMarker;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -54,15 +60,6 @@ public class GameBoardActivity extends Activity {
 		initLocationHandlerIfNeeded();
 		initTaskMarkers();
 
-	}
-	
-	private void showTaskMarkerDialog(String taskMarkerId) {
-		TaskMarker m = PlayerSession.getTaskMarker(taskMarkerId);
-		
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		 
-		builder.setMessage("Framme! " +  m.title + " " + m.snippet);
-		builder.create().show();
 	}
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.

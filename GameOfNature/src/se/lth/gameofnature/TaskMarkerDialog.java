@@ -1,5 +1,7 @@
 package se.lth.gameofnature;
 
+import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.gamemap.markers.TaskMarker;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,10 +23,10 @@ public class TaskMarkerDialog extends Activity {
 		TaskMarker marker = PlayerSession.getTaskMarker(id);
 		
 		TextView title = (TextView)findViewById(R.id.task_dialog_title);
-		title.setText(marker.title);
+		title.setText(marker.getTitle());
 		
 		TextView content = (TextView)findViewById(R.id.task_dialog_content);
-		content.setText(marker.snippet);
+		content.setText(marker.getSnippet());
 		
 		Button okButton = (Button)findViewById(R.id.task_dialog_ButtonOk);
 		Button cancelButton =(Button)findViewById(R.id.task_dialog_ButtonCancel);

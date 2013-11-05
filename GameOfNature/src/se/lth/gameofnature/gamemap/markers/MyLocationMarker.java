@@ -1,4 +1,4 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.gamemap.markers;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;

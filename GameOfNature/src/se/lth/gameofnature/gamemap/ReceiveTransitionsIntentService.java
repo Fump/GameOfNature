@@ -1,6 +1,9 @@
-package se.lth.gameofnature;
+package se.lth.gameofnature.gamemap;
 
 import java.util.List;
+
+import se.lth.gameofnature.TaskMarkerDialog;
+import se.lth.gameofnature.data.PlayerSession;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.LocationClient;
