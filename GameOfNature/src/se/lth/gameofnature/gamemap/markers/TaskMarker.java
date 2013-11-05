@@ -8,6 +8,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+//Första version av en klass som ska representera uppgiftspunkter på kartan.
+//Behövs nog fler attribut och metoder, implementerade bara vad som behövdes
+//För att få igång spårningen av punkter.
 public class TaskMarker extends GameMarker {
 	private int drawableId;
 	private int status;

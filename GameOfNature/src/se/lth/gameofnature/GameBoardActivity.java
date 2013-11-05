@@ -85,13 +85,7 @@ public class GameBoardActivity extends Activity {
 	 * currently adds only on testmarker in malmö.
 	 */
 	private void initTaskMarkers() {
-		String id = "0";
-	
-		addTaskMarker(new LatLng(55.594540, 13.021855),
-				"Willys",
-				"Här handlar jag",
-				R.drawable.ic_launcher,
-				id);
+		//LADDA IN TASKMARKERS FRÅN NÅGON DATAKÄLLA HÄR. xml/textfil/databas/etc.
 	}
 	
 	/* Adds a new TaskMarker to the map and starts tracking it.
