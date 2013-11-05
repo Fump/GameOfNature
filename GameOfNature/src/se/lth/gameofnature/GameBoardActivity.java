@@ -29,13 +29,6 @@ public class GameBoardActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_board);
-		
-		initMapIfNeeded();
-		initLocationHandlerIfNeeded();
-		
-		initTaskMarkers();
-		
-		handleIntent(getIntent());
 	}
 
 	@Override
@@ -60,23 +53,7 @@ public class GameBoardActivity extends Activity {
 		initMapIfNeeded();
 		initLocationHandlerIfNeeded();
 		initTaskMarkers();
-		
-		handleIntent(getIntent());
-	}
-	
-	private void handleIntent(Intent i) {
-		/*Bundle extras = i.getExtras();
-		
-		if(extras != null) {
-			String source = extras.getString(INTENT_SOURCE);
-			
-			Toast.makeText(this, "Handling intent from: " + source, Toast.LENGTH_SHORT).show();
-			
-			if(source.equals(ReceiveTransitionsIntentService.SENDER_NAME)) {
-				String taskMarkerId = extras.getString(TASK_MARKER_ID);
-				showTaskMarkerDialog(taskMarkerId);
-			}
-		}*/
+
 	}
 	
 	private void showTaskMarkerDialog(String taskMarkerId) {
@@ -106,22 +83,37 @@ public class GameBoardActivity extends Activity {
 		}
 	}
 	
+	/*
+	 * Inits all the TaskMarkers by adding them to the map and tracking them.
+	 * currently adds only on testmarker in malmö.
+	 */
 	private void initTaskMarkers() {
+		String id = "0";
+	
 		addTaskMarker(new LatLng(55.594540, 13.021855),
 				"Willys",
 				"Här handlar jag",
 				R.drawable.ic_launcher,
-				"0");
+				id);
 	}
 	
+	/* Adds a new TaskMarker to the map and starts tracking it.
+	 * if the TaskMarker already exists it is fetched from the PlayerSession and tracked.
+	 */
 	private void addTaskMarker(LatLng pos, String title, String snippet, 
 			int iconId,String markerId) {
-		TaskMarker test = new TaskMarker(pos, title, snippet, iconId, markerId);
+		TaskMarker m;
 		
-		PlayerSession.addTaskMarker(markerId, test);
-
-		map.addGameMarker(test);
-		mLocationHandler.trackTaskMarker(test);
+		if(PlayerSession.containsTaskMarker(markerId)) {
+			m = PlayerSession.getTaskMarker(markerId);
+		} else {
+			m = new TaskMarker(pos, title, snippet, iconId, markerId);
+			
+			PlayerSession.addTaskMarker(markerId, m);
+			map.addGameMarker(m);
+		}
+		
+		mLocationHandler.trackTaskMarker(m);
 	}
 	
 	/* Sets up a locationHandler object to track the current location of the user 

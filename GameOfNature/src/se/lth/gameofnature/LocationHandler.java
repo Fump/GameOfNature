@@ -40,7 +40,7 @@ public class LocationHandler implements
 	private boolean hasPendingRemove;
 	private boolean hasPendingAdd;
 	
-	private ArrayList<Geofence> geofences;
+	private ArrayList<Geofence> geofencesToAdd;
 	private ArrayList<String> geofencesToRemove;
 	
 	private static final int TRACK_RADIUS = 10;
@@ -55,7 +55,7 @@ public class LocationHandler implements
 		this.map = map;
 		this.myLocation = myLocation;
 		
-		geofences = new ArrayList<Geofence>();
+		geofencesToAdd = new ArrayList<Geofence>();
 		geofencesToRemove = new ArrayList<String>();
 		
 		hasPendingRemove = false;
@@ -87,11 +87,12 @@ public class LocationHandler implements
 			.setRequestId(m.getId())
 			.build();
 		
-		geofences.add(g);
+		geofencesToAdd.add(g);
 		
-		if(mLocationClient.isConnected())
-			mLocationClient.addGeofences(geofences, getTransitionPendingIntent(), this);
-		else {
+		if(mLocationClient.isConnected()) {
+			mLocationClient.addGeofences(geofencesToAdd, getTransitionPendingIntent(), this);
+			geofencesToAdd.clear();
+		} else {
 			hasPendingAdd = true;
 		}
 	}
@@ -99,9 +100,10 @@ public class LocationHandler implements
 	public void untrackTaskMarker(TaskMarker m) {
 		geofencesToRemove.add(m.getId());
 		
-		if(mLocationClient.isConnected())
+		if(mLocationClient.isConnected()) {
 			mLocationClient.removeGeofences(geofencesToRemove, this);
-		else {
+			geofencesToRemove.clear();
+		} else {
 			hasPendingRemove = true;
 		}
 	}
@@ -128,13 +130,14 @@ public class LocationHandler implements
 				this);
 		
 		if(hasPendingAdd) {
-			mLocationClient.addGeofences(geofences, getTransitionPendingIntent(), this);
+			mLocationClient.addGeofences(geofencesToAdd, getTransitionPendingIntent(), this);
+			geofencesToAdd.clear();
 			hasPendingAdd = false;
 		}
 			
 		if(hasPendingRemove) {
 			mLocationClient.removeGeofences(geofencesToRemove, this);
-			geofencesToRemove = new ArrayList<String>();
+			geofencesToRemove.clear();
 			hasPendingRemove = false;
 		}
 	}
