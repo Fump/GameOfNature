@@ -22,7 +22,7 @@ public class StartActivity extends Activity {
 	}
 
 	public void nextScreen(View view){
-		Intent intent = new Intent(this, Alternativsida.class);
+		Intent intent = new Intent(this, QuestionActivity.class);
 		startActivity(intent);
 	}
 }
