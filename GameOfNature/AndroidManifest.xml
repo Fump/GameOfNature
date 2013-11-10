@@ -33,7 +33,6 @@
         <activity
             android:name="se.lth.gameofnature.StartActivity"
             android:label="@string/app_name" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,11 +51,10 @@
             android:name="se.lth.gameofnature.QuestionActivity"
             android:label="@string/title_activity_question" >
         </activity>
-        
         <activity
             android:name="se.lth.gameofnature.TaskMarkerDialog"
             android:label="@string/title_activity_task_dialog"
-            android:theme="@android:style/Theme.Dialog">
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
 
         <service
@@ -68,6 +66,11 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBE0K7e54rO62rUbz8ik8t8JU6pT4Ke9Pg" />
+
+        <activity
+            android:name="se.lth.gameofnature.StatisticsActivity"
+            android:label="@string/title_activity_statistics" >
+        </activity>
     </application>
 
 </manifest>

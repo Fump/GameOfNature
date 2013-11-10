@@ -10,10 +10,14 @@
     <string name="lagfärg">Lagfärg</string>
     <string name="spelkaraktär">Spelkaraktär</string>
     <string name="colorbackgroundproperties">colorbackgroundproperties</string>
-    <string name="bekräfta">bekräfta</string>
+    <string name="bekräfta">Bekräfta</string>
 
     <!-- Spelplan -->
     <string name="title_activity_game_board">GameBoardActivity</string>
+    
+    <!-- Statistikskärm -->
+    <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="GameBoardScreen">Spelplan</string>
     
     <!-- Frågeskärm -->
     <string name="title_activity_question">QuestionActivity</string>
