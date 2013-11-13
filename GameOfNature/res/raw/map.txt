@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map>
+	<TaskMarker
+		id="1"
+		latitude="55.133425"
+		longitude="13.43525"
+		title="Ektrad"
+		snippet="Ett stort ektrad"
+		infoTxt="Intressant ektrad..."
+		iconId="6">
+		
+		<Question
+			id="1"
+			type="text"
+			questionTxt="Hur manga ben har en myra?"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="3"/>
+<!--
+		<Question
+			id="2"
+			type="imageQuestion"
+			questionTxt="Hur manga ben har en myra?"
+			questionImageId="8"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="3"/>
+		<Question
+			id="3"
+			type="imageAnswer"
+			questionTxt="Vilket av foljande lov ar ett eklov?"
+			answer0ImgId="1"
+			answer1ImgId="2"
+			answer2ImgId="3"
+			answer3ImgId="4"
+			correctAnswer="3"/> 
+-->
+	</TaskMarker>
+	<TaskMarker
+		id="1"
+		latitude="55.595019"
+		longitude="13.028430"
+		title="Ektrad"
+		snippet="Ett stort ektrad"
+		infoTxt="Intressant ektrad..."
+		iconId="6">
+		
+		<Question
+			id="1"
+			type="text"
+			questionTxt="Hur manga ben har en myra?"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="3"/>
+	</TaskMarker>
+	<FinalQuestion
+
+			>
+		<clue
+
+			/>
+		<clue
+
+			/>
+	</FinalQuestion>
+</Map>
