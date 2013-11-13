@@ -3,6 +3,7 @@ package se.lth.gameofnature;
 import se.lth.gameofnature.data.PlayerSession;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,14 +27,15 @@ public class TaskMarkerDialog extends Activity {
 		title.setText(marker.getTitle());
 		
 		TextView content = (TextView)findViewById(R.id.task_dialog_content);
-		content.setText(marker.getSnippet());
+		content.setText(marker.getInfoTxt());
 		
 		Button okButton = (Button)findViewById(R.id.task_dialog_ButtonOk);
 		Button cancelButton =(Button)findViewById(R.id.task_dialog_ButtonCancel);
 		
 		okButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Toast.makeText(TaskMarkerDialog.this, "Start Question", Toast.LENGTH_SHORT).show();
+            	Intent i = new Intent(TaskMarkerDialog.this, QuestionActivity.class);
+            	startActivity(i);
             }
         });
 		

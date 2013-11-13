@@ -6,10 +6,13 @@ import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -69,6 +72,13 @@ public class LocationHandler implements
 	 * Starts tracking the users current position.
 	 */
 	public void startTracking() {
+		LocationManager manager = (LocationManager)mContext.getSystemService(Context.LOCATION_SERVICE);
+		
+		if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+			buildAlertMessageNoGps();
+		
+		manager = null;
+		
         if(mLocationClient == null) {
         	mLocationClient = new LocationClient(
         			mContext,
@@ -204,4 +214,25 @@ public class LocationHandler implements
         	Log.e("Failed to add geofences", "Failed to add geofences");
         }
 	}
+	
+	  private void buildAlertMessageNoGps() {
+		    final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+		    
+		    builder.setMessage("Din GPS är avstängd, du måste aktivera denna för att spela, vill du göra detta?")
+		           .setCancelable(false)
+		           .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+		               public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+		                   mContext.startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+		               }
+		           })
+		           .setNegativeButton("Nej", new DialogInterface.OnClickListener() {
+		               public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+		                    dialog.cancel();
+		               }
+		           });
+		    
+		    final AlertDialog alert = builder.create();
+		    
+		    alert.show();
+		}
 }
