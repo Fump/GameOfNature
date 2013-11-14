@@ -8,6 +8,10 @@
 package se.lth.gameofnature;
 
 public final class R {
+    public static final class array {
+        public static final int character_img_list=0x7f080001;
+        public static final int character_list=0x7f080000;
+    }
     public static final class attr {
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
@@ -189,33 +193,42 @@ containing a value of this type.
         public static final int LagnamnText=0x7f050006;
         public static final int LagnamnView=0x7f050005;
         public static final int SpelkaraktärView=0x7f050009;
-        public static final int StartButton=0x7f05000c;
-        public static final int action_settings=0x7f050012;
-        public static final int alternative_confirmButton=0x7f05000a;
+        public static final int StartButton=0x7f050014;
+        public static final int action_settings=0x7f05001a;
+        public static final int alternative_confirmButton=0x7f05000c;
+        public static final int button1=0x7f050011;
+        public static final int button2=0x7f05000f;
+        public static final int button3=0x7f050010;
+        public static final int button4=0x7f05000e;
+        public static final int character_image=0x7f05000b;
+        public static final int character_spinner=0x7f05000a;
         public static final int choose_colors=0x7f050008;
         public static final int hybrid=0x7f050004;
-        public static final int map=0x7f05000b;
+        public static final int map=0x7f05000d;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int satellite=0x7f050002;
-        public static final int statistics_spelplanButton=0x7f05000d;
-        public static final int task_dialog_ButtonCancel=0x7f050011;
-        public static final int task_dialog_ButtonOk=0x7f050010;
-        public static final int task_dialog_content=0x7f05000f;
-        public static final int task_dialog_title=0x7f05000e;
+        public static final int statistics_spelplanButton=0x7f050015;
+        public static final int task_dialog_ButtonCancel=0x7f050019;
+        public static final int task_dialog_ButtonOk=0x7f050018;
+        public static final int task_dialog_content=0x7f050017;
+        public static final int task_dialog_title=0x7f050016;
         public static final int terrain=0x7f050003;
+        public static final int textView1=0x7f050012;
+        public static final int textView2=0x7f050013;
     }
     public static final class layout {
         public static final int activity_alternativsida=0x7f030000;
         public static final int activity_game_board=0x7f030001;
-        public static final int activity_start=0x7f030002;
-        public static final int activity_statistics=0x7f030003;
-        public static final int activity_task_dialog=0x7f030004;
+        public static final int activity_question=0x7f030002;
+        public static final int activity_start=0x7f030003;
+        public static final int activity_statistics=0x7f030004;
+        public static final int activity_task_dialog=0x7f030005;
     }
     public static final class menu {
-        public static final int alternativsida=0x7f090000;
-        public static final int game_board=0x7f090001;
-        public static final int start=0x7f090002;
+        public static final int alternativsida=0x7f0a0000;
+        public static final int game_board=0x7f0a0001;
+        public static final int start=0x7f0a0002;
     }
     public static final class string {
         public static final int GameBoardScreen=0x7f06001f;
@@ -352,11 +365,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
