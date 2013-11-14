@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Map>
+	<TaskMarker
+		id="1"
+		nrQuestions="3"
+		Latitude="55.133425"
+		Longitude="13.43525"
+		title="Ekträd"
+		snippet="Ett stort ekträd"
+		infoTxt="Intressant ekträd..."
+		iconId="6"
+		secretcodepart="9">
+		
+		<Question
+			id="1"
+			type="text"
+			questionTxt="Hur många ben har en myra?"
+			answer1="2"
+			answer2="4"
+			answer3="6"
+			answer4="8"
+			correctAnswer="3"/>
+		<Question
+			id="2"
+			type="imageQuestion"
+			questionTxt="Hur många ben har en myra?"
+			questionImageId="8"
+			answer1="2"
+			answer2="4"
+			answer3="6"
+			answer4="8"
+			correctAnswer="3"/>
+		<Question
+			id="3"
+			type="imageAnswer"
+			questionTxt="Vilket av följande löv är ett eklöv?"
+			answer1ImgId="1"
+			answer1ImgId="2"
+			answer1ImgId="3"
+			answer1ImgId="4"
+			correctAnswer="3"/>
+	</TaskMarker>
+	<FinalQuestion
+		//Vet ej riktigt vad vi ska ha här ännu	
+
+			>
+		<clue
+
+			/>
+		<clue
+
+			/>
+	</FinalQuestion>
+</Map>
