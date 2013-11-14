@@ -9,6 +9,7 @@ import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
+import java.util.*;
 
 
 public class QuestionActivity extends Activity {
@@ -19,7 +20,7 @@ public class QuestionActivity extends Activity {
 	private static String QUESTION; //Stoppa in frågan
 	private static String[] ANSWERS = new String[4]; //Stoppa in svaren
 	private static String CORRECT_ANSWER; //Eftersom det går att hämta strängen direkt från en knapp kan vi stoppa in hela svaret här och göra en compareTo.
-
+	private Random rand; // för att slumpa en fråga ur xml:en, använd nrQuestions i .xml:en
 	/*
 	 * övriga variabler
 	 */
@@ -32,15 +33,8 @@ public class QuestionActivity extends Activity {
 		setQuestion();
 	}
 	/*
-	 * Här får vi senare implementera anrop till databasen för att hämta information om en fråga. 
-	 * tanken från min sida är att vi kör en slump-int för att bestämma vilken fråga som ska hämtas,
-	 * och sedan hämtar infon. vi använder sedan den för att sätta statics i denna klass
-	 * 
-	 * vid detta laget får det dock räcka med förbestämda svar
-	 * 
-	 * vi behöver ändra "strings.xml" för att få ut frågorna på knapparna...
-	 * 
-	 * alternativt försöker vi på något sätt få med hela RelativeLayout-grejen
+	 * Anropa xml-fil med frågor, ej implementerat än
+	 * I samband med att denna implementeras måste vi även se till att det skapas objekt för samtliga buttons & textfältet på layouten.
 	 */
 	private void setQuestion(){
 		CORRECT_ANSWER = "6";
@@ -58,8 +52,16 @@ public class QuestionActivity extends Activity {
 			System.out.println("fel");
 			b.setTextColor(0xff0000);
 			//gul: 0xffff00
+			// Här sätter vi färg på "rätt"-knappen; detta måste vi göra i samband med setQuestion
 		}
-			
+		long now, t0;
+		now = t0 = System.currentTimeMillis();
+		while(now-t0<3000){						// alternativt en realtidslösning
+			now = System.currentTimeMillis();
+			System.out.println("räknare");
+		}
+		Intent intent = new Intent(this, GameBoardActivity.class);
+		startActivity(intent);	//Här måste vi antagligen skicka med spelardata, etc senare
 
 	}
 }
