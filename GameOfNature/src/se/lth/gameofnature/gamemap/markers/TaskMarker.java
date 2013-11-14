@@ -1,6 +1,7 @@
 package se.lth.gameofnature.gamemap.markers;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import se.lth.gameofnature.questions.Question;
 
@@ -16,26 +17,44 @@ public class TaskMarker extends GameMarker {
 	private int status;
 	
 	private String id;
+	private String infoTxt;
 	
 	private ArrayList<Question> questions;
+	private String lastQuestionId;
 	
 	public static final int STATUS_ACTIVE = 0;
 	public static final int STATUS_LOCKED = 1;
 	public static final int STATUS_DONE = 2;
 
-	public TaskMarker(LatLng position, String title, String snippet, int drawableId, String id) {
+	public TaskMarker(String id, LatLng position, String title, String snippet, String infoTxt, int drawableId) {
 		super(position, title, snippet);
 		
 		this.drawableId = drawableId;
 		this.id = id;
+		this.infoTxt = infoTxt;
 		
 		questions = new ArrayList<Question>();
 		
 		status = STATUS_ACTIVE;
+		
+		lastQuestionId = null;
 	}
 	
 	public void addQuestion(Question q) {
 		questions.add(q);
+	}
+	
+	public Question getNextQuestion() {
+		Random rand = new Random();
+		
+		Question nextQuestion = questions.get(rand.nextInt(questions.size()));
+		
+		while(nextQuestion.getId().equals(lastQuestionId))
+			nextQuestion = questions.get(rand.nextInt(questions.size()));
+		
+		lastQuestionId = nextQuestion.getId();
+		
+		return nextQuestion;
 	}
 
 	@Override
@@ -56,6 +75,10 @@ public class TaskMarker extends GameMarker {
 	
 	public String getSnippet() {
 		return snippet;
+	}
+	
+	public String getInfoTxt() {
+		return infoTxt;
 	}
 	
 	public void setActive() {

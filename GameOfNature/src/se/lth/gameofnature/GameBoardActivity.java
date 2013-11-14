@@ -1,8 +1,10 @@
 package se.lth.gameofnature;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.data.XMLReader;
 import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
 import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
@@ -85,25 +87,21 @@ public class GameBoardActivity extends Activity {
 	 * currently adds only on testmarker in malmö.
 	 */
 	private void initTaskMarkers() {
-		//LADDA IN TASKMARKERS FRÅN NÅGON DATAKÄLLA HÄR. xml/textfil/databas/etc.
+		InputStream is = getResources().openRawResource(R.raw.map);
+		
+		ArrayList<TaskMarker> markers = XMLReader.readTaskMarkers(is);
+		
+		for(TaskMarker m : markers) {
+			addTaskMarker(m);
+		}
 	}
 	
 	/* Adds a new TaskMarker to the map and starts tracking it.
 	 * if the TaskMarker already exists it is fetched from the PlayerSession and tracked.
 	 */
-	private void addTaskMarker(LatLng pos, String title, String snippet, 
-			int iconId,String markerId) {
-		TaskMarker m;
-		
-		if(PlayerSession.containsTaskMarker(markerId)) {
-			m = PlayerSession.getTaskMarker(markerId);
-		} else {
-			m = new TaskMarker(pos, title, snippet, iconId, markerId);
-			
-			PlayerSession.addTaskMarker(markerId, m);
-			map.addGameMarker(m);
-		}
-		
+	private void addTaskMarker(TaskMarker m) {
+		PlayerSession.addTaskMarker(m.getId(), m);
+		map.addGameMarker(m);
 		mLocationHandler.trackTaskMarker(m);
 	}
 	
