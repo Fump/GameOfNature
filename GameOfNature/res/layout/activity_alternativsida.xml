@@ -12,6 +12,7 @@
 		<!-- Lagnamn -->
         <TextView
             android:id="@+id/LagnamnView"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -33,9 +34,10 @@
 
         <TextView
             android:id="@+id/LagfärgView"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="15dp"
             android:text="@string/lagfärg"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         <!-- Top Row -->
@@ -139,11 +141,26 @@
         android:orientation="vertical" >
     <TextView
         android:id="@+id/SpelkaraktärView"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:text="@string/spelkaraktär"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    <Spinner
+        android:id="@+id/character_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/character_list"
+        tools:listitem="@android:layout/simple_spinner_item"/>
+    <ImageView
+        android:id="@+id/character_image"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_launcher" />
    </LinearLayout>
 	<!-- Button för Bekräftning -->
     <Button

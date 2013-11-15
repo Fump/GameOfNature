@@ -11,6 +11,14 @@
     <string name="spelkaraktär">Spelkaraktär</string>
     <string name="colorbackgroundproperties">colorbackgroundproperties</string>
     <string name="bekräfta">Bekräfta</string>
+    <string-array name="character_list">
+        <item>android</item>
+        <item>Nyckelpigga</item>
+    </string-array>
+    <integer-array name="character_img_list">
+         <item>@drawable/ic_launcher</item>
+        <item>@drawable/bug</item>
+    </integer-array>
 
     <!-- Spelplan -->
     <string name="title_activity_game_board">GameBoardActivity</string>

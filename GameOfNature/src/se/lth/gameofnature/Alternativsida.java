@@ -1,15 +1,24 @@
 package se.lth.gameofnature;
 
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
 
-public class Alternativsida extends Activity {
+public class Alternativsida extends Activity implements OnItemSelectedListener {
 	private ImageButton currentColor;
+	private ImageView image;
+	private Spinner spinner;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +28,32 @@ public class Alternativsida extends Activity {
 		LinearLayout paintLayout = (LinearLayout)findViewById(R.id.choose_colors);
 		currentColor = (ImageButton)paintLayout.getChildAt(0);
 		currentColor.setImageDrawable(getResources().getDrawable(R.drawable.colorpressed));
+		
+		initSpinner();
 	}
-	
-	//Lyssna på knapptryck
+	private void initSpinner() {	
+		image = (ImageView) findViewById(R.id.character_image);
+		spinner = (Spinner) findViewById(R.id.character_spinner);
+		//en arrayAdapter med val från item listan i string.xml
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+				R.array.character_list, android.R.layout.simple_spinner_item);
+		//bestämmer layouten på listan
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(adapter);
+		//sätter spinner till det man valde
+		spinner.setOnItemSelectedListener(this);
+	}
+	@SuppressLint("Recycle")
+	public void onItemSelected(AdapterView<?> parent, View v,
+			int pos, long id) {
+		TypedArray charImg = getResources().obtainTypedArray(R.array.character_img_list);
+		image.setImageResource(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
+
+	}
+	public void onNothingSelected(AdapterView<?> parent) {
+		// TODO Auto-generated method stub		
+	}
+	//Lyssna på tryck av färg
 	public void colorClicked(View view){
 		if(view!=currentColor){
 			ImageButton newColor = (ImageButton)view;
@@ -29,14 +61,14 @@ public class Alternativsida extends Activity {
 			newColor.setImageDrawable(getResources().getDrawable(R.drawable.colorpressed));
 			currentColor.setImageDrawable(getResources().getDrawable(R.drawable.colorbackgroundproperties));
 			currentColor=newColor;
-			}	
+		}	
 	}
-	
+
 	public void nextScreen(View view) {
 		Intent intent = new Intent(this, GameBoardActivity.class);
 		startActivity(intent);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
