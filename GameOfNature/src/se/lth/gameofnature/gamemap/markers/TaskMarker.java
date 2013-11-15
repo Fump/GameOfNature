@@ -5,6 +5,9 @@ import java.util.Random;
 
 import se.lth.gameofnature.questions.Question;
 
+import android.content.Context;
+import android.util.Log;
+
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -13,7 +16,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 //Behövs nog fler attribut och metoder, implementerade bara vad som behövdes
 //För att få igång spårningen av punkter.
 public class TaskMarker extends GameMarker {
-	private int drawableId;
+	private static final String ICON_DRAWABLE_ID_BASE = "marker_icon_";
+	
+	private Context mContext;
+	
+	private String iconId;
+	private String teamColorId;
 	private int status;
 	
 	private String id;
@@ -28,10 +36,13 @@ public class TaskMarker extends GameMarker {
 	public static final int STATUS_LOCKED = 1;
 	public static final int STATUS_DONE = 2;
 
-	public TaskMarker(String id, LatLng position, String title, String snippet, String infoTxt, int drawableId) {
+	public TaskMarker(Context mContext, String id, LatLng position, String title, 
+			String snippet, String infoTxt, String iconId) {
 		super(position, title, snippet);
 		
-		this.drawableId = drawableId;
+		this.mContext = mContext;
+		
+		this.iconId = iconId;
 		this.id = id;
 		this.infoTxt = infoTxt;
 		
@@ -66,11 +77,15 @@ public class TaskMarker extends GameMarker {
 		MarkerOptions mOptions = new MarkerOptions();
 		
 		mOptions.position(position)
-				.icon(BitmapDescriptorFactory.fromResource(drawableId))
+				.icon(BitmapDescriptorFactory.fromResource(getDrawableId(iconId, teamColorId, status)))
 				.title(title)
 				.snippet(snippet);
 		
 		return mOptions;
+	}
+	
+	public void setTeamColor(String teamColorId) {
+		this.teamColorId = teamColorId;
 	}
 	
 	public String getTitle() {
@@ -88,19 +103,22 @@ public class TaskMarker extends GameMarker {
 	public void setActive() {
 		status = STATUS_ACTIVE;
 		
-		//Implementera ikonbyte osv här.
+		myMarker.setIcon(BitmapDescriptorFactory.
+				fromResource(getDrawableId(iconId, teamColorId, status)));
 	}
 	
 	public void setLocked() {
 		status = STATUS_LOCKED;
 		
-		//Implementera ikonbyte osv här.
+		myMarker.setIcon(BitmapDescriptorFactory.
+				fromResource(getDrawableId(iconId, teamColorId, status)));
 	}
 	
 	public void setDone() {
 		status = STATUS_DONE;
 		
-		//Implementera ikon byte osv här.
+		myMarker.setIcon(BitmapDescriptorFactory.
+				fromResource(getDrawableId(iconId, teamColorId, status)));
 	}
 	
 	public int getStatus() {
@@ -109,6 +127,27 @@ public class TaskMarker extends GameMarker {
 	
 	public String getId() {
 		return id;
+	}
+	
+	private int getDrawableId(String iconId, String colorId, int status) {
+		switch(status) {
+			case STATUS_ACTIVE:
+				return mContext.
+						getResources().
+						getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + colorId, 
+						"drawable", "se.lth.gameofnature");
+			
+			case STATUS_LOCKED:
+				return mContext.
+						getResources().
+						getIdentifier(ICON_DRAWABLE_ID_BASE + "locked", 
+						"drawable", "se.lth.gameofnature");
+			default:
+				return mContext
+						.getResources()
+						.getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + "green", 
+						"drawable", "se.lth.gameofnature");
+		}
 	}
 
 }

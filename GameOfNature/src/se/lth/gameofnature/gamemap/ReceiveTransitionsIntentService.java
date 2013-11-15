@@ -4,6 +4,7 @@ import java.util.List;
 
 import se.lth.gameofnature.TaskMarkerDialog;
 import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.LocationClient;
@@ -42,7 +43,7 @@ public class ReceiveTransitionsIntentService extends IntentService {
 		                
 		                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		                
-		                i.putExtra(PlayerSession.TASK_MARKER_ID, triggerList.get(0).getRequestId());
+		                i.putExtra(TaskMarker.TASK_MARKER_ID, triggerList.get(0).getRequestId());
 		                
 		                startActivity(i);
 	                }

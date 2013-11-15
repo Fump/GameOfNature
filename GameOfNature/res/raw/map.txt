@@ -7,7 +7,7 @@
 		title="Ektrad"
 		snippet="Ett stort ektrad"
 		infoTxt="Intressant ektrad..."
-		iconId="6">
+		iconId="a">
 		
 		<Question
 			id="1"
@@ -41,13 +41,13 @@
 -->
 	</TaskMarker>
 	<TaskMarker
-		id="1"
+		id="2"
 		latitude="55.594540"
 		longitude="13.021855"
 		title="Ektrad"
 		snippet="Ett stort ektrad"
 		infoTxt="Intressant ektrad..."
-		iconId="6">
+		iconId="b">
 		
 		<Question
 			id="1"

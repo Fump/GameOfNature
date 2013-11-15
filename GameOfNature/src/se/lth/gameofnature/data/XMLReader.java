@@ -13,6 +13,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+import android.content.Context;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import se.lth.gameofnature.R;
@@ -21,8 +23,10 @@ import se.lth.gameofnature.questions.Question;
 import se.lth.gameofnature.questions.TextQuestion;
 
 public class XMLReader {
-	public static ArrayList<TaskMarker> readTaskMarkers(InputStream is) {
+	public static ArrayList<TaskMarker> readTaskMarkers(Context mContext) {
 		ArrayList<TaskMarker> markers = new ArrayList<TaskMarker>();
+		
+		InputStream is = mContext.getResources().openRawResource(R.raw.map);
 		
 		try {
 
@@ -39,7 +43,7 @@ public class XMLReader {
 				
 				if(markerNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element markerElement = (Element) markerNode;
-					TaskMarker m = getMarker(markerElement);
+					TaskMarker m = getMarker(markerElement, mContext);
 					
 					NodeList questionNodes = markerElement.getElementsByTagName("Question");
 					
@@ -65,7 +69,7 @@ public class XMLReader {
 		return markers;
 	}
 	
-	private static TaskMarker getMarker(Element e) {
+	private static TaskMarker getMarker(Element e, Context mContext) {
 		String id = e.getAttribute("id");
 		
 		double lat = Double.parseDouble(e.getAttribute("latitude"));
@@ -76,10 +80,9 @@ public class XMLReader {
 		String snippet = e.getAttribute("snippet");
 		String infoTxt = e.getAttribute("infoTxt");
 		
-		//int iconId = Integer.parseInt(e.getAttribute("iconId"));
-		int iconId = R.drawable.ic_launcher;
+		String iconId = e.getAttribute("iconId");
 		
-		return new TaskMarker(id, pos, title, snippet, infoTxt, iconId);
+		return new TaskMarker(mContext, id, pos, title, snippet, infoTxt, iconId);
 	}
 	
 	private static Question getQuestion(Element e) {

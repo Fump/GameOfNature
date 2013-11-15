@@ -95,12 +95,11 @@ public class GameBoardActivity extends Activity {
 	private void initTaskMarkersIfNeeded() {
 		if(PlayerSession.getCurrentSessionInstance() == null) {
 			PlayerSession.createNewSessionInstace();
-			
-			InputStream is = getResources().openRawResource(R.raw.map);
-		
-			ArrayList<TaskMarker> markers = XMLReader.readTaskMarkers(is);
+
+			ArrayList<TaskMarker> markers = XMLReader.readTaskMarkers(this);
 		
 			for(TaskMarker m : markers) {
+				m.setTeamColor("blue");
 				PlayerSession.getCurrentSessionInstance().addTaskMarker(m.getId(), m);
 			}
 		}
