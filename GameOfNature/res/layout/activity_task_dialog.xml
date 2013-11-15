@@ -39,7 +39,8 @@ android:orientation="vertical" >
     android:text="Ok"
     android:textColor="#000"
     android:textSize="18sp"
-    android:textStyle="bold" >
+    android:textStyle="bold" 
+    android:onClick="okClicked">
 </Button>
 
 <Button
@@ -51,7 +52,7 @@ android:orientation="vertical" >
     android:textColor="#000"
     android:textSize="18sp"
     android:textStyle="bold"
-   >
+    android:onClick="cancelClicked">
 </Button>
 </LinearLayout>
 </LinearLayout>

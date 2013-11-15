@@ -42,8 +42,8 @@
 	</TaskMarker>
 	<TaskMarker
 		id="1"
-		latitude="55.595019"
-		longitude="13.028430"
+		latitude="55.594540"
+		longitude="13.021855"
 		title="Ektrad"
 		snippet="Ett stort ektrad"
 		infoTxt="Intressant ektrad..."

@@ -9,7 +9,7 @@
     tools:context=".QuestionActivity" >
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/question_btnAnswer4"
         android:layout_width="145dp"
         android:layout_height="145dp"
         android:layout_alignLeft="@+id/button2"
@@ -17,7 +17,7 @@
         android:text="@string/answer_4" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/question_btnAnswer3"
         android:layout_width="145dp"
         android:layout_height="145dp"
         android:layout_alignBaseline="@+id/button4"
@@ -26,7 +26,7 @@
         android:text="@string/answer_3" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/question_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -34,7 +34,7 @@
         android:text="@string/question_topic" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/question_btnAnswer1"
         android:layout_width="145dp"
         android:layout_height="145dp"
         android:layout_above="@+id/button4"
@@ -42,7 +42,7 @@
         android:text="@string/answer_1" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/question_btnAnswer2"
         android:layout_width="145dp"
         android:layout_height="145dp"
         android:layout_centerVertical="true"
@@ -50,7 +50,7 @@
         android:text="@string/answer_2" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/question_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"

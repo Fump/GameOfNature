@@ -35,6 +35,20 @@ public abstract class Question {
 		return id;
 	}
 	
-	//Abstrakt metod att implementeras i subklasserna som starta aktiviteten som är rätt för subklassen.
-	public abstract void startQuestionActivity(Context sourceContext);
+	public String getQuestionType() {
+		return questionType;
+	}
+	
+	public String getQuestionTxt() {
+		return questionTxt;
+	}
+	
+	public String[] getAnswerOptions() {
+		return answers;
+	}
+	
+	public int getCorrectAnswerIndex() {
+		return correctAnswer;
+	}
+	
 }

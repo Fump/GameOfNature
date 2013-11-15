@@ -2,6 +2,7 @@ package se.lth.gameofnature;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import se.lth.gameofnature.data.PlayerSession;
 import se.lth.gameofnature.data.XMLReader;
@@ -58,10 +59,9 @@ public class GameBoardActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		
+		initTaskMarkersIfNeeded();
 		initMapIfNeeded();
 		initLocationHandlerIfNeeded();
-		initTaskMarkers();
-
 	}
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
@@ -79,6 +79,12 @@ public class GameBoardActivity extends Activity {
 					"My Location", "Here I am");
 			
 			map.addGameMarker(myLocation);
+			
+			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance().getMarkerIterator();
+			
+			while(itr.hasNext()) {
+				map.addGameMarker(itr.next());
+			}
 		}
 	}
 	
@@ -86,23 +92,18 @@ public class GameBoardActivity extends Activity {
 	 * Inits all the TaskMarkers by adding them to the map and tracking them.
 	 * currently adds only on testmarker in malmö.
 	 */
-	private void initTaskMarkers() {
-		InputStream is = getResources().openRawResource(R.raw.map);
+	private void initTaskMarkersIfNeeded() {
+		if(PlayerSession.getCurrentSessionInstance() == null) {
+			PlayerSession.createNewSessionInstace();
+			
+			InputStream is = getResources().openRawResource(R.raw.map);
 		
-		ArrayList<TaskMarker> markers = XMLReader.readTaskMarkers(is);
+			ArrayList<TaskMarker> markers = XMLReader.readTaskMarkers(is);
 		
-		for(TaskMarker m : markers) {
-			addTaskMarker(m);
+			for(TaskMarker m : markers) {
+				PlayerSession.getCurrentSessionInstance().addTaskMarker(m.getId(), m);
+			}
 		}
-	}
-	
-	/* Adds a new TaskMarker to the map and starts tracking it.
-	 * if the TaskMarker already exists it is fetched from the PlayerSession and tracked.
-	 */
-	private void addTaskMarker(TaskMarker m) {
-		PlayerSession.addTaskMarker(m.getId(), m);
-		map.addGameMarker(m);
-		mLocationHandler.trackTaskMarker(m);
 	}
 	
 	/* Sets up a locationHandler object to track the current location of the user 
@@ -110,10 +111,16 @@ public class GameBoardActivity extends Activity {
 	 */
 	public void initLocationHandlerIfNeeded() {
 		if(mLocationHandler == null) {
-			if(mLocationHandler == null)
-				mLocationHandler = new LocationHandler(this, map, myLocation);
+			mLocationHandler = new LocationHandler(this, map, myLocation);
 		}
 		
 		mLocationHandler.startTracking();
+		
+		Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance().getMarkerIterator();
+		
+		while(itr.hasNext()) {
+			mLocationHandler.trackTaskMarker(itr.next());
+		}
+		
 	}
 }

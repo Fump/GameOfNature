@@ -13,6 +13,8 @@ import android.widget.Toast;
 public class TaskMarkerDialog extends Activity {
 	public static boolean active = false;
 	
+	private String currentMarkerId;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -20,30 +22,22 @@ public class TaskMarkerDialog extends Activity {
 		
 		Bundle extras = getIntent().getExtras();
 		
-		String id = extras.getString(PlayerSession.TASK_MARKER_ID);
-		TaskMarker marker = PlayerSession.getTaskMarker(id);
+		currentMarkerId = extras.getString(TaskMarker.TASK_MARKER_ID);
+		TaskMarker marker = PlayerSession.getCurrentSessionInstance().getTaskMarker(currentMarkerId);
 		
 		TextView title = (TextView)findViewById(R.id.task_dialog_title);
 		title.setText(marker.getTitle());
 		
 		TextView content = (TextView)findViewById(R.id.task_dialog_content);
 		content.setText(marker.getInfoTxt());
-		
-		Button okButton = (Button)findViewById(R.id.task_dialog_ButtonOk);
-		Button cancelButton =(Button)findViewById(R.id.task_dialog_ButtonCancel);
-		
-		okButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	Intent i = new Intent(TaskMarkerDialog.this, QuestionActivity.class);
-            	startActivity(i);
-            }
-        });
-		
-		cancelButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	TaskMarkerDialog.this.finish();
-            }
-        });
+	}
+	
+	public void okClicked(View v) {
+		//Starta fråga
+	}
+	
+	public void cancelClicked(View v) {
+		finish();
 	}
 	
     @Override

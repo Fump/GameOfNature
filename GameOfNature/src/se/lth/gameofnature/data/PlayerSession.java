@@ -1,29 +1,42 @@
 package se.lth.gameofnature.data;
 
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeMap;
 
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 /* Class containing data describing the current game session */
 public class PlayerSession {
-	public static String TASK_MARKER_ID = "TASK_MARKER_ID";
 	
-	public static HashMap<String, TaskMarker> taskMarkers =
-			new HashMap<String, TaskMarker>();
+	public static PlayerSession session;
 	
-	public static void addTaskMarker(String id, TaskMarker marker) {
+	public static PlayerSession getCurrentSessionInstance() {
+		return session;
+	}
+	
+	public static void createNewSessionInstace() {
+		session = new PlayerSession();
+	}
+	
+	public TreeMap<String, TaskMarker> taskMarkers;
+	
+	public PlayerSession() {
+		taskMarkers = new TreeMap<String,TaskMarker>();
+	}
+	
+	public void addTaskMarker(String id, TaskMarker marker) {
 		taskMarkers.put(id, marker);
 	}
 	
-	public static TaskMarker getTaskMarker(String id) {
+	public TaskMarker getTaskMarker(String id) {
 		return taskMarkers.get(id);
 	}
 	
-	public static void clearTaskMarkers() {
-		taskMarkers = new HashMap<String, TaskMarker>();
+	public boolean containsTaskMarker(String id) {
+		return taskMarkers.containsKey(id);
 	}
 	
-	public static boolean containsTaskMarker(String id) {
-		return taskMarkers.containsKey(id);
+	public Iterator<TaskMarker> getMarkerIterator() {
+		return taskMarkers.values().iterator();
 	}
 }

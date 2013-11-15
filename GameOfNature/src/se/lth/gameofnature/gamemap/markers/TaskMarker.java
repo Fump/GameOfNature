@@ -22,6 +22,8 @@ public class TaskMarker extends GameMarker {
 	private ArrayList<Question> questions;
 	private String lastQuestionId;
 	
+	public static String TASK_MARKER_ID = "TASK_MARKER_ID";
+	
 	public static final int STATUS_ACTIVE = 0;
 	public static final int STATUS_LOCKED = 1;
 	public static final int STATUS_DONE = 2;
@@ -38,6 +40,8 @@ public class TaskMarker extends GameMarker {
 		status = STATUS_ACTIVE;
 		
 		lastQuestionId = null;
+		
+		
 	}
 	
 	public void addQuestion(Question q) {
