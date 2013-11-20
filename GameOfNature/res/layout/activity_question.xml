@@ -31,7 +31,7 @@
         android:id="@+id/question_btnAnswer1"
         android:layout_width="145dp"
         android:layout_height="145dp"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/question_btnAnswer3"
         android:layout_toRightOf="@+id/question_btnAnswer2"
         android:onClick="tryAnswer"
         android:text="@string/answer_1" />
@@ -60,6 +60,7 @@
         android:layout_height="145dp"
         android:layout_alignBottom="@+id/question_btnAnswer3"
         android:layout_alignLeft="@+id/question_btnAnswer1"
+        android:layout_alignTop="@+id/question_btnAnswer3"
         android:onClick="tryAnswer"
         android:text="@string/answer_4" />
 
