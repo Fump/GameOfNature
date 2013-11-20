@@ -3,6 +3,7 @@
     <!-- Startskärm -->
     <string name="app_name">GameOfNature</string>
     <string name="start_button">Start</string>
+
     
     <!-- Alternativskärm -->
     <string name="title_activity_alternativsida">AlternativSidaActivity</string>   
