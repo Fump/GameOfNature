@@ -14,13 +14,10 @@ import java.util.*;
 
 public class QuestionActivity extends Activity {
 
-	/*
-	 * Statics för frågan
-	 */
-	private static String QUESTION; //Stoppa in frågan
-	private static String[] ANSWERS = new String[4]; //Stoppa in svaren
 	private static String CORRECT_ANSWER; //Eftersom det går att hämta strängen direkt från en knapp kan vi stoppa in hela svaret här och göra en compareTo.
-	private Random rand; // för att slumpa en fråga ur xml:en, använd nrQuestions i .xml:en
+	private Random rand; // för att slumpa en fråga ur xml:en, använd nrQuestions i .xml:en			kanske inte behövs
+	private TextView questionTitle, questionContent; 
+	private Button btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4;
 	/*
 	 * övriga variabler
 	 */
@@ -33,11 +30,26 @@ public class QuestionActivity extends Activity {
 		setQuestion();
 	}
 	/*
-	 * Anropa xml-fil med frågor, ej implementerat än
-	 * I samband med att denna implementeras måste vi även se till att det skapas objekt för samtliga buttons & textfältet på layouten.
+	 * Anropar statisk klass med frågor, ej implementerat än
+	 * Kopplar klassens privata textview & button-objekt till objekten i layouten
 	 */
 	private void setQuestion(){
-		CORRECT_ANSWER = "6";
+		questionTitle = (TextView)findViewById(R.id.question_title);
+		questionContent = (TextView)findViewById(R.id.question_content);
+		btnAnswer1 = (Button)findViewById(R.id.question_btnAnswer1);
+		btnAnswer2 = (Button)findViewById(R.id.question_btnAnswer2);
+		btnAnswer3 = (Button)findViewById(R.id.question_btnAnswer3);
+		btnAnswer4 = (Button)findViewById(R.id.question_btnAnswer4);
+		
+//		questionTitle.setText(text); 
+//		questionContent.setText(text);
+//		btnAnswer1.setText(text);
+//		btnAnswer2.setText(text);				Dessa gör vi klart när den statiska klassen är löst
+//		btnAnswer3.setText(text);
+//		btnAnswer4.setText(text);
+		
+		CORRECT_ANSWER = "6";// Hämta från XML-fil
+		
 
 
 	}
