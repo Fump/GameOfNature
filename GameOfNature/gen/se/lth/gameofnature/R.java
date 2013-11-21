@@ -209,6 +209,8 @@ containing a value of this type.
         public static final int character_spinner=0x7f06000a;
         public static final int choose_colors=0x7f060008;
         public static final int hybrid=0x7f060004;
+        public static final int icon1=0x7f06001d;
+        public static final int icon2=0x7f06001e;
         public static final int map=0x7f06000d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
