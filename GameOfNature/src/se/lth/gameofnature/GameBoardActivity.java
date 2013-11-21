@@ -43,6 +43,7 @@ public class GameBoardActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+		getActionBar().setDisplayShowHomeEnabled(false);
 		getMenuInflater().inflate(R.menu.game_board, menu);
 		return true;
 	}

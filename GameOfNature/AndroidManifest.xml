@@ -32,6 +32,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="se.lth.gameofnature.StartActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,14 +42,16 @@
         </activity>
         <activity
             android:name="se.lth.gameofnature.GameBoardActivity"
-            android:label="@string/title_activity_game_board" >
+            android:label="" >
         </activity>
         <activity
             android:name="se.lth.gameofnature.Alternativsida"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/title_activity_alternativsida" >
         </activity>
         <activity
             android:name="se.lth.gameofnature.QuestionActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/title_activity_question" >
         </activity>
         <activity
@@ -69,6 +72,7 @@
 
         <activity
             android:name="se.lth.gameofnature.StatisticsActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/title_activity_statistics" >
         </activity>
     </application>
