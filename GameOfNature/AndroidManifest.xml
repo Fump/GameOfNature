@@ -71,6 +71,8 @@
             android:name="se.lth.gameofnature.StatisticsActivity"
             android:label="@string/title_activity_statistics" >
         </activity>
+        
+        
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -28,7 +29,6 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		LinearLayout paintLayout = (LinearLayout)findViewById(R.id.choose_colors);
 		currentColor = (ImageButton)paintLayout.getChildAt(0);
 		currentColor.setImageDrawable(getResources().getDrawable(R.drawable.colorpressed));
-		
 		initSpinner();
 	}
 	private void initSpinner() {	
