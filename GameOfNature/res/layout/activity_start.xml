@@ -6,17 +6,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bakgrund"
     tools:context=".StartActivity" >
 
     <Button
         android:id="@+id/StartButton"
+        style="@style/ButtonText"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:text="@string/start_button" 
+        android:layout_marginBottom="158dp"
+        android:background="@drawable/knapp"
         android:onClick="nextScreen"
-        />
+        android:text="@string/start_button" />
 
 </RelativeLayout>

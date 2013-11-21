@@ -8,12 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bakgrundalt"
     tools:context=".Alternativsida" >
 		<!-- Lagnamn -->
         <TextView
             android:id="@+id/LagnamnView"
             android:textStyle="bold"
-            android:layout_width="wrap_content"
+			style="@style/colourText"
+			android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/lagnamn"
@@ -35,6 +37,7 @@
         <TextView
             android:id="@+id/LagfärgView"
             android:textStyle="bold"
+			style="@style/colourText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -142,6 +145,7 @@
     <TextView
         android:id="@+id/SpelkaraktärView"
         android:textStyle="bold"
+		style="@style/colourText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -165,10 +169,12 @@
 	<!-- Button för Bekräftning -->
     <Button
         android:id="@+id/alternative_confirmButton"
+        style="@style/ButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_gravity="center"
         android:text="@string/bekräfta"
+        android:background="@drawable/knapp"
         android:onClick="nextScreen" />
 </LinearLayout>

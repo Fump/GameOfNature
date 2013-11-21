@@ -23,7 +23,7 @@ public class QuestionActivity extends Activity {
 	private String[] answers; //Stoppa in svaren
 	private int correctAnswer; //Eftersom det går att hämta strängen direkt från en knapp kan vi stoppa in hela svaret här och göra en compareTo.
 	private Random rand; // för att slumpa en fråga ur xml:en, använd nrQuestions i .xml:en
-	/*
+
 	 * övriga variabler
 	 */
 	private String filepath = "res/layout/activity_question.xml";
@@ -41,8 +41,8 @@ public class QuestionActivity extends Activity {
 	}
 	
 	/*
-	 * Anropa xml-fil med frågor, ej implementerat än
-	 * I samband med att denna implementeras måste vi även se till att det skapas objekt för samtliga buttons & textfältet på layouten.
+	 * Anropar statisk klass med frågor, ej implementerat än
+	 * Kopplar klassens privata textview & button-objekt till objekten i layouten
 	 */
 	private void setQuestion(){
 		Bundle extras = getIntent().getExtras();
@@ -66,7 +66,6 @@ public class QuestionActivity extends Activity {
 			
 			Button answerButton4 = (Button)findViewById(R.id.question_btnAnswer4);
 			answerButton1.setText(answers[3]);
-		}
 	}
 
 	public void tryAnswer(View view){
