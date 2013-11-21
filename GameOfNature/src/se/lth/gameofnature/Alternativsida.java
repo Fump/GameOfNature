@@ -3,6 +3,8 @@ package se.lth.gameofnature;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.view.Menu;
@@ -14,12 +16,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 public class Alternativsida extends Activity implements OnItemSelectedListener {
 	private ImageButton currentColor;
 	private ImageView image;
 	private Spinner spinner;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,7 +31,7 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		LinearLayout paintLayout = (LinearLayout)findViewById(R.id.choose_colors);
 		currentColor = (ImageButton)paintLayout.getChildAt(0);
 		currentColor.setImageDrawable(getResources().getDrawable(R.drawable.colorpressed));
-		
+
 		initSpinner();
 	}
 	private void initSpinner() {	
@@ -48,7 +51,26 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 			int pos, long id) {
 		TypedArray charImg = getResources().obtainTypedArray(R.array.character_img_list);
 		image.setImageResource(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
-
+		//Fakta till varje markör med popUp box.             
+		AlertDialog.Builder alertbox = new AlertDialog.Builder(this);  
+		switch(spinner.getSelectedItemPosition()){
+		case 1:
+			alertbox.setMessage("Android Gubben är ful!");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
+			break;
+		case 2:  
+			alertbox.setMessage("Nyckelpiggan är fläkigt!");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
+		break;
+		} 
 	}
 	public void onNothingSelected(AdapterView<?> parent) {
 		// TODO Auto-generated method stub		
