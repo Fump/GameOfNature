@@ -72,14 +72,14 @@ public class LocationHandler implements
 	 * Starts tracking the users current position.
 	 */
 	public void startTracking() {
-		LocationManager manager = (LocationManager)mContext.getSystemService(Context.LOCATION_SERVICE);
-		
-		if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-			buildAlertMessageNoGps();
-		
-		manager = null;
-		
         if(mLocationClient == null) {
+    		LocationManager manager = (LocationManager)mContext.getSystemService(Context.LOCATION_SERVICE);
+    		
+    		if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+    			buildAlertMessageNoGps();
+    		
+    		manager = null;
+    		
         	mLocationClient = new LocationClient(
         			mContext,
         			this, // ConnectionCallBacks
@@ -109,11 +109,13 @@ public class LocationHandler implements
 			.setRequestId(m.getId())
 			.build();
 		
+		if(geofencesToAdd.contains(m))
+			geofencesToAdd.remove(m);
+		
 		geofencesToAdd.add(g);
 		
 		if(mLocationClient.isConnected()) {
 			mLocationClient.addGeofences(geofencesToAdd, getTransitionPendingIntent(), this);
-			geofencesToAdd.clear();
 		} else {
 			hasPendingAdd = true;
 		}
@@ -123,11 +125,13 @@ public class LocationHandler implements
 	 * Stops tracking the specified TaskMarker
 	 */
 	public void untrackTaskMarker(TaskMarker m) {
+		if(geofencesToRemove.contains(m.getId()))
+			geofencesToRemove.remove(m.getId());
+		
 		geofencesToRemove.add(m.getId());
 		
 		if(mLocationClient.isConnected()) {
 			mLocationClient.removeGeofences(geofencesToRemove, this);
-			geofencesToRemove.clear();
 		} else {
 			hasPendingRemove = true;
 		}
@@ -160,20 +164,18 @@ public class LocationHandler implements
 		
 		if(hasPendingAdd) {
 			mLocationClient.addGeofences(geofencesToAdd, getTransitionPendingIntent(), this);
-			geofencesToAdd.clear();
 			hasPendingAdd = false;
 		}
 			
 		if(hasPendingRemove) {
 			mLocationClient.removeGeofences(geofencesToRemove, this);
-			geofencesToRemove.clear();
 			hasPendingRemove = false;
 		}
 	}
 
 	@Override
 	public void onDisconnected() {
-		//Do nothing
+		hasPendingAdd = true;
 	}
 
 	@Override
@@ -190,7 +192,8 @@ public class LocationHandler implements
         if (LocationStatusCodes.SUCCESS == statusCode) {
             Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
         } else {
-        	Log.e("Failed to add geofences", "Failed to add geofences");
+        	for(String id : geofenceRequestIds)
+        		Log.e("geofences", "Failed to add geofence with id: " + id);
         }
 	}
 
@@ -211,7 +214,7 @@ public class LocationHandler implements
         if (LocationStatusCodes.SUCCESS == statusCode) {
             Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
         } else {
-        	Log.e("Failed to add geofences", "Failed to add geofences");
+        	Log.e("Failed to add geofences", "Failed to remove geofences");
         }
 	}
 	

@@ -15,7 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 //Första version av en klass som ska representera uppgiftspunkter på kartan.
 //Behövs nog fler attribut och metoder, implementerade bara vad som behövdes
 //För att få igång spårningen av punkter.
-public class TaskMarker extends GameMarker {
+public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 	private static final String ICON_DRAWABLE_ID_BASE = "marker_icon_";
 	
 	private Context mContext;
@@ -64,7 +64,7 @@ public class TaskMarker extends GameMarker {
 		
 		Question nextQuestion = questions.get(rand.nextInt(questions.size()));
 		
-		while(nextQuestion.getId().equals(lastQuestionId))
+		while(questions.size() > 1 && nextQuestion.getId().equals(lastQuestionId))
 			nextQuestion = questions.get(rand.nextInt(questions.size()));
 		
 		lastQuestionId = nextQuestion.getId();
@@ -148,6 +148,24 @@ public class TaskMarker extends GameMarker {
 						.getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + "green", 
 						"drawable", "se.lth.gameofnature");
 		}
+	}
+	
+	@Override
+	public boolean equals(Object another) {
+		if(another == null)
+			return false;
+		
+		if(!(another instanceof TaskMarker))
+			return false;
+		
+		TaskMarker anotherMarker = (TaskMarker)another;
+		
+		return compareTo(anotherMarker) == 0;
+	}
+
+	@Override
+	public int compareTo(TaskMarker another) {
+		return id.compareTo(another.id);
 	}
 
 }

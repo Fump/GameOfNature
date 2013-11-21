@@ -59,7 +59,6 @@ public class GameBoardActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		
-		initTaskMarkersIfNeeded();
 		initMapIfNeeded();
 		initLocationHandlerIfNeeded();
 	}
@@ -80,27 +79,10 @@ public class GameBoardActivity extends Activity {
 			
 			map.addGameMarker(myLocation);
 			
-			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance().getMarkerIterator();
+			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance(this).getMarkerIterator();
 			
 			while(itr.hasNext()) {
 				map.addGameMarker(itr.next());
-			}
-		}
-	}
-	
-	/*
-	 * Inits all the TaskMarkers by adding them to the map and tracking them.
-	 * currently adds only on testmarker in malmö.
-	 */
-	private void initTaskMarkersIfNeeded() {
-		if(PlayerSession.getCurrentSessionInstance() == null) {
-			PlayerSession.createNewSessionInstace();
-
-			ArrayList<TaskMarker> markers = XMLReader.readTaskMarkers(this);
-		
-			for(TaskMarker m : markers) {
-				m.setTeamColor("blue");
-				PlayerSession.getCurrentSessionInstance().addTaskMarker(m.getId(), m);
 			}
 		}
 	}
@@ -111,15 +93,16 @@ public class GameBoardActivity extends Activity {
 	public void initLocationHandlerIfNeeded() {
 		if(mLocationHandler == null) {
 			mLocationHandler = new LocationHandler(this, map, myLocation);
+			
+			mLocationHandler.startTracking();
+			
+			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance(this).getMarkerIterator();
+			
+			while(itr.hasNext()) {
+				mLocationHandler.trackTaskMarker(itr.next());
+			}
+		} else {
+			mLocationHandler.startTracking();
 		}
-		
-		mLocationHandler.startTracking();
-		
-		Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance().getMarkerIterator();
-		
-		while(itr.hasNext()) {
-			mLocationHandler.trackTaskMarker(itr.next());
-		}
-		
 	}
 }

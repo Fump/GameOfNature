@@ -51,4 +51,6 @@ public abstract class Question {
 		return correctAnswer;
 	}
 	
+	public abstract void startQuestionActivity(Context source);
+	
 }

@@ -1,10 +1,14 @@
 package se.lth.gameofnature;
 
+import java.util.Iterator;
+
 import se.lth.gameofnature.data.PlayerSession;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
+import se.lth.gameofnature.questions.Question;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,20 +24,25 @@ public class TaskMarkerDialog extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_task_dialog);
 		
-		Bundle extras = getIntent().getExtras();
-		
+		Bundle extras = getIntent().getExtras();	
 		currentMarkerId = extras.getString(TaskMarker.TASK_MARKER_ID);
-		TaskMarker marker = PlayerSession.getCurrentSessionInstance().getTaskMarker(currentMarkerId);
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		TaskMarker currentMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
 		
 		TextView title = (TextView)findViewById(R.id.task_dialog_title);
-		title.setText(marker.getTitle());
+		title.setText(currentMarker.getTitle());
 		
 		TextView content = (TextView)findViewById(R.id.task_dialog_content);
-		content.setText(marker.getInfoTxt());
+		content.setText(currentMarker.getInfoTxt());
 	}
 	
 	public void okClicked(View v) {
-		//Starta fråga
+		Question q = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId).getNextQuestion();
+		q.startQuestionActivity(this);
 	}
 	
 	public void cancelClicked(View v) {
