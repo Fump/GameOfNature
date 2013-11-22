@@ -6,6 +6,8 @@ import android.content.Context;
 //Tänkte att denna klass kan vara en abstrakt super-klass som ärvs av de olika frågetyperna,
 //Gör det lättare med implementeringen på kartan.
 public abstract class Question {
+	public static final String USER_ANSWER = "USER_ANSWER";
+	
 	public static final String QUESTION_ID = "QUESTION_ID";
 	public static final String QUESTION_TYPE = "QUESTION_TYPE";
 	public static final String QUESTION_TXT = "QUESTION_TXT";
@@ -51,6 +53,6 @@ public abstract class Question {
 		return correctAnswer;
 	}
 	
-	public abstract void startQuestionActivity(Context source);
+	public abstract void startQuestionActivity(Context source, String taskMarkerId);
 	
 }

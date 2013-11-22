@@ -78,8 +78,6 @@ public class LocationHandler implements
     		if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
     			buildAlertMessageNoGps();
     		
-    		manager = null;
-    		
         	mLocationClient = new LocationClient(
         			mContext,
         			this, // ConnectionCallBacks
@@ -94,7 +92,13 @@ public class LocationHandler implements
 	 */
 	public void stopTracking() {
 		if (mLocationClient != null) {
-            mLocationClient.disconnect();
+			
+			if(mLocationClient.isConnected())
+				mLocationClient.removeLocationUpdates(this);
+            
+			
+			mLocationClient.disconnect();
+			mLocationClient = null;
         }
 	}
 	

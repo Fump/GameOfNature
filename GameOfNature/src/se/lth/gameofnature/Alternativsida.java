@@ -19,6 +19,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Toast;
 
 public class Alternativsida extends Activity implements OnItemSelectedListener {
+	public static final String ACTIVITY_NAME = "OPTIONS_ACTIVITY";
+	
 	private ImageButton currentColor;
 	private ImageView image;
 	private Spinner spinner;
