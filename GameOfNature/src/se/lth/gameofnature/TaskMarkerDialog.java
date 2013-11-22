@@ -37,16 +37,37 @@ public class TaskMarkerDialog extends Activity {
 		title.setText(currentMarker.getTitle());
 		
 		TextView content = (TextView)findViewById(R.id.task_dialog_content);
-		content.setText(currentMarker.getInfoTxt());
+		
+		content.setText(getContentMsg());
 	}
 	
 	public void okClicked(View v) {
-		Question q = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId).getNextQuestion();
-		q.startQuestionActivity(this);
+		
+		TaskMarker currentMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
+		
+		if(currentMarker.getStatus() == TaskMarker.STATUS_ACTIVE)
+			currentMarker.getNextQuestion().startQuestionActivity(this, currentMarkerId);
+		else
+			finish();
 	}
 	
 	public void cancelClicked(View v) {
 		finish();
+	}
+	
+	private String getContentMsg() {
+		TaskMarker currentMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
+		
+		if(currentMarker.getStatus() == TaskMarker.STATUS_ACTIVE) {
+			return currentMarker.getInfoTxt();
+		} else if(currentMarker.getStatus() == TaskMarker.STATUS_LOCKED) {
+			return "Denna uppgiftspunkten är låst! \n" +
+					"Gå till en annan uppgiftspunkt och svara på en fråga för att " +
+					"låsa upp punkten igen!";
+		} else {
+			return "Denna uppgiftspunkten är redan avklarad \n"  + 
+					"klara resten av punkterna på kartan för att hitta skatten!";
+		}
 	}
 	
     @Override

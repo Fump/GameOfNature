@@ -17,7 +17,7 @@
 			answer1="4"
 			answer2="6"
 			answer3="8"
-			correctAnswer="3"/>
+			correctAnswer="2"/>
 <!--
 		<Question
 			id="2"
@@ -28,7 +28,7 @@
 			answer1="4"
 			answer2="6"
 			answer3="8"
-			correctAnswer="3"/>
+			correctAnswer="2"/>
 		<Question
 			id="3"
 			type="imageAnswer"
@@ -37,7 +37,7 @@
 			answer1ImgId="2"
 			answer2ImgId="3"
 			answer3ImgId="4"
-			correctAnswer="3"/> 
+			correctAnswer="2"/> 
 -->
 	</TaskMarker>
 	<TaskMarker
@@ -57,7 +57,7 @@
 			answer1="4"
 			answer2="6"
 			answer3="8"
-			correctAnswer="3"/>
+			correctAnswer="2"/>
 	</TaskMarker>
 	<FinalQuestion
 
