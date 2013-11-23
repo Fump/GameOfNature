@@ -18,9 +18,9 @@
         <item>Nyckelpigga</item>
     </string-array>
     <integer-array name="character_img_list">
-        <item>@drawable/box</item>
-        <item>@drawable/androidinbox</item>
-        <item>@drawable/buginbox</item>
+        <item>@android:color/transparent</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/bug</item>
     </integer-array>
 
     <!-- Spelplan -->

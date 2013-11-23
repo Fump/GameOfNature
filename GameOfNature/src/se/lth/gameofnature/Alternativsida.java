@@ -26,11 +26,12 @@ import android.widget.Toast;
 
 public class Alternativsida extends Activity implements OnItemSelectedListener {
 	public static final String ACTIVITY_NAME = "OPTIONS_ACTIVITY";
-	
+
 	private ImageButton currentColor;
 	private ImageView image;
 	private Spinner spinner;
-
+	private TypedArray charImg;
+	private AlertDialog.Builder alertbox;
 	private Database db;
 
 
@@ -64,10 +65,10 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 
 	public void onItemSelected(AdapterView<?> parent, View v,
 			int pos, long id) {
-		TypedArray charImg = getResources().obtainTypedArray(R.array.character_img_list);
+		charImg = getResources().obtainTypedArray(R.array.character_img_list);
 		image.setImageResource(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
 		//Fakta till varje markör med popUp box.             
-		AlertDialog.Builder alertbox = new AlertDialog.Builder(this);  
+		alertbox = new AlertDialog.Builder(this);  
 		switch(spinner.getSelectedItemPosition()){
 		case 1:
 			alertbox.setMessage("Android Gubben är ful!");
@@ -84,7 +85,7 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 				}
 			});
 			alertbox.show();
-		break;
+			break;
 		} 
 	}
 
@@ -111,13 +112,24 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		db = new Database(this);
 		db.open();
 		EditText name = (EditText) findViewById(R.id.LagnamnText);
-		String iconId = Integer.toString(image.getId());
+		String iconId = Integer.toString(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
 		String colorCode = (String) currentColor.getTag();
 		db.createTeam(name.getText().toString(), iconId, colorCode, 0, 0, 0, 0);		
 		Toast.makeText(this,db.table(), Toast.LENGTH_LONG).show();
 		db.close();
 		db = null;
-		startActivity(intent);
+		String lagnamn = name.getText().toString();
+		alertbox = new AlertDialog.Builder(this);
+		if(spinner.getSelectedItemPosition()==0 || lagnamn.matches("") ){
+			alertbox.setMessage("Var god välj lagnamn och Spelkaraktär");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
+		}else{
+			startActivity(intent);
+		}
 	}
 
 	@Override
