@@ -1,6 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -26,13 +25,12 @@
             android:id="@+id/LagnamnText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/lagnamn" />
+            android:ems="10" />
 	<!-- Lagfärg -->
     <LinearLayout
         android:layout_width="234dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:orientation="vertical" >
 
         <TextView
@@ -140,7 +138,7 @@
     </LinearLayout>
     <!-- Spelkaraktär -->
     <LinearLayout
-        android:layout_width="234dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
     <TextView
@@ -152,30 +150,41 @@
         android:layout_marginTop="15dp"
         android:text="@string/spelkaraktär"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
     <Spinner
         android:id="@+id/character_spinner"
-        android:layout_width="fill_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:entries="@array/character_list"
         tools:listitem="@android:layout/simple_spinner_item"/>
     <ImageView
         android:id="@+id/character_image"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="right"
         android:scaleType="centerInside"
         android:src="@drawable/ic_launcher" />
+    </LinearLayout>
    </LinearLayout>
+   <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp">
 	<!-- Button för Bekräftning -->
     <Button
         android:id="@+id/alternative_confirmButton"
         style="@style/ButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_gravity="center"
         android:text="@string/bekräfta"
         android:background="@drawable/knapp"
         android:onClick="nextScreen" />
+    </LinearLayout>
 </LinearLayout>
