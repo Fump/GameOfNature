@@ -62,13 +62,6 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		spinner.setOnItemSelectedListener(this);
 	}
 
-	@SuppressLint("Recycle")
-	public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
-		TypedArray charImg = getResources().obtainTypedArray(
-				R.array.character_img_list);
-		image.setImageResource(charImg.getResourceId(
-				spinner.getSelectedItemPosition(), -1));
-
 	public void onItemSelected(AdapterView<?> parent, View v,
 			int pos, long id) {
 		TypedArray charImg = getResources().obtainTypedArray(R.array.character_img_list);
