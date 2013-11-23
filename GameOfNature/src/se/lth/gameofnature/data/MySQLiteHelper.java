@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 	public static final String TEAM = "Team";
@@ -29,11 +30,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL("Create table if not exsits" + TEAM + "( name TEXT not null,"
-				+ "iconId TEXT not null, color TEXT not null, game_time INTEGER not null,"
-				+ "distanceTraveled INTEGER not null, hasActiveSession INTEGER not null,"
-				+ "clues INTEGER not null);");
-		database.execSQL("Create table if not exsits" + TASK_MARKER + "( id TEXT primary key, "
+		database.execSQL("Create table " + TEAM + "( "+ NAME + " TEXT not null,"
+				+ ICON_ID + " TEXT not null, "+ COLOR + " TEXT not null, "+ GAME_TIME + "  INTEGER not null,"
+				+  DISTANCE_TRAVELED + "  INTEGER not null, "+ HAS_ACTIVE_SESSION + "  INTEGER not null,"
+				+  CLUES + "  INTEGER not null);");
+		database.execSQL("Create table " + TASK_MARKER + "( id TEXT primary key, "
 				+ "currentStatus INTEGER not null, lastQuestionId INTEGER not null );");
 	}
 

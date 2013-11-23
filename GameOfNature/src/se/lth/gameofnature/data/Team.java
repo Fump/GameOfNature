@@ -8,15 +8,27 @@ public class Team {
 	private int game_time;
 	private int distance_traveled;
 	private int hasActiveSesseion;
-	private int clue;
-	/*KONSTRUKTER SAKNAS*/
+	private int clues;
+	
+	public Team(String name, String iconId, String color,
+			int game_time, int distance_traveled, int hasActiveSesseion,
+			int clues){
+		this.name = name;
+		this.iconId = iconId;
+		this.color = color;
+		this.game_time = game_time;
+		this.distance_traveled = distance_traveled;
+		this.hasActiveSesseion = hasActiveSesseion;
+		this.clues=clues;
+		
+	}
 
 	public int getClue() {
-		return clue;
+		return clues;
 	}
 
 	public void setClue(int clue) {
-		this.clue = clue;
+		this.clues = clue;
 	}
 	
 	public int getHasActiveSesseion() {
