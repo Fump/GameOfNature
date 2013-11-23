@@ -3,6 +3,7 @@ package se.lth.gameofnature.data;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,6 +15,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -23,8 +25,8 @@ import se.lth.gameofnature.questions.Question;
 import se.lth.gameofnature.questions.TextQuestion;
 
 public class XMLReader {
-	public static ArrayList<TaskMarker> readTaskMarkers(Context mContext) {
-		ArrayList<TaskMarker> markers = new ArrayList<TaskMarker>();
+	public static TreeMap<String, TaskMarker> readTaskMarkers(Context mContext) {
+		TreeMap<String, TaskMarker> markers = new TreeMap<String, TaskMarker>();
 		
 		InputStream is = mContext.getResources().openRawResource(R.raw.map);
 		
@@ -58,7 +60,9 @@ public class XMLReader {
 						}
 					}
 					
-					markers.add(m);
+					m.setTeamColor("blue");
+					
+					markers.put(m.getId(), m);
 				}
 			}
 			

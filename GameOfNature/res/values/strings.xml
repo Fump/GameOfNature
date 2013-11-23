@@ -13,12 +13,14 @@
     <string name="colorbackgroundproperties">colorbackgroundproperties</string>
     <string name="bekräfta">Bekräfta</string>
     <string-array name="character_list">
+        <item>Välj markör</item>
         <item>android</item>
         <item>Nyckelpigga</item>
     </string-array>
     <integer-array name="character_img_list">
-         <item>@drawable/ic_launcher</item>
-        <item>@drawable/bug</item>
+        <item>@drawable/box</item>
+        <item>@drawable/androidinbox</item>
+        <item>@drawable/buginbox</item>
     </integer-array>
 
     <!-- Spelplan -->

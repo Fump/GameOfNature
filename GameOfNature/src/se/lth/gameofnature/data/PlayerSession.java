@@ -3,6 +3,9 @@ package se.lth.gameofnature.data;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import android.content.Context;
+import android.util.Log;
+
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 /* Class containing data describing the current game session */
@@ -10,22 +13,18 @@ public class PlayerSession {
 	
 	public static PlayerSession session;
 	
-	public static PlayerSession getCurrentSessionInstance() {
+	public static PlayerSession getCurrentSessionInstance(Context mContext) {
+		if(session == null) {
+			session = new PlayerSession(mContext);
+		}
+		
 		return session;
 	}
 	
-	public static void createNewSessionInstace() {
-		session = new PlayerSession();
-	}
+	private TreeMap<String, TaskMarker> taskMarkers;
 	
-	public TreeMap<String, TaskMarker> taskMarkers;
-	
-	public PlayerSession() {
-		taskMarkers = new TreeMap<String,TaskMarker>();
-	}
-	
-	public void addTaskMarker(String id, TaskMarker marker) {
-		taskMarkers.put(id, marker);
+	public PlayerSession(Context mContext) {
+		taskMarkers = XMLReader.readTaskMarkers(mContext);
 	}
 	
 	public TaskMarker getTaskMarker(String id) {

@@ -5,6 +5,8 @@ import se.lth.gameofnature.data.Team;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -23,20 +25,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Alternativsida extends Activity implements OnItemSelectedListener {
+	public static final String ACTIVITY_NAME = "OPTIONS_ACTIVITY";
+	
 	private ImageButton currentColor;
 	private ImageView image;
 	private Spinner spinner;
+
 	private Database db;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_alternativsida);
-		// Förvald färg vid start
-		LinearLayout paintLayout = (LinearLayout) findViewById(R.id.choose_colors);
-		currentColor = (ImageButton) paintLayout.getChildAt(0);
-		currentColor.setImageDrawable(getResources().getDrawable(
-				R.drawable.colorpressed));
+
+		//Förvald färg vid start
+		LinearLayout paintLayout = (LinearLayout)findViewById(R.id.choose_colors);
+		currentColor = (ImageButton)paintLayout.getChildAt(0);
+		currentColor.setImageDrawable(getResources().getDrawable(R.drawable.colorpressed));
+
+
 		initSpinner();
 	}
 
@@ -61,6 +69,30 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		image.setImageResource(charImg.getResourceId(
 				spinner.getSelectedItemPosition(), -1));
 
+	public void onItemSelected(AdapterView<?> parent, View v,
+			int pos, long id) {
+		TypedArray charImg = getResources().obtainTypedArray(R.array.character_img_list);
+		image.setImageResource(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
+		//Fakta till varje markör med popUp box.             
+		AlertDialog.Builder alertbox = new AlertDialog.Builder(this);  
+		switch(spinner.getSelectedItemPosition()){
+		case 1:
+			alertbox.setMessage("Android Gubben är ful!");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
+			break;
+		case 2:  
+			alertbox.setMessage("Nyckelpiggan är fläkigt!");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
+		break;
+		} 
 	}
 
 	public void onNothingSelected(AdapterView<?> parent) {
@@ -91,6 +123,7 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		db.createTeam(name.getText().toString(), iconId, colorCode, 0, 0, 0, 0);		
 		Toast.makeText(this,db.table(), Toast.LENGTH_LONG).show();
 		db.close();
+		db = null;
 		startActivity(intent);
 	}
 

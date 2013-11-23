@@ -10,6 +10,7 @@ import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
 import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
+import se.lth.gameofnature.questions.Question;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -43,25 +44,59 @@ public class GameBoardActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+		getActionBar().setDisplayShowHomeEnabled(false);
 		getMenuInflater().inflate(R.menu.game_board, menu);
 		return true;
 	}
 	
 	@Override
 	public void onPause() {
-		super.onPause();
-		
 		if(mLocationHandler != null)
 			mLocationHandler.stopTracking();
+		
+		super.onPause();
+	}
+	
+	@Override
+	public void onStop() {
+		if(mLocationHandler != null)
+			mLocationHandler.stopTracking();
+		
+		super.onStop();
 	}
 	
 	@Override
 	public void onResume() {
 		super.onResume();
 		
-		initTaskMarkersIfNeeded();
 		initMapIfNeeded();
 		initLocationHandlerIfNeeded();
+		
+		handleIntent();
+	}
+	
+	private void handleIntent() {
+		Bundle extras = getIntent().getExtras();
+		
+		if(extras != null) {
+			String source = extras.getString(GameBoardActivity.INTENT_SOURCE);
+			
+			if(source.equals(QuestionActivity.ACTIVITY_NAME)) {
+				
+				String taskMarkerId = extras.getString(TaskMarker.TASK_MARKER_ID);
+				boolean isCorrectAnswer = extras.getBoolean(Question.USER_ANSWER);
+				
+				TaskMarker marker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(taskMarkerId);
+				
+				if(isCorrectAnswer)
+					marker.setDone();
+				else
+					marker.setLocked();
+				
+			} else if(source.equals(Alternativsida.ACTIVITY_NAME)) {
+				
+			}
+		}
 	}
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
@@ -80,27 +115,10 @@ public class GameBoardActivity extends Activity {
 			
 			map.addGameMarker(myLocation);
 			
-			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance().getMarkerIterator();
+			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance(this).getMarkerIterator();
 			
 			while(itr.hasNext()) {
 				map.addGameMarker(itr.next());
-			}
-		}
-	}
-	
-	/*
-	 * Inits all the TaskMarkers by adding them to the map and tracking them.
-	 * currently adds only on testmarker in malmö.
-	 */
-	private void initTaskMarkersIfNeeded() {
-		if(PlayerSession.getCurrentSessionInstance() == null) {
-			PlayerSession.createNewSessionInstace();
-
-			ArrayList<TaskMarker> markers = XMLReader.readTaskMarkers(this);
-		
-			for(TaskMarker m : markers) {
-				m.setTeamColor("blue");
-				PlayerSession.getCurrentSessionInstance().addTaskMarker(m.getId(), m);
 			}
 		}
 	}
@@ -111,15 +129,16 @@ public class GameBoardActivity extends Activity {
 	public void initLocationHandlerIfNeeded() {
 		if(mLocationHandler == null) {
 			mLocationHandler = new LocationHandler(this, map, myLocation);
+			
+			mLocationHandler.startTracking();
+			
+			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance(this).getMarkerIterator();
+			
+			while(itr.hasNext()) {
+				mLocationHandler.trackTaskMarker(itr.next());
+			}
+		} else {
+			mLocationHandler.startTracking();
 		}
-		
-		mLocationHandler.startTracking();
-		
-		Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance().getMarkerIterator();
-		
-		while(itr.hasNext()) {
-			mLocationHandler.trackTaskMarker(itr.next());
-		}
-		
 	}
 }
