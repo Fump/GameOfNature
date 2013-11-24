@@ -93,6 +93,8 @@ public class GameBoardActivity extends Activity {
 				else
 					marker.setLocked();
 				
+				unlockAllMarkers();
+				
 			} else if(source.equals(Alternativsida.ACTIVITY_NAME)) {
 				
 			}
@@ -139,6 +141,17 @@ public class GameBoardActivity extends Activity {
 			}
 		} else {
 			mLocationHandler.startTracking();
+		}
+	}
+	
+	private void unlockAllMarkers() {
+		Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
+		
+		while(itr.hasNext()) {
+			TaskMarker m = itr.next();
+			
+			if(m.getStatus() == TaskMarker.STATUS_LOCKED)
+				m.setActive();
 		}
 	}
 }

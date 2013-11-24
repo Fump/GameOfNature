@@ -51,6 +51,8 @@ public class LocationHandler implements
 	
 	private static final int TRACK_RADIUS = 15;
 	
+	private PendingIntent currentIntent;
+	
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(5000)         // 5 seconds
             .setFastestInterval(16)    // 16ms = 60fps
@@ -99,6 +101,9 @@ public class LocationHandler implements
 			
 			mLocationClient.disconnect();
 			mLocationClient = null;
+			
+			hasPendingAdd = true;
+			currentIntent.cancel();
         }
 	}
 	
@@ -148,11 +153,13 @@ public class LocationHandler implements
 	private PendingIntent getTransitionPendingIntent() {
 		Intent intent = new Intent(mContext, ReceiveTransitionsIntentService.class);
 		
-		return PendingIntent.getService(
+		currentIntent = PendingIntent.getService(
 					mContext, 
 					0, 
 					intent, 
 					PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		return currentIntent;
 	}
 
 	@Override
@@ -179,7 +186,6 @@ public class LocationHandler implements
 
 	@Override
 	public void onDisconnected() {
-		hasPendingAdd = true;
 	}
 
 	@Override
