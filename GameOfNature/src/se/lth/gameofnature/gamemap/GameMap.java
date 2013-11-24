@@ -41,6 +41,10 @@ public class GameMap {
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, zoom));
 	}
 	
+	public void setZoom(int zoom) {
+		map.moveCamera(CameraUpdateFactory.zoomTo(zoom));
+	}
+	
 	public void addGameMarker(GameMarker m) {
 		Marker myLocation = map.addMarker(m.createMarker());
 		m.setMarker(myLocation);
