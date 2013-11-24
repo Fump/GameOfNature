@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.data.GameMapData;
 import se.lth.gameofnature.data.XMLReader;
 import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
@@ -86,7 +86,7 @@ public class GameBoardActivity extends Activity {
 				String taskMarkerId = extras.getString(TaskMarker.TASK_MARKER_ID);
 				boolean isCorrectAnswer = extras.getBoolean(Question.USER_ANSWER);
 				
-				TaskMarker marker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(taskMarkerId);
+				TaskMarker marker = GameMapData.getCurrentSessionInstance(this).getTaskMarker(taskMarkerId);
 				
 				if(isCorrectAnswer)
 					marker.setDone();
@@ -115,7 +115,7 @@ public class GameBoardActivity extends Activity {
 			
 			map.addGameMarker(myLocation);
 			
-			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance(this).getMarkerIterator();
+			Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
 			
 			while(itr.hasNext()) {
 				map.addGameMarker(itr.next());
@@ -132,7 +132,7 @@ public class GameBoardActivity extends Activity {
 			
 			mLocationHandler.startTracking();
 			
-			Iterator<TaskMarker> itr = PlayerSession.getCurrentSessionInstance(this).getMarkerIterator();
+			Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
 			
 			while(itr.hasNext()) {
 				mLocationHandler.trackTaskMarker(itr.next());

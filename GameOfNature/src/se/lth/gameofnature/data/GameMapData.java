@@ -9,13 +9,13 @@ import android.util.Log;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 /* Class containing data describing the current game session */
-public class PlayerSession {
+public class GameMapData {
 	
-	public static PlayerSession session;
+	public static GameMapData session;
 	
-	public static PlayerSession getCurrentSessionInstance(Context mContext) {
+	public static GameMapData getCurrentSessionInstance(Context mContext) {
 		if(session == null) {
-			session = new PlayerSession(mContext);
+			session = new GameMapData(mContext);
 		}
 		
 		return session;
@@ -23,7 +23,7 @@ public class PlayerSession {
 	
 	private TreeMap<String, TaskMarker> taskMarkers;
 	
-	public PlayerSession(Context mContext) {
+	public GameMapData(Context mContext) {
 		taskMarkers = XMLReader.readTaskMarkers(mContext);
 	}
 	

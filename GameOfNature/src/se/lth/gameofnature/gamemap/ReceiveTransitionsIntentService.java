@@ -3,7 +3,7 @@ package se.lth.gameofnature.gamemap;
 import java.util.List;
 
 import se.lth.gameofnature.TaskMarkerDialog;
-import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.data.GameMapData;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 import com.google.android.gms.location.Geofence;

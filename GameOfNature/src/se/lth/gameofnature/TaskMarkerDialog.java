@@ -2,7 +2,7 @@ package se.lth.gameofnature;
 
 import java.util.Iterator;
 
-import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.data.GameMapData;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 import se.lth.gameofnature.questions.Question;
 import android.app.Activity;
@@ -31,7 +31,7 @@ public class TaskMarkerDialog extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		TaskMarker currentMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
+		TaskMarker currentMarker = GameMapData.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
 		
 		TextView title = (TextView)findViewById(R.id.task_dialog_title);
 		title.setText(currentMarker.getTitle());
@@ -43,7 +43,7 @@ public class TaskMarkerDialog extends Activity {
 	
 	public void okClicked(View v) {
 		
-		TaskMarker currentMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
+		TaskMarker currentMarker = GameMapData.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
 		
 		if(currentMarker.getStatus() == TaskMarker.STATUS_ACTIVE)
 			currentMarker.getNextQuestion().startQuestionActivity(this, currentMarkerId);
@@ -56,7 +56,7 @@ public class TaskMarkerDialog extends Activity {
 	}
 	
 	private String getContentMsg() {
-		TaskMarker currentMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
+		TaskMarker currentMarker = GameMapData.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
 		
 		if(currentMarker.getStatus() == TaskMarker.STATUS_ACTIVE) {
 			return currentMarker.getInfoTxt();
