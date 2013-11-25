@@ -23,6 +23,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +47,10 @@ public class GameBoardActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getActionBar().setDisplayShowHomeEnabled(false);
+		Drawable iconBlue = getResources().getDrawable(R.drawable.marker_icon_a_blue);
+		Drawable iconGreen = getResources().getDrawable(R.drawable.marker_icon_a_green);  
+		iconBlue.setAlpha(40);
+		iconGreen.setAlpha(40);
 		getMenuInflater().inflate(R.menu.game_board, menu);
 		return true;
 	}
