@@ -3,6 +3,7 @@ package se.lth.gameofnature;
 import java.util.Iterator;
 
 import se.lth.gameofnature.data.PlayerSession;
+import se.lth.gameofnature.gamemap.markers.FinalQuestionMarker;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 import se.lth.gameofnature.questions.Question;
 import android.app.Activity;
@@ -47,7 +48,13 @@ public class TaskMarkerDialog extends Activity {
 		
 		if(currentMarker.getStatus() == TaskMarker.STATUS_ACTIVE)
 			currentMarker.getNextQuestion().startQuestionActivity(this, currentMarkerId);
-		else
+		else if(currentMarker.getStatus() == FinalQuestionMarker.STATUS_FINAL){
+			/*TODO:Finalisera detta
+			 * FinalQuestionMarker currentFinalMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
+			 * 
+			 */
+		}
+		else 
 			finish();
 	}
 	

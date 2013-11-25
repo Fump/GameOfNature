@@ -46,17 +46,20 @@
 		Longitude="12.43525"
 		title="Skatt"
 		infoTxt="Slutuppgift"
+		snippet="Här är skatten!"
 		iconId="FINAL"
-		QuestionId="NATUR" //id är också själva ordet
+		questionId="NATUR" //id är också själva ordet					
 		timer="10" //timer om man placerar en bokstav på fel plats?
 			>
 		<clue
-		id="2453"
+		id="0"
 		item="Ekollon"
+		code="2654"
 			/>
 		<clue
-		id="5612"
+		id="1"
 		item="Boklöv"
+		code="9402"
 			/>
 	</FinalQuestion>
 </Map>

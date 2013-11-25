@@ -6,6 +6,7 @@ import java.util.TreeMap;
 import android.content.Context;
 import android.util.Log;
 
+import se.lth.gameofnature.gamemap.markers.FinalQuestionMarker;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
 /* Class containing data describing the current game session */
@@ -22,9 +23,12 @@ public class PlayerSession {
 	}
 	
 	private TreeMap<String, TaskMarker> taskMarkers;
-	
+	private FinalQuestionMarker fqm;
 	public PlayerSession(Context mContext) {
 		taskMarkers = XMLReader.readTaskMarkers(mContext);
+		/*TODO: Gör klart denna. Gör en getFinalQuestion för användning i TaskMarkerDialog
+		 * fqm = XMLReader.getFinalQuestion(e, mContext)
+		 */
 	}
 	
 	public TaskMarker getTaskMarker(String id) {
