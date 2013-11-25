@@ -4,7 +4,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import se.lth.gameofnature.data.Database;
 import se.lth.gameofnature.data.GameMapData;
+import se.lth.gameofnature.data.Team;
 import se.lth.gameofnature.data.XMLReader;
 import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
@@ -51,28 +53,35 @@ public class GameBoardActivity extends Activity {
 	
 	@Override
 	public void onPause() {
+		super.onPause();
+		
 		if(mLocationHandler != null)
 			mLocationHandler.stopTracking();
-		
-		super.onPause();
 	}
 	
 	@Override
 	public void onStop() {
+		super.onStop();
+		
 		if(mLocationHandler != null)
 			mLocationHandler.stopTracking();
-		
-		super.onStop();
 	}
 	
 	@Override
 	public void onResume() {
 		super.onResume();
 		
-		initMapIfNeeded();
+		Database db = new Database(this);
+		db.open();
+		
+		Team teamStatus = db.getTeamStatus();
+		
+		initMapIfNeeded(teamStatus.getIconId());
 		initLocationHandlerIfNeeded();
 		
 		handleIntent();
+		
+		db.close();
 	}
 	
 	private void handleIntent() {
@@ -88,12 +97,12 @@ public class GameBoardActivity extends Activity {
 				
 				TaskMarker marker = GameMapData.getCurrentSessionInstance(this).getTaskMarker(taskMarkerId);
 				
+				unlockAllMarkers();
+				
 				if(isCorrectAnswer)
 					marker.setDone();
 				else
 					marker.setLocked();
-				
-				unlockAllMarkers();
 				
 			} else if(source.equals(Alternativsida.ACTIVITY_NAME)) {
 				
@@ -103,14 +112,14 @@ public class GameBoardActivity extends Activity {
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
 	 */
-	private void initMapIfNeeded() { 
+	private void initMapIfNeeded(int iconId) { 
 		if(map == null) {
 			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 			        .getMap();
 			
 			map = new GameMap(gMap, this);
 			
-			Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.bug);
+			Bitmap icon = BitmapFactory.decodeResource(getResources(), iconId);
 			
 			myLocation = new MyLocationMarker(GameMap.ANDREASSONS_MEDOW, icon, 
 					"My Location", "Here I am");
@@ -130,17 +139,15 @@ public class GameBoardActivity extends Activity {
 	 */
 	public void initLocationHandlerIfNeeded() {
 		if(mLocationHandler == null) {
-			mLocationHandler = new LocationHandler(this, map, myLocation);
-			
-			mLocationHandler.startTracking();
-			
-			Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
-			
-			while(itr.hasNext()) {
-				mLocationHandler.trackTaskMarker(itr.next());
-			}
-		} else {
-			mLocationHandler.startTracking();
+			mLocationHandler = new LocationHandler(this, map, myLocation);		
+		} 
+		
+		mLocationHandler.startTracking();
+		
+		Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
+		
+		while(itr.hasNext()) {
+			mLocationHandler.trackTaskMarker(itr.next());
 		}
 	}
 	

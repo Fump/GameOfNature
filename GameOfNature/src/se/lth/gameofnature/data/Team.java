@@ -3,14 +3,14 @@ package se.lth.gameofnature.data;
 public class Team {
 	
 	private String name;
-	private String iconId;
+	private int iconId;
 	private String color;
 	private int game_time;
 	private int distance_traveled;
 	private int hasActiveSesseion;
 	private int clues;
 	
-	public Team(String name, String iconId, String color,
+	public Team(String name, int iconId, String color,
 			int game_time, int distance_traveled, int hasActiveSesseion,
 			int clues){
 		this.name = name;
@@ -63,11 +63,11 @@ public class Team {
 		this.color = color;
 	}
 	
-	public String getIconId() {
+	public int getIconId() {
 		return iconId;
 	}
 
-	public void setId(String iconId) {
+	public void setId(int iconId) {
 		this.iconId = iconId;
 	}
 

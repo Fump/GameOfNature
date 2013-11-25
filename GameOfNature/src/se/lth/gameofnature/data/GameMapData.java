@@ -1,5 +1,6 @@
 package se.lth.gameofnature.data;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 

@@ -4,9 +4,9 @@ public class TaskMarkerStatus {
 
 	private String id;
 	private int currentStatus;
-	private int lastQuestionId;
+	private String lastQuestionId;
 	/*KONSTRUKTER SAKNAS*/
-	public TaskMarkerStatus(String id, int currenStatus,int lasQuestionId){
+	public TaskMarkerStatus(String id, int currenStatus,String lasQuestionId){
 		this.lastQuestionId = lasQuestionId;
 		this.currentStatus = currenStatus;
 		this.id = id;
@@ -27,11 +27,11 @@ public class TaskMarkerStatus {
 	public void setCurrentStatus(int currentStatus) {
 		this.currentStatus = currentStatus;
 	}
-	public int getLastQuestionId() {
+	public String getLastQuestionId() {
 		return lastQuestionId;
 	}
 
-	public void setLastQuestionId(int lastQuestionId) {
+	public void setLastQuestionId(String lastQuestionId) {
 		this.lastQuestionId = lastQuestionId;
 	}
 }

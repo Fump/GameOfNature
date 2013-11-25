@@ -51,8 +51,6 @@ public class LocationHandler implements
 	
 	private static final int TRACK_RADIUS = 15;
 	
-	private PendingIntent currentIntent;
-	
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(5000)         // 5 seconds
             .setFastestInterval(16)    // 16ms = 60fps
@@ -95,16 +93,14 @@ public class LocationHandler implements
 	public void stopTracking() {
 		if (mLocationClient != null) {
 			
+			untrackTaskMarkers();
+			
 			if(mLocationClient.isConnected())
 				mLocationClient.removeLocationUpdates(this);
             
-			
 			mLocationClient.disconnect();
 			mLocationClient = null;
-			
-			hasPendingAdd = true;
-			currentIntent.cancel();
-        }
+		}
 	}
 	
 	/*
@@ -122,9 +118,11 @@ public class LocationHandler implements
 			geofencesToAdd.remove(m);
 		
 		geofencesToAdd.add(g);
+		geofencesToRemove.add(m.getId());
 		
 		if(mLocationClient.isConnected()) {
 			mLocationClient.addGeofences(geofencesToAdd, getTransitionPendingIntent(), this);
+			geofencesToAdd.clear();
 		} else {
 			hasPendingAdd = true;
 		}
@@ -133,14 +131,10 @@ public class LocationHandler implements
 	/*
 	 * Stops tracking the specified TaskMarker
 	 */
-	public void untrackTaskMarker(TaskMarker m) {
-		if(geofencesToRemove.contains(m.getId()))
-			geofencesToRemove.remove(m.getId());
-		
-		geofencesToRemove.add(m.getId());
-		
+	private void untrackTaskMarkers() {
 		if(mLocationClient.isConnected()) {
 			mLocationClient.removeGeofences(geofencesToRemove, this);
+			geofencesToRemove.clear();
 		} else {
 			hasPendingRemove = true;
 		}
@@ -151,15 +145,14 @@ public class LocationHandler implements
 	 * at the users current location.
 	 */
 	private PendingIntent getTransitionPendingIntent() {
+		
 		Intent intent = new Intent(mContext, ReceiveTransitionsIntentService.class);
-		
-		currentIntent = PendingIntent.getService(
-					mContext, 
-					0, 
-					intent, 
-					PendingIntent.FLAG_UPDATE_CURRENT);
-		
-		return currentIntent;
+			
+		return PendingIntent.getService(
+						mContext, 
+						0, 
+						intent, 
+						PendingIntent.FLAG_UPDATE_CURRENT);
 	}
 
 	@Override
@@ -175,11 +168,13 @@ public class LocationHandler implements
 		
 		if(hasPendingAdd) {
 			mLocationClient.addGeofences(geofencesToAdd, getTransitionPendingIntent(), this);
+			geofencesToAdd.clear();
 			hasPendingAdd = false;
 		}
 			
 		if(hasPendingRemove) {
 			mLocationClient.removeGeofences(geofencesToRemove, this);
+			geofencesToRemove.clear();
 			hasPendingRemove = false;
 		}
 	}
