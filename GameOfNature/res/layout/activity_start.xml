@@ -6,19 +6,31 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/bakgrund"
+    android:background="@drawable/bgrund"
     tools:context=".StartActivity" >
 
     <Button
         android:id="@+id/StartButton"
         style="@style/ButtonText"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="158dp"
-        android:background="@drawable/knapp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/upp"
         android:onClick="nextScreen"
         android:text="@string/start_button" />
+
+    <Button
+        android:id="@+id/ContinueButton"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/StartButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:onClick="changeButton"
+        android:background="@drawable/upp"
+        android:text="@string/continue_button" />
+
 
 </RelativeLayout>

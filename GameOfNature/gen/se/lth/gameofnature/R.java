@@ -159,82 +159,84 @@ containing a value of this type.
         public static final int activity_vertical_margin=0x7f080001;
     }
     public static final class drawable {
-        public static final int bakgrund=0x7f020000;
-        public static final int bakgrundalt=0x7f020001;
-        public static final int bug=0x7f020002;
-        public static final int colorbackgroundproperties=0x7f020003;
-        public static final int colorpressed=0x7f020004;
-        public static final int common_signin_btn_icon_dark=0x7f020005;
-        public static final int common_signin_btn_icon_disabled_dark=0x7f020006;
-        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020007;
-        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020008;
-        public static final int common_signin_btn_icon_disabled_light=0x7f020009;
-        public static final int common_signin_btn_icon_focus_dark=0x7f02000a;
-        public static final int common_signin_btn_icon_focus_light=0x7f02000b;
-        public static final int common_signin_btn_icon_light=0x7f02000c;
-        public static final int common_signin_btn_icon_normal_dark=0x7f02000d;
-        public static final int common_signin_btn_icon_normal_light=0x7f02000e;
-        public static final int common_signin_btn_icon_pressed_dark=0x7f02000f;
-        public static final int common_signin_btn_icon_pressed_light=0x7f020010;
-        public static final int common_signin_btn_text_dark=0x7f020011;
-        public static final int common_signin_btn_text_disabled_dark=0x7f020012;
-        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020013;
-        public static final int common_signin_btn_text_disabled_focus_light=0x7f020014;
-        public static final int common_signin_btn_text_disabled_light=0x7f020015;
-        public static final int common_signin_btn_text_focus_dark=0x7f020016;
-        public static final int common_signin_btn_text_focus_light=0x7f020017;
-        public static final int common_signin_btn_text_light=0x7f020018;
-        public static final int common_signin_btn_text_normal_dark=0x7f020019;
-        public static final int common_signin_btn_text_normal_light=0x7f02001a;
-        public static final int common_signin_btn_text_pressed_dark=0x7f02001b;
-        public static final int common_signin_btn_text_pressed_light=0x7f02001c;
+        public static final int bgrund=0x7f020000;
+        public static final int bug=0x7f020001;
+        public static final int colorbackgroundproperties=0x7f020002;
+        public static final int colorpressed=0x7f020003;
+        public static final int common_signin_btn_icon_dark=0x7f020004;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f020005;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020006;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020007;
+        public static final int common_signin_btn_icon_disabled_light=0x7f020008;
+        public static final int common_signin_btn_icon_focus_dark=0x7f020009;
+        public static final int common_signin_btn_icon_focus_light=0x7f02000a;
+        public static final int common_signin_btn_icon_light=0x7f02000b;
+        public static final int common_signin_btn_icon_normal_dark=0x7f02000c;
+        public static final int common_signin_btn_icon_normal_light=0x7f02000d;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f02000e;
+        public static final int common_signin_btn_icon_pressed_light=0x7f02000f;
+        public static final int common_signin_btn_text_dark=0x7f020010;
+        public static final int common_signin_btn_text_disabled_dark=0x7f020011;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020012;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f020013;
+        public static final int common_signin_btn_text_disabled_light=0x7f020014;
+        public static final int common_signin_btn_text_focus_dark=0x7f020015;
+        public static final int common_signin_btn_text_focus_light=0x7f020016;
+        public static final int common_signin_btn_text_light=0x7f020017;
+        public static final int common_signin_btn_text_normal_dark=0x7f020018;
+        public static final int common_signin_btn_text_normal_light=0x7f020019;
+        public static final int common_signin_btn_text_pressed_dark=0x7f02001a;
+        public static final int common_signin_btn_text_pressed_light=0x7f02001b;
+        public static final int down=0x7f02001c;
         public static final int ic_launcher=0x7f02001d;
-        public static final int knapp=0x7f02001e;
-        public static final int marker_icon_a_blue=0x7f02001f;
-        public static final int marker_icon_a_green=0x7f020020;
-        public static final int marker_icon_b_blue=0x7f020021;
-        public static final int marker_icon_b_green=0x7f020022;
-        public static final int marker_icon_locked=0x7f020023;
+        public static final int marker_icon_a_blue=0x7f02001e;
+        public static final int marker_icon_a_green=0x7f02001f;
+        public static final int marker_icon_b_blue=0x7f020020;
+        public static final int marker_icon_b_green=0x7f020021;
+        public static final int marker_icon_locked=0x7f020022;
+        public static final int otherbackground=0x7f020023;
+        public static final int upp=0x7f020024;
     }
     public static final class id {
+        public static final int ContinueButton=0x7f060015;
         public static final int LagfärgView=0x7f060007;
         public static final int LagnamnText=0x7f060006;
         public static final int LagnamnView=0x7f060005;
+        public static final int LagnamnWin=0x7f06001a;
         public static final int SpelkaraktärView=0x7f060009;
-        public static final int StartButton=0x7f060015;
-        public static final int action_settings=0x7f06001b;
+        public static final int StartButton=0x7f060014;
+        public static final int TimeWin=0x7f06001b;
+        public static final int action_settings=0x7f06001c;
         public static final int alternative_confirmButton=0x7f06000c;
         public static final int character_image=0x7f06000b;
         public static final int character_spinner=0x7f06000a;
         public static final int choose_colors=0x7f060008;
         public static final int hybrid=0x7f060004;
-        public static final int icon1=0x7f06001c;
-        public static final int icon2=0x7f06001d;
+        public static final int icon1=0x7f06001d;
+        public static final int icon2=0x7f06001e;
         public static final int map=0x7f06000d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int question_btnAnswer1=0x7f060011;
-        public static final int question_btnAnswer2=0x7f060012;
-        public static final int question_btnAnswer3=0x7f060013;
-        public static final int question_btnAnswer4=0x7f060014;
+        public static final int question_btnAnswer1=0x7f060010;
+        public static final int question_btnAnswer2=0x7f060011;
+        public static final int question_btnAnswer3=0x7f060012;
+        public static final int question_btnAnswer4=0x7f060013;
         public static final int question_content=0x7f06000f;
         public static final int question_title=0x7f06000e;
         public static final int satellite=0x7f060002;
-        public static final int statistics_spelplanButton=0x7f060016;
-        public static final int task_dialog_ButtonCancel=0x7f06001a;
-        public static final int task_dialog_ButtonOk=0x7f060019;
-        public static final int task_dialog_content=0x7f060018;
-        public static final int task_dialog_title=0x7f060017;
+        public static final int task_dialog_ButtonCancel=0x7f060019;
+        public static final int task_dialog_ButtonOk=0x7f060018;
+        public static final int task_dialog_content=0x7f060017;
+        public static final int task_dialog_title=0x7f060016;
         public static final int terrain=0x7f060003;
-        public static final int textView1=0x7f060010;
     }
     public static final class layout {
         public static final int activity_alternativsida=0x7f030000;
         public static final int activity_game_board=0x7f030001;
         public static final int activity_question=0x7f030002;
         public static final int activity_start=0x7f030003;
-        public static final int activity_statistics=0x7f030004;
-        public static final int activity_task_dialog=0x7f030005;
+        public static final int activity_task_dialog=0x7f030004;
+        public static final int activity_winner=0x7f030005;
     }
     public static final class menu {
         public static final int alternativsida=0x7f0b0000;
@@ -245,12 +247,11 @@ containing a value of this type.
         public static final int map=0x7f040000;
     }
     public static final class string {
-        public static final int GameBoardScreen=0x7f07001f;
-        public static final int action_settings=0x7f070028;
-        public static final int answer_1=0x7f070023;
-        public static final int answer_2=0x7f070024;
-        public static final int answer_3=0x7f070025;
-        public static final int answer_4=0x7f070026;
+        public static final int action_settings=0x7f07002a;
+        public static final int answer_1=0x7f070025;
+        public static final int answer_2=0x7f070026;
+        public static final int answer_3=0x7f070027;
+        public static final int answer_4=0x7f070028;
         /**  Startskärm 
          */
         public static final int app_name=0x7f070015;
@@ -277,8 +278,8 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f07000f;
-        public static final int bekräfta=0x7f07001c;
-        public static final int colorbackgroundproperties=0x7f07001b;
+        public static final int bekräfta=0x7f07001d;
+        public static final int colorbackgroundproperties=0x7f07001c;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -334,28 +335,31 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f07000e;
+        public static final int continue_button=0x7f070017;
+        public static final int game_time=0x7f070021;
         /**  Övriga 
          */
-        public static final int hello_world=0x7f070027;
-        public static final int lagfärg=0x7f070019;
-        public static final int lagnamn=0x7f070018;
-        public static final int question=0x7f070022;
-        public static final int question_topic=0x7f070021;
-        public static final int spelkaraktär=0x7f07001a;
+        public static final int hello_world=0x7f070029;
+        public static final int lagfärg=0x7f07001a;
+        public static final int lagnamn=0x7f070019;
+        public static final int question=0x7f070024;
+        public static final int question_topic=0x7f070023;
+        public static final int spelkaraktär=0x7f07001b;
         public static final int start_button=0x7f070016;
+        public static final int team_name=0x7f070020;
         /**  Alternativskärm 
          */
-        public static final int title_activity_alternativsida=0x7f070017;
+        public static final int title_activity_alternativsida=0x7f070018;
         /**  Spelplan 
          */
-        public static final int title_activity_game_board=0x7f07001d;
+        public static final int title_activity_game_board=0x7f07001e;
         /**  Frågeskärm 
          */
-        public static final int title_activity_question=0x7f070020;
+        public static final int title_activity_question=0x7f070022;
         /**  Statistikskärm 
          */
-        public static final int title_activity_statistics=0x7f07001e;
-        public static final int title_activity_task_dialog=0x7f070029;
+        public static final int title_activity_statistics=0x7f07001f;
+        public static final int title_activity_task_dialog=0x7f07002b;
     }
     public static final class style {
         /** 
@@ -388,6 +392,8 @@ containing a value of this type.
         public static final int AppTheme=0x7f0a0001;
         public static final int ButtonText=0x7f0a0002;
         public static final int colourText=0x7f0a0003;
+        public static final int questionText=0x7f0a0005;
+        public static final int questionTopic=0x7f0a0004;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
