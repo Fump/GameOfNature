@@ -32,7 +32,6 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 	private Spinner spinner;
 	private TypedArray charImg;
 	private AlertDialog.Builder alertbox;
-	private Database db;
 
 
 	@Override
@@ -109,15 +108,21 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 
 	public void nextScreen(View view) {
 		Intent intent = new Intent(this, GameBoardActivity.class);
-		db = new Database(this);
+		
+		Database db = new Database(this);
+		
 		db.open();
+		
 		EditText name = (EditText) findViewById(R.id.LagnamnText);
-		String iconId = Integer.toString(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
+		int iconId = charImg.getResourceId(spinner.getSelectedItemPosition(), -1);
 		String colorCode = (String) currentColor.getTag();
+		
 		db.createTeam(name.getText().toString(), iconId, colorCode, 0, 0, 0, 0);		
 		Toast.makeText(this,db.table(), Toast.LENGTH_LONG).show();
+		
 		db.close();
 		db = null;
+		
 		String lagnamn = name.getText().toString();
 		alertbox = new AlertDialog.Builder(this);
 		if(spinner.getSelectedItemPosition()==0 || lagnamn.matches("") ){

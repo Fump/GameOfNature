@@ -31,11 +31,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		database.execSQL("Create table " + TEAM + "( "+ NAME + " TEXT not null,"
-				+ ICON_ID + " TEXT not null, "+ COLOR + " TEXT not null, "+ GAME_TIME + "  INTEGER not null,"
+				+ ICON_ID + " INTEGER not null, "+ COLOR + " TEXT not null, "+ GAME_TIME + "  INTEGER not null,"
 				+  DISTANCE_TRAVELED + "  INTEGER not null, "+ HAS_ACTIVE_SESSION + "  INTEGER not null,"
 				+  CLUES + "  INTEGER not null);");
 		database.execSQL("Create table " + TASK_MARKER + "( id TEXT primary key, "
-				+ "currentStatus INTEGER not null, lastQuestionId INTEGER not null );");
+				+ "currentStatus INTEGER not null, lastQuestionId TEXT not null );");
 	}
 
 	@Override
