@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -107,6 +108,10 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 	}
 
 	public void nextScreen(View view) {
+		Button button = (Button) findViewById(R.id.alternative_confirmButton);
+		button.setBackgroundResource(R.drawable.down);
+		
+		
 		Intent intent = new Intent(this, GameBoardActivity.class);
 		
 		Database db = new Database(this);
@@ -126,11 +131,13 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		String lagnamn = name.getText().toString();
 		alertbox = new AlertDialog.Builder(this);
 		if(spinner.getSelectedItemPosition()==0 || lagnamn.matches("") ){
+			button.setBackgroundResource(R.drawable.upp);
 			alertbox.setMessage("Var god välj lagnamn och Spelkaraktär");
 			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
 				public void onClick(DialogInterface arg0, int arg1) {
 				}
 			});
+			
 			alertbox.show();
 		}else{
 			startActivity(intent);

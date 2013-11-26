@@ -2,7 +2,8 @@
 <resources>
     <!-- Startskärm -->
     <string name="app_name">GameOfNature</string>
-    <string name="start_button">Start</string>
+    <string name="start_button">Starta Nytt Spel</string>
+    <string name="continue_button">Fortsätt Spel</string>
 
     
     <!-- Alternativskärm -->
@@ -28,7 +29,8 @@
     
     <!-- Statistikskärm -->
     <string name="title_activity_statistics">StatisticsActivity</string>
-    <string name="GameBoardScreen">Spelplan</string>
+    <string name="team_name">Götes Pojkar</string>
+    <string name="game_time">35:10:11</string>
     
     <!-- Frågeskärm -->
     <string name="title_activity_question">QuestionActivity</string>

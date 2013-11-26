@@ -6,10 +6,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".QuestionActivity" >
+    tools:context=".QuestionActivity"
+    android:background="@drawable/otherbackground" >
+   
 
     <TextView
         android:id="@+id/question_title"
+        style="@style/questionTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,9 +23,10 @@
 
     <TextView
         android:id="@+id/question_content"
+        style="@style/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/question_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         android:text="@string/question" />
