@@ -195,9 +195,8 @@ containing a value of this type.
         public static final int marker_icon_b_blue=0x7f020021;
         public static final int marker_icon_b_green=0x7f020022;
         public static final int marker_icon_locked=0x7f020023;
-        public static final int otherbackground=0x7f020024;
-        public static final int shape_notification=0x7f020025;
-        public static final int upp=0x7f020026;
+        public static final int shape_notification=0x7f020024;
+        public static final int upp=0x7f020025;
     }
     public static final class id {
         public static final int ContinueButton=0x7f060015;
