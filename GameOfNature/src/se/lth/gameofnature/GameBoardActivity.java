@@ -19,6 +19,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -27,9 +28,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
@@ -37,6 +41,8 @@ public class GameBoardActivity extends Activity {
 	private MyLocationMarker myLocation;
 	private LocationHandler mLocationHandler;
 
+	private String markerCount = "";
+	
 	public static final String INTENT_SOURCE = "INTENT_SOURCE";
 	
 	@Override
@@ -53,8 +59,14 @@ public class GameBoardActivity extends Activity {
 		Drawable iconGreen = getResources().getDrawable(R.drawable.marker_icon_a_green);  
 		iconBlue.setAlpha(40);
 		iconGreen.setAlpha(40);
+		
 		getMenuInflater().inflate(R.menu.game_board, menu);
-		return true;
+		
+		View count = menu.findItem(R.id.badge).getActionView();
+		Button countButton = (Button)count.findViewById(R.id.notif_count);
+		countButton.setText(markerCount);
+		
+		return super.onCreateOptionsMenu(menu);
 	}
 	
 	@Override
@@ -86,6 +98,9 @@ public class GameBoardActivity extends Activity {
 		initLocationHandlerIfNeeded();
 		
 		handleIntent();
+		
+		setMarkerCount(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers(), 
+				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
 		
 		db.close();
 	}
@@ -166,5 +181,9 @@ public class GameBoardActivity extends Activity {
 			if(m.getStatus() == TaskMarker.STATUS_LOCKED)
 				m.setActive();
 		}
+	}
+	
+	private void setMarkerCount(int current, int total) {
+		markerCount = current + " / " + total;
 	}
 }

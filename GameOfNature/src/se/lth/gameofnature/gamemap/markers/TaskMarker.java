@@ -3,6 +3,7 @@ package se.lth.gameofnature.gamemap.markers;
 import java.util.ArrayList;
 import java.util.Random;
 
+import se.lth.gameofnature.data.Database;
 import se.lth.gameofnature.questions.Question;
 
 import android.content.Context;
@@ -69,6 +70,15 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 		
 		lastQuestionId = nextQuestion.getId();
 		
+		Database db = new Database(mContext);
+		
+		db.open();
+	
+		db.setLastQuestionId(id, lastQuestionId);
+		db.close();
+		
+		db = null;
+		
 		return nextQuestion;
 	}
 
@@ -101,24 +111,35 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 	}
 	
 	public void setActive() {
-		status = STATUS_ACTIVE;
-		
-		myMarker.setIcon(BitmapDescriptorFactory.
-				fromResource(getDrawableId(iconId, teamColorId, status)));
+		setStatus(STATUS_ACTIVE);
 	}
 	
 	public void setLocked() {
-		status = STATUS_LOCKED;
-		
-		myMarker.setIcon(BitmapDescriptorFactory.
-				fromResource(getDrawableId(iconId, teamColorId, status)));
+		setStatus(STATUS_LOCKED);
 	}
 	
 	public void setDone() {
-		status = STATUS_DONE;
+		setStatus(STATUS_DONE);
+	}
+	
+	public void setStatus(int status) {
+		this.status = status;
 		
-		myMarker.setIcon(BitmapDescriptorFactory.
-				fromResource(getDrawableId(iconId, teamColorId, status)));
+		if(myMarker != null) {
+			myMarker.setIcon(
+					BitmapDescriptorFactory.
+					fromResource(getDrawableId(iconId, teamColorId, status))
+			);
+		}
+		
+		Database db = new Database(mContext);
+		
+		db.open();
+	
+		db.setCurrentStatus(id, status);
+		db.close();
+		
+		db = null;
 	}
 	
 	public int getStatus() {
@@ -127,6 +148,14 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 	
 	public String getId() {
 		return id;
+	}
+	
+	public void setLastQuestionId(String qId) {
+		lastQuestionId = qId;
+	}
+	
+	public String getLastQuestionId() {
+		return lastQuestionId;
 	}
 	
 	private int getDrawableId(String iconId, String colorId, int status) {
@@ -148,6 +177,10 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 						.getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + "green", 
 						"drawable", "se.lth.gameofnature");
 		}
+	}
+	
+	public int getDrawableId() {
+		return getDrawableId(iconId, teamColorId, status);
 	}
 	
 	@Override

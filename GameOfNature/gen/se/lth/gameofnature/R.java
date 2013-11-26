@@ -195,6 +195,7 @@ containing a value of this type.
         public static final int marker_icon_b_blue=0x7f020021;
         public static final int marker_icon_b_green=0x7f020022;
         public static final int marker_icon_locked=0x7f020023;
+        public static final int shape_notification=0x7f020024;
     }
     public static final class id {
         public static final int LagfärgView=0x7f060007;
@@ -202,17 +203,19 @@ containing a value of this type.
         public static final int LagnamnView=0x7f060005;
         public static final int SpelkaraktärView=0x7f060009;
         public static final int StartButton=0x7f060015;
-        public static final int action_settings=0x7f06001b;
+        public static final int action_settings=0x7f06001c;
         public static final int alternative_confirmButton=0x7f06000c;
+        public static final int badge=0x7f06001d;
         public static final int character_image=0x7f06000b;
         public static final int character_spinner=0x7f06000a;
         public static final int choose_colors=0x7f060008;
         public static final int hybrid=0x7f060004;
-        public static final int icon1=0x7f06001c;
-        public static final int icon2=0x7f06001d;
+        public static final int icon1=0x7f06001e;
+        public static final int icon2=0x7f06001f;
         public static final int map=0x7f06000d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
+        public static final int notif_count=0x7f06001b;
         public static final int question_btnAnswer1=0x7f060011;
         public static final int question_btnAnswer2=0x7f060012;
         public static final int question_btnAnswer3=0x7f060013;
@@ -235,6 +238,7 @@ containing a value of this type.
         public static final int activity_start=0x7f030003;
         public static final int activity_statistics=0x7f030004;
         public static final int activity_task_dialog=0x7f030005;
+        public static final int feed_update_count=0x7f030006;
     }
     public static final class menu {
         public static final int alternativsida=0x7f0b0000;

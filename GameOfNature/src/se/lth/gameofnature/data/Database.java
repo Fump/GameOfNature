@@ -31,7 +31,6 @@ public class Database {
 	public TaskMarkerStatus createTaskMarker(String task_ID,
 			int current_status, String lastQuestionId) {
 		ContentValues values = new ContentValues();
-		dbHelper.onUpgrade(database, 0, 1);
 		values.put(MySQLiteHelper.TASK_MARKER_ID, task_ID);
 		values.put(MySQLiteHelper.CURRENT_STATUS, current_status);
 		values.put(MySQLiteHelper.LAST_QUESTION, lastQuestionId);
@@ -44,7 +43,6 @@ public class Database {
 	public Team createTeam(String name, int iconId, String color,
 			int game_time, int distanceTraveled, int hasActiveSession, int clues) {
 		ContentValues values = new ContentValues();
-		dbHelper.onUpgrade(database, 0, 1);
 		values.put(MySQLiteHelper.NAME, name);
 		values.put(MySQLiteHelper.ICON_ID, iconId);
 		values.put(MySQLiteHelper.COLOR, color);
@@ -65,15 +63,17 @@ public class Database {
 		Cursor cursor = database.rawQuery(selectQuery, null);
 		cursor.moveToFirst();
 		
+		Team t = null;
+		
 		if(!cursor.isAfterLast()) {
-			Team t = new Team(cursor.getString(0), cursor.getInt(1),
+			t = new Team(cursor.getString(0), cursor.getInt(1),
 					cursor.getString(2), cursor.getInt(3),
 					cursor.getInt(4), cursor.getInt(5), cursor.getInt(6));
-			
-			return t;
 		}
 		
-		return null;
+		cursor.close();
+		
+		return t;
 	}
 	
 	public boolean hasActiveSession() {
@@ -84,6 +84,8 @@ public class Database {
 		
 		if(!cursor.isAfterLast())
 			return true;
+		
+		cursor.close();
 		
 		return false;
 	}
@@ -180,6 +182,10 @@ public class Database {
 		String name = team.getName();
 		database.delete(MySQLiteHelper.TEAM,
 				MySQLiteHelper.NAME + " = " + name, null);
+	}
+	
+	public void resetDatabase() {
+		dbHelper.onUpgrade(database, 0, 1);
 	}
 
 	/*
