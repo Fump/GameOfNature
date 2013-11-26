@@ -45,12 +45,11 @@ public class TaskMarkerDialog extends Activity {
 	public void okClicked(View v) {
 		
 		TaskMarker currentMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
-		
 		if(currentMarker.getStatus() == TaskMarker.STATUS_ACTIVE)
 			currentMarker.getNextQuestion().startQuestionActivity(this, currentMarkerId);
 		else if(currentMarker.getStatus() == FinalQuestionMarker.STATUS_FINAL){
 			/*TODO:Finalisera detta
-			 * FinalQuestionMarker currentFinalMarker = PlayerSession.getCurrentSessionInstance(this).getTaskMarker(currentMarkerId);
+			 * FinalQuestionMarker currentFinalMarker = PlayerSession.getCurrentSessionInstance(this).getFinalQuestionMarker(currentMarkerId);
 			 * 
 			 */
 		}

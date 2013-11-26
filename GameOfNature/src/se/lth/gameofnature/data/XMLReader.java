@@ -114,13 +114,13 @@ public class XMLReader {
 		}
 
 	}
-	/*TODO: Avsluta
+	/*
 	 * Som en kombination av getMarker och readTaskMarkers.
 	 */
-	/*
-	public static FinalQuestionMarker getFinalQuestion(Element e, Context mContext){
-		InputStream is = mContext.getResources().openRawResource(R.raw.map);
 
+	public static FinalQuestionMarker readFinalQuestion(Context mContext){
+		InputStream is = mContext.getResources().openRawResource(R.raw.map);
+		FinalQuestionMarker fqm = null;
 		try {
 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -131,18 +131,42 @@ public class XMLReader {
 
 			NodeList markerNodes = doc.getElementsByTagName("FinalQuestion");
 
+			Node markerNode = markerNodes.item(0);
+
+			if(markerNode.getNodeType() == Node.ELEMENT_NODE) {
+				Element markerElement = (Element) markerNode;
+				String questionId = markerElement.getAttribute("questionId");
+				double lat = Double.parseDouble(markerElement.getAttribute("latitude"));
+				double lng = Double.parseDouble(markerElement.getAttribute("longitude"));
+				LatLng pos = new LatLng(lat, lng);			
+				String title = markerElement.getAttribute("title");
+				String snippet = markerElement.getAttribute("snippet");
+				String infoTxt = markerElement.getAttribute("infoTxt");
+				String iconId = markerElement.getAttribute("iconId");
+				
+				fqm = new FinalQuestionMarker(mContext,questionId,pos,title,snippet,infoTxt,iconId);
+
+				NodeList clueNodes = markerElement.getElementsByTagName("clue");
+
+				for(int j = 0; j < clueNodes.getLength(); j++) {
+					Node clueNode = clueNodes.item(j);
+
+					if(clueNode.getNodeType() == Node.ELEMENT_NODE) {
+						Element clueElement = (Element) clueNode;
+
+						Clue c = getClue(clueElement);
+						fqm.addClue(c);
+					}
+				}
+			}
+
+
 		} catch(Exception f) {
 			f.printStackTrace();
 		}
-
-		String questionId = e.getAttribute("questionId");
-
-		FinalQuestionMarker fqm = new FinalQuestionMarker(mContext,questionId,pos,title,snippet,infoTxt,iconId, timer);
-		fqm.addClue(c);
 		return fqm;
+	}
 
-
-	}*/
 
 	private static Clue getClue(Element e){
 		String id = e.getAttribute("id");

@@ -18,7 +18,6 @@ public class FinalQuestionMarker extends GameMarker {
 	private String iconId;
 	private String questionId;
 	private String infoTxt;
-	private String timer;
 	private int status;
 	
 	public static final int STATUS_FINAL = 3;
@@ -27,14 +26,13 @@ public class FinalQuestionMarker extends GameMarker {
 	private ArrayList<Clue> clues;
 	
 	public FinalQuestionMarker(Context mContext, String questionId, LatLng position, String title, 
-			String snippet, String infoTxt, String iconId, String timer) {
+			String snippet, String infoTxt, String iconId) {
 		super(position, title, snippet);
 		
 		this.mContext = mContext;
 		this.iconId = iconId;
 		this.questionId = questionId;
 		this.infoTxt = infoTxt;
-		this.timer = timer;
 		status = STATUS_FINAL;
 	}
 	
@@ -64,10 +62,6 @@ public class FinalQuestionMarker extends GameMarker {
 	
 	public String getQuestionId() {
 		return questionId; 
-	}
-	
-	public String getTimer(){
-		return timer;
 	}
 	
 	public int getStatus(){

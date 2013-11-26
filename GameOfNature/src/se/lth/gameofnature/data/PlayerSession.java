@@ -26,13 +26,16 @@ public class PlayerSession {
 	private FinalQuestionMarker fqm;
 	public PlayerSession(Context mContext) {
 		taskMarkers = XMLReader.readTaskMarkers(mContext);
-		/*TODO: Gör klart denna. Gör en getFinalQuestion för användning i TaskMarkerDialog
-		 * fqm = XMLReader.getFinalQuestion(e, mContext)
-		 */
+		fqm = XMLReader.readFinalQuestion(mContext);
+		 
 	}
 	
 	public TaskMarker getTaskMarker(String id) {
 		return taskMarkers.get(id);
+	}
+	
+	public FinalQuestionMarker getFinalQuestion(String id){
+		return fqm;
 	}
 	
 	public boolean containsTaskMarker(String id) {
