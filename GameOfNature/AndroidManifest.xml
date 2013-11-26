@@ -74,7 +74,7 @@
             android:value="AIzaSyBE0K7e54rO62rUbz8ik8t8JU6pT4Ke9Pg" />
 
         <activity
-            android:name="se.lth.gameofnature.StatisticsActivity"
+            android:name="se.lth.gameofnature.WinnerActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/title_activity_statistics"
             android:screenOrientation="portrait" >

@@ -6,7 +6,10 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.Button;
+
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 
 public class StartActivity extends Activity {
 
@@ -32,7 +35,14 @@ public class StartActivity extends Activity {
 		db.close();
 		db = null;
 		
+		Button button = (Button) findViewById(R.id.StartButton);
+		button.setBackgroundResource(R.drawable.down);
 		Intent intent = new Intent(this, Alternativsida.class);
 		startActivity(intent);
+	}
+	
+	public void changeButton(View view){
+		Button button = (Button) findViewById(R.id.ContinueButton);
+		button.setBackgroundResource(R.drawable.down);
 	}
 }
