@@ -125,6 +125,12 @@ public class GameBoardActivity extends Activity {
 				else
 					marker.setLocked();
 				
+				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
+				if(checkWin()) {
+					Intent i = new Intent(this, WinnerActivity.class);
+					startActivity(i);
+				}
+				
 			} else if(source.equals(Alternativsida.ACTIVITY_NAME)) {
 				
 			}
@@ -185,5 +191,10 @@ public class GameBoardActivity extends Activity {
 	
 	private void setMarkerCount(int current, int total) {
 		markerCount = current + " / " + total;
+	}
+	
+	private boolean checkWin() {
+		return GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() ==
+				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers();
 	}
 }

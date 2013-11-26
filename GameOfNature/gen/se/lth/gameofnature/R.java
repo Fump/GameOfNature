@@ -195,12 +195,9 @@ containing a value of this type.
         public static final int marker_icon_b_blue=0x7f020021;
         public static final int marker_icon_b_green=0x7f020022;
         public static final int marker_icon_locked=0x7f020023;
-<<<<<<< HEAD
-        public static final int shape_notification=0x7f020024;
-=======
         public static final int otherbackground=0x7f020024;
-        public static final int upp=0x7f020025;
->>>>>>> master
+        public static final int shape_notification=0x7f020025;
+        public static final int upp=0x7f020026;
     }
     public static final class id {
         public static final int ContinueButton=0x7f060015;
@@ -209,41 +206,25 @@ containing a value of this type.
         public static final int LagnamnView=0x7f060005;
         public static final int LagnamnWin=0x7f06001a;
         public static final int SpelkaraktärView=0x7f060009;
-<<<<<<< HEAD
-        public static final int StartButton=0x7f060015;
-=======
         public static final int StartButton=0x7f060014;
         public static final int TimeWin=0x7f06001b;
->>>>>>> master
-        public static final int action_settings=0x7f06001c;
+        public static final int action_settings=0x7f06001d;
         public static final int alternative_confirmButton=0x7f06000c;
-        public static final int badge=0x7f06001d;
+        public static final int badge=0x7f06001e;
         public static final int character_image=0x7f06000b;
         public static final int character_spinner=0x7f06000a;
         public static final int choose_colors=0x7f060008;
         public static final int hybrid=0x7f060004;
-<<<<<<< HEAD
-        public static final int icon1=0x7f06001e;
-        public static final int icon2=0x7f06001f;
+        public static final int icon1=0x7f06001f;
+        public static final int icon2=0x7f060020;
         public static final int map=0x7f06000d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int notif_count=0x7f06001b;
-        public static final int question_btnAnswer1=0x7f060011;
-        public static final int question_btnAnswer2=0x7f060012;
-        public static final int question_btnAnswer3=0x7f060013;
-        public static final int question_btnAnswer4=0x7f060014;
-=======
-        public static final int icon1=0x7f06001d;
-        public static final int icon2=0x7f06001e;
-        public static final int map=0x7f06000d;
-        public static final int none=0x7f060000;
-        public static final int normal=0x7f060001;
+        public static final int notif_count=0x7f06001c;
         public static final int question_btnAnswer1=0x7f060010;
         public static final int question_btnAnswer2=0x7f060011;
         public static final int question_btnAnswer3=0x7f060012;
         public static final int question_btnAnswer4=0x7f060013;
->>>>>>> master
         public static final int question_content=0x7f06000f;
         public static final int question_title=0x7f06000e;
         public static final int satellite=0x7f060002;
@@ -258,14 +239,9 @@ containing a value of this type.
         public static final int activity_game_board=0x7f030001;
         public static final int activity_question=0x7f030002;
         public static final int activity_start=0x7f030003;
-<<<<<<< HEAD
-        public static final int activity_statistics=0x7f030004;
-        public static final int activity_task_dialog=0x7f030005;
-        public static final int feed_update_count=0x7f030006;
-=======
         public static final int activity_task_dialog=0x7f030004;
         public static final int activity_winner=0x7f030005;
->>>>>>> master
+        public static final int feed_update_count=0x7f030006;
     }
     public static final class menu {
         public static final int alternativsida=0x7f0b0000;
