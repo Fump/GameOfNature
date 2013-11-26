@@ -15,6 +15,7 @@ public abstract class Question {
 	public static final String CORRECT_ANSWER = "CORRECT_ANSWER";
 	
 	public static final String QUESTION_TYPE_TEXT = "text";
+	public static final String QUESTION_TYPE_FINAL = "FINAL";
 	
 	protected String id;
 	

@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import se.lth.gameofnature.R;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
+import se.lth.gameofnature.questions.FinalQuestion;
 import se.lth.gameofnature.questions.Question;
 import se.lth.gameofnature.questions.TextQuestion;
 
@@ -93,7 +94,7 @@ public class XMLReader {
 		String id = e.getAttribute("id");
 		String type = e.getAttribute("type");
 		String questionTxt = e.getAttribute("questionTxt");
-		
+
 		String[] answers = new String[4];
 		
 		answers[0] = e.getAttribute("answer0");
@@ -105,7 +106,9 @@ public class XMLReader {
 		
 		if(type.equals(Question.QUESTION_TYPE_TEXT)) {
 			return new TextQuestion(id, questionTxt, answers, correctAnswer);
-		} else {
+		} else if(type.equals(Question.QUESTION_TYPE_FINAL)){
+			return new FinalQuestion(id,questionTxt,answers,correctAnswer);
+		}else {
 			return new TextQuestion(id, questionTxt, answers, correctAnswer);
 		}
 		

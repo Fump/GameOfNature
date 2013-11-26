@@ -41,14 +41,24 @@
 			answer1ImgId="4"
 			correctAnswer="3"/>
 	</TaskMarker>
-	<FinalQuestion
-	    Latitude="56.133425"
-		Longitude="12.43525"
+	<TaskMarker
+		id="FINAL"
+		nrQuestions="1"
+		Latitude="56.133425"
+		Longitude="13.43525"
 		title="Skatt"
-		infoTxt="Slutuppgift"
-		iconId="FINAL"
-		QuestionId="NATUR" //id är också själva ordet
-		timer="10" //timer om man placerar en bokstav på fel plats?
+		snippet="Slutuppgift"
+		infoTxt="Här är skatten!"
+		iconId="FINAL">
+		<Question
+		    id="1"
+		    type="FINAL"
+		    questionTxt="NATUR"
+		    />
+	    	
+	</TaskMarker>
+	    
+	<FinalQuestion
 			>
 		<clue
 		id="2453"
