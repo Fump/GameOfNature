@@ -2,8 +2,8 @@
 <Map>
 	<TaskMarker
 		id="1"
-		latitude="55.133425"
-		longitude="13.43525"
+		latitude="56.148161"
+		longitude="13.392947"
 		title="Ektrad"
 		snippet="Ett stort ektrad"
 		infoTxt="Intressant ektrad..."
