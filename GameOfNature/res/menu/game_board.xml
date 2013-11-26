@@ -3,8 +3,7 @@
         android:id="@+id/badge"
         android:actionLayout="@layout/feed_update_count"
         android:icon="@drawable/shape_notification"
-        android:showAsAction="always">
-	</item>
+        android:showAsAction="always"/>
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -15,10 +14,10 @@
           android:id="@+id/icon1"
           android:icon="@drawable/marker_icon_a_blue"
           android:title=""
-          android:showAsAction="ifRoom"/>
+          android:showAsAction="always"/>
       <item 
           android:id="@+id/icon2"
           android:icon="@drawable/marker_icon_a_green"
           android:title=""
-          android:showAsAction="ifRoom"/>
+          android:showAsAction="always"/>
 </menu>
