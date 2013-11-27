@@ -56,7 +56,7 @@ public class GameBoardActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getActionBar().setDisplayShowHomeEnabled(false);
 		Drawable iconBlue = getResources().getDrawable(R.drawable.marker_icon_a_blue);
-		Drawable iconGreen = getResources().getDrawable(R.drawable.marker_icon_a_green);  
+		Drawable iconGreen = getResources().getDrawable(R.drawable.marker_icon_b_blue);  
 		iconBlue.setAlpha(40);
 		iconGreen.setAlpha(40);
 		

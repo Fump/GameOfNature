@@ -57,14 +57,14 @@ public class StartActivity extends Activity {
 		db = null;
 		
 		Button button = (Button) findViewById(R.id.StartButton);
-		button.setBackgroundResource(R.drawable.down);
+		button.setBackgroundResource(R.drawable.button_down);
 		Intent intent = new Intent(this, Alternativsida.class);
 		startActivity(intent);
 	}
 	
 	public void changeButton(View view){
 		Button button = (Button) findViewById(R.id.ContinueButton);
-		button.setBackgroundResource(R.drawable.down);
+		button.setBackgroundResource(R.drawable.button_down);
 		
 		Intent intent = new Intent(this, GameBoardActivity.class);
 		startActivity(intent);
