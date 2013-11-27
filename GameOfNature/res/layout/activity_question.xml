@@ -38,15 +38,6 @@
         android:layout_centerVertical="true"
         android:onClick="tryAnswer"
         android:text="@string/answer_1" />
-    
-    <Button
-        android:id="@+id/question_btnAnswer2"
-        android:layout_width="145dp"
-        android:layout_height="145dp"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/question_btnAnswer1"
-        android:text="@string/answer_2" 
-        android:onClick="tryAnswer"/>
 
     <Button
         android:id="@+id/question_btnAnswer3"
@@ -60,9 +51,19 @@
         android:id="@+id/question_btnAnswer4"
         android:layout_width="145dp"
         android:layout_height="145dp"
-        android:layout_below="@+id/question_btnAnswer2"
-        android:layout_toRightOf="@+id/question_btnAnswer3"
+        android:layout_alignBaseline="@+id/question_btnAnswer3"
+        android:layout_alignBottom="@+id/question_btnAnswer3"
+        android:layout_alignParentRight="true"
         android:onClick="tryAnswer"
         android:text="@string/answer_4" />
+
+    <Button
+        android:id="@+id/question_btnAnswer2"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_above="@+id/question_btnAnswer3"
+        android:layout_alignLeft="@+id/question_btnAnswer4"
+        android:onClick="tryAnswer"
+        android:text="@string/answer_2" />
 
 </RelativeLayout>

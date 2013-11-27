@@ -192,9 +192,10 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_light=0x7f02001e;
         public static final int ic_launcher=0x7f02001f;
         public static final int marker_icon_a_blue=0x7f020020;
-        public static final int marker_icon_b_blue=0x7f020021;
-        public static final int marker_icon_locked=0x7f020022;
-        public static final int shape_notification=0x7f020023;
+        public static final int marker_icon_a_green=0x7f020021;
+        public static final int marker_icon_b_blue=0x7f020022;
+        public static final int marker_icon_locked=0x7f020023;
+        public static final int shape_notification=0x7f020024;
     }
     public static final class id {
         public static final int ContinueButton=0x7f060015;
@@ -219,9 +220,9 @@ containing a value of this type.
         public static final int normal=0x7f060001;
         public static final int notif_count=0x7f06001c;
         public static final int question_btnAnswer1=0x7f060010;
-        public static final int question_btnAnswer2=0x7f060011;
-        public static final int question_btnAnswer3=0x7f060012;
-        public static final int question_btnAnswer4=0x7f060013;
+        public static final int question_btnAnswer2=0x7f060013;
+        public static final int question_btnAnswer3=0x7f060011;
+        public static final int question_btnAnswer4=0x7f060012;
         public static final int question_content=0x7f06000f;
         public static final int question_title=0x7f06000e;
         public static final int satellite=0x7f060002;
