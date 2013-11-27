@@ -109,7 +109,7 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 
 	public void nextScreen(View view) {
 		Button button = (Button) findViewById(R.id.alternative_confirmButton);
-		button.setBackgroundResource(R.drawable.down);
+		button.setBackgroundResource(R.drawable.button_down);
 		
 		
 		Intent intent = new Intent(this, GameBoardActivity.class);
@@ -131,7 +131,7 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		String lagnamn = name.getText().toString();
 		alertbox = new AlertDialog.Builder(this);
 		if(spinner.getSelectedItemPosition()==0 || lagnamn.matches("") ){
-			button.setBackgroundResource(R.drawable.upp);
+			button.setBackgroundResource(R.drawable.button_up);
 			alertbox.setMessage("Var god välj lagnamn och Spelkaraktär");
 			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
 				public void onClick(DialogInterface arg0, int arg1) {

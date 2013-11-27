@@ -17,7 +17,7 @@
           android:showAsAction="always"/>
       <item 
           android:id="@+id/icon2"
-          android:icon="@drawable/marker_icon_a_green"
+          android:icon="@drawable/marker_icon_b_blue"
           android:title=""
           android:showAsAction="always"/>
 </menu>
