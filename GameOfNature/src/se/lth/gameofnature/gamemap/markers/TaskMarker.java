@@ -1,5 +1,6 @@
 package se.lth.gameofnature.gamemap.markers;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import se.lth.gameofnature.data.Database;
