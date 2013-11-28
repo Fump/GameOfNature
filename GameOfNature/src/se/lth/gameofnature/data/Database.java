@@ -154,22 +154,22 @@ public class Database {
 		database.update(MySQLiteHelper.TEAM, values, name, null);
 	}
 	
-	public void setGameTime(String name, int game_time) {
+	public void setGameTime(int game_time) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.GAME_TIME, game_time);
-		database.update(MySQLiteHelper.TEAM, values, name, null);
+		database.update(MySQLiteHelper.TEAM, values, "*", null);
 	}
 	
-	public void setDistanceTravled(String name, int distanceTraveled) {
+	public void setDistanceTravled(int distanceTraveled) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.DISTANCE_TRAVELED, distanceTraveled);
-		database.update(MySQLiteHelper.TEAM, values, name, null);
+		database.update(MySQLiteHelper.TEAM, values, "*", null);
 	}
 	
-	public void setClues(String name, int clues) {
+	public void setClues(int clues) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.CLUES, clues);
-		database.update(MySQLiteHelper.TEAM, values, name, null);
+		database.update(MySQLiteHelper.TEAM, values, "*", null);
 	}
 
 	public void deleteTaskMarker(TaskMarkerStatus task) {

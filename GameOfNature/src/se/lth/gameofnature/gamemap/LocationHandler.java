@@ -2,6 +2,8 @@ package se.lth.gameofnature.gamemap;
 
 import java.util.ArrayList;
 
+import se.lth.gameofnature.data.Database;
+import se.lth.gameofnature.data.Team;
 import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 
@@ -51,6 +53,9 @@ public class LocationHandler implements
 	
 	private static final int TRACK_RADIUS = 15;
 	
+	private Location lastLocation;
+	private int distanceTraveled;
+	
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(5000)         // 5 seconds
             .setFastestInterval(16)    // 16ms = 60fps
@@ -66,6 +71,15 @@ public class LocationHandler implements
 		
 		hasPendingRemove = false;
 		hasPendingAdd = false;
+		
+		Database db = new Database(mContext);
+		
+		db.open();
+		Team t = db.getTeamStatus();
+		
+		distanceTraveled = t.getDistanceTraveled();
+		db.close();
+		db = null;
 	}
 	
 	/*
@@ -186,9 +200,29 @@ public class LocationHandler implements
 	@Override
 	public void onLocationChanged(Location loc) {
 		LatLng pos = new LatLng(loc.getLatitude(), loc.getLongitude());
-
+		
 		myLocation.setPosition(pos);	
 		map.setPosition(pos);
+		
+		if(lastLocation != null) {
+			float[] distance = new float[1];
+			
+			Location.distanceBetween(lastLocation.getLatitude(), lastLocation.getLongitude(), 
+					loc.getLatitude(), loc.getLongitude(), 
+					distance);
+			
+			distanceTraveled += distance[0];
+			
+			Database db = new Database(mContext);
+			db.open();
+			
+			db.setDistanceTravled(distanceTraveled);
+			
+			db.close();
+			db = null;
+		}
+		
+		lastLocation = loc;
 	}
 
 	@Override
