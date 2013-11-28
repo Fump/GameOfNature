@@ -128,7 +128,6 @@ public class XMLReader {
 		if(type.equals(Question.QUESTION_TYPE_TEXT)) {
 			return new TextQuestion(id, questionTxt, answers, correctAnswer);
 		} else if(type.equals(Question.QUESTION_TYPE_FINAL)){
-			
 			return new FinalQuestion(id,questionTxt,answers,correctAnswer, clues);
 		}else {
 			return new TextQuestion(id, questionTxt, answers, correctAnswer);
