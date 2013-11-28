@@ -1,6 +1,7 @@
 package se.lth.gameofnature;
 
 import se.lth.gameofnature.data.Database;
+import se.lth.gameofnature.data.GameMapData;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -52,6 +53,7 @@ public class StartActivity extends Activity {
 		
 		db.open();
 		db.resetDatabase();
+		GameMapData.resetGameData();
 		
 		db.close();
 		db = null;

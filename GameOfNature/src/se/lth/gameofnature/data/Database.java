@@ -34,7 +34,7 @@ public class Database {
 		values.put(MySQLiteHelper.TASK_MARKER_ID, task_ID);
 		values.put(MySQLiteHelper.CURRENT_STATUS, current_status);
 		values.put(MySQLiteHelper.LAST_QUESTION, lastQuestionId);
-		database.insert(MySQLiteHelper.TEAM, null, values);
+		database.insert(MySQLiteHelper.TASK_MARKER, null, values);
 		TaskMarkerStatus task = new TaskMarkerStatus(task_ID, current_status,
 				lastQuestionId);
 		return task;
@@ -154,22 +154,22 @@ public class Database {
 		database.update(MySQLiteHelper.TEAM, values, name, null);
 	}
 	
-	public void setGameTime(String name, int game_time) {
+	public void setGameTime(int game_time) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.GAME_TIME, game_time);
-		database.update(MySQLiteHelper.TEAM, values, name, null);
+		database.update(MySQLiteHelper.TEAM, values, null, null);
 	}
 	
-	public void setDistanceTravled(String name, int distanceTraveled) {
+	public void setDistanceTravled(int distanceTraveled) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.DISTANCE_TRAVELED, distanceTraveled);
-		database.update(MySQLiteHelper.TEAM, values, name, null);
+		database.update(MySQLiteHelper.TEAM, values, null, null);
 	}
 	
-	public void setClues(String name, int clues) {
+	public void setClues(int clues) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.CLUES, clues);
-		database.update(MySQLiteHelper.TEAM, values, name, null);
+		database.update(MySQLiteHelper.TEAM, values, null, null);
 	}
 
 	public void deleteTaskMarker(TaskMarkerStatus task) {

@@ -15,13 +15,13 @@ public class FinalQuestion extends Question{
 	
 	public FinalQuestion(String id, String questionTxt,
 			String[] answers, int correctAnswer, ArrayList<Clue> clues) {
-		super(id, Question.QUESTION_TYPE_TEXT, questionTxt, answers, correctAnswer);
+		super(id, Question.QUESTION_TYPE_FINAL, questionTxt, answers, correctAnswer);
 		this.clues = clues;
 	}
 	
 	@Override
 	public void startQuestionActivity(Context source, String taskMarkerId) {
-	Intent intent = new Intent (source,WinnerActivity.class);
-	source.startActivity(intent);
+		Intent intent = new Intent (source,WinnerActivity.class);
+		source.startActivity(intent);
 	}
 }

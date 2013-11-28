@@ -12,6 +12,7 @@ import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
 import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
+import se.lth.gameofnature.gametimer.GameTimer;
 import se.lth.gameofnature.questions.Question;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -39,8 +40,11 @@ import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
+	
 	private MyLocationMarker myLocation;
 	private LocationHandler mLocationHandler;
+	private GameTimer timer;
+	
 	private boolean a_blue=false;
 	private boolean b_blue=false;
 	private String markerCount = "";
@@ -98,6 +102,8 @@ public class GameBoardActivity extends Activity {
 		
 		if(mLocationHandler != null)
 			mLocationHandler.stopTracking();
+		
+		GameTimer.stopTimer();
 	}
 	
 	@Override
@@ -118,6 +124,9 @@ public class GameBoardActivity extends Activity {
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
 		
 		db.close();
+		
+		if(!GameTimer.isRunning())
+			GameTimer.startTimer(this);
 	}
 	
 	private void handleIntent() {
