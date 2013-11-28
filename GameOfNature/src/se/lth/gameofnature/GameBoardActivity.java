@@ -32,6 +32,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -40,7 +41,8 @@ public class GameBoardActivity extends Activity {
 	private GameMap map;
 	private MyLocationMarker myLocation;
 	private LocationHandler mLocationHandler;
-
+	private boolean a_blue=false;
+	private boolean b_blue=false;
 	private String markerCount = "";
 	
 	public static final String INTENT_SOURCE = "INTENT_SOURCE";
@@ -48,6 +50,11 @@ public class GameBoardActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//Fullscreen
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		setContentView(R.layout.activity_game_board);
 	}
 
@@ -55,10 +62,18 @@ public class GameBoardActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getActionBar().setDisplayShowHomeEnabled(false);
-		Drawable iconBlue = getResources().getDrawable(R.drawable.marker_icon_a_blue);
-		Drawable iconGreen = getResources().getDrawable(R.drawable.marker_icon_b_blue);  
-		iconBlue.setAlpha(40);
-		iconGreen.setAlpha(40);
+		Drawable iconTree = getResources().getDrawable(R.drawable.marker_icon_a_blue);
+		Drawable iconHouse = getResources().getDrawable(R.drawable.marker_icon_b_blue);  
+		if(!a_blue){
+			iconTree.setAlpha(40);
+		}else{
+			iconTree.setAlpha(200);
+		}
+		if(!b_blue){
+			iconHouse.setAlpha(40);
+		}else{
+			
+		}
 		
 		getMenuInflater().inflate(R.menu.game_board, menu);
 		
@@ -120,11 +135,19 @@ public class GameBoardActivity extends Activity {
 				
 				unlockAllMarkers();
 				
-				if(isCorrectAnswer)
+				if(isCorrectAnswer){
 					marker.setDone();
-				else
+					
+				switch(marker.getDrawableId()){
+				case R.drawable.marker_icon_a_green: a_blue=true;
+				break;
+					default:
+						break;
+				}
+					
+				}else{
 					marker.setLocked();
-				
+				}
 				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
 				if(checkWin()) {
 					Intent i = new Intent(this, WinnerActivity.class);
