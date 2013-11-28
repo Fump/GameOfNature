@@ -79,7 +79,7 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 			alertbox.show();
 			break;
 		case 2:  
-			alertbox.setMessage("Nyckelpiggan är fläkigt!");
+			alertbox.setMessage("Luddes fina lilla piga :)");
 			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
 				public void onClick(DialogInterface arg0, int arg1) {
 				}

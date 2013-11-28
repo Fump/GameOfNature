@@ -16,7 +16,7 @@
     <string-array name="character_list">
         <item>Välj markör</item>
         <item>android</item>
-        <item>Nyckelpigga</item>
+        <item>Nyckelpiga</item>
     </string-array>
     <integer-array name="character_img_list">
         <item>@android:color/transparent</item>
