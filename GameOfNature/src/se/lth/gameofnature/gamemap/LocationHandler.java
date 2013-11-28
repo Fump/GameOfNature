@@ -75,9 +75,14 @@ public class LocationHandler implements
 		Database db = new Database(mContext);
 		
 		db.open();
-		Team t = db.getTeamStatus();
 		
-		distanceTraveled = t.getDistanceTraveled();
+		if(db.hasActiveSession()) {
+			Team t = db.getTeamStatus();
+			distanceTraveled = t.getDistanceTraveled();
+		} else {
+			distanceTraveled = 0;
+		}
+		
 		db.close();
 		db = null;
 	}
