@@ -1,6 +1,7 @@
 package se.lth.gameofnature;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.app.Activity;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import android.graphics.Color;
 import java.util.*;
 
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
+import se.lth.gameofnature.gametimer.GameTimer;
 import se.lth.gameofnature.questions.Question;
 
 public class QuestionActivity extends Activity {
@@ -28,15 +30,8 @@ public class QuestionActivity extends Activity {
 	private int correctAnswer; // Eftersom det går att hämta strängen direkt
 								// från en knapp kan vi stoppa in hela svaret
 								// här och göra en compareTo.
-	private Random rand; // för att slumpa en fråga ur xml:en, använd
-							// nrQuestions i .xml:en
 
 	private String sourceTaskMarkerId;
-
-	/*
-	 * övriga variabler
-	 */
-	private String filepath = "res/layout/activity_question.xml";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +42,18 @@ public class QuestionActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
 		setQuestion();
+		
+		if(!GameTimer.isRunning())
+			GameTimer.startTimer(this);
+	}
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		
+		GameTimer.stopTimer();
 	}
 
 	/*
@@ -123,14 +129,10 @@ public class QuestionActivity extends Activity {
 			// Här sätter vi färg på "rätt"-knappen; detta måste vi göra i
 			// samband med setQuestion
 		}
-		long now, t0;
-		now = t0 = System.currentTimeMillis();
-		while (now - t0 < 3000) { // alternativt en realtidslösning
-			now = System.currentTimeMillis();
-			System.out.println("räknare");
-		}
-
-		sendBackToGameBoard(isCorrect);
+		
+		//Fixat ny delay som inte buggar knapparnas grafik.
+		Handler myHandler = new Handler();
+		myHandler.postDelayed(getDelayedSendBack(isCorrect), 3000);
 	}
 
 	private void sendBackToGameBoard(boolean isCorrectAnswer) {
@@ -144,4 +146,15 @@ public class QuestionActivity extends Activity {
 		startActivity(intent);
 
 	}
+	
+	private Runnable getDelayedSendBack(final boolean correctAnswer) {
+		return new Runnable() {
+			
+			@Override
+			public void run() {
+				sendBackToGameBoard(correctAnswer);
+			}
+		};
+	}
+	
 }

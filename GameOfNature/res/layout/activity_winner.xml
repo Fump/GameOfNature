@@ -12,13 +12,13 @@
     tools:context=".WinnerActivity" >
     
             <TextView
-            android:id="@+id/LagnamnWin"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
- 			android:text="@string/team_name"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:id="@+id/teamNameWin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:text="@string/team_name"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
             
             <TextView
             android:id="@+id/TimeWin"
@@ -28,5 +28,14 @@
             android:layout_marginTop="20dp"
             android:text="@string/game_time"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/distanceWin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/game_time"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
     
 </LinearLayout>

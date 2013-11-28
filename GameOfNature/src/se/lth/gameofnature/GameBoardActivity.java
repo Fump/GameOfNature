@@ -78,9 +78,6 @@ public class GameBoardActivity extends Activity {
 		
 		if(mLocationHandler != null)
 			mLocationHandler.stopTracking();
-		
-		if(timer != null)
-			timer.stopTimer();
 	}
 	
 	@Override
@@ -89,6 +86,8 @@ public class GameBoardActivity extends Activity {
 		
 		if(mLocationHandler != null)
 			mLocationHandler.stopTracking();
+		
+		GameTimer.stopTimer();
 	}
 	
 	@Override
@@ -102,7 +101,6 @@ public class GameBoardActivity extends Activity {
 		
 		initMapIfNeeded(teamStatus.getIconId());
 		initLocationHandlerIfNeeded();
-		initTimerIfNeeded();
 		
 		handleIntent();
 		
@@ -110,6 +108,9 @@ public class GameBoardActivity extends Activity {
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
 		
 		db.close();
+		
+		if(!GameTimer.isRunning())
+			GameTimer.startTimer(this);
 	}
 	
 	private void handleIntent() {
@@ -183,13 +184,6 @@ public class GameBoardActivity extends Activity {
 		while(itr.hasNext()) {
 			mLocationHandler.trackTaskMarker(itr.next());
 		}
-	}
-	
-	private void initTimerIfNeeded() {
-		if(timer == null) 
-			timer = new GameTimer(this);
-		
-		timer.startTimer();
 	}
 	
 	private void unlockAllMarkers() {

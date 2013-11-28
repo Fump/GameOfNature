@@ -22,6 +22,10 @@ public class GameMapData {
 		return session;
 	}
 	
+	public static void resetGameData() {
+		session = null;
+	}
+	
 	private TreeMap<String, TaskMarker> taskMarkers;
 	
 	public GameMapData(Context mContext) {

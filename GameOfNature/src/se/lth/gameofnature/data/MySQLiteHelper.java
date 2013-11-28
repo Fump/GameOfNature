@@ -35,7 +35,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 				+  DISTANCE_TRAVELED + "  INTEGER not null, "+ HAS_ACTIVE_SESSION + "  INTEGER not null,"
 				+  CLUES + "  INTEGER not null);");
 		database.execSQL("Create table " + TASK_MARKER + "( id TEXT primary key, "
-				+ "currentStatus INTEGER not null, lastQuestionId TEXT not null );");
+				+ "currentStatus INTEGER not null, lastQuestionId TEXT );");
 	}
 
 	@Override

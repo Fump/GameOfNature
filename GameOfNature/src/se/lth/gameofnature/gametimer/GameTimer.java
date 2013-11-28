@@ -7,6 +7,24 @@ import se.lth.gameofnature.data.Database;
 import android.content.Context;
 
 public class GameTimer {
+	public static GameTimer timer;
+	
+	public static void startTimer(Context mContext) {
+		if(timer == null)
+			timer = new GameTimer(mContext);
+		
+		timer.start();
+	}
+	
+	public static void stopTimer() {
+		if(timer != null)
+			timer.stop();
+	}
+	
+	public static boolean isRunning() {
+		return timer != null && timer.running;
+	}
+	
 	private int seconds;
 	
 	private Timer t;
@@ -35,7 +53,7 @@ public class GameTimer {
 		running = false;
 	}
 	
-	public void startTimer() {
+	public void start() {
 		t = new Timer();
 		
 		db = new Database(mContext);
@@ -50,12 +68,12 @@ public class GameTimer {
 			}
 		};
 		
-		t.scheduleAtFixedRate(task, 0, 1000);
+		t.scheduleAtFixedRate(task, 1000, 1000);
 		
 		running = true;
 	}
 	
-	public void stopTimer() {
+	public void stop() {
 		task.cancel();
 		t.cancel();
 		
@@ -66,10 +84,6 @@ public class GameTimer {
 		db = null;
 		
 		running = false;
-	}
-	
-	public boolean isRunning() {
-		return running;
 	}
 	
 	public int getTime() {
