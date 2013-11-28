@@ -17,8 +17,10 @@ public class GameTimer {
 	}
 	
 	public static void stopTimer() {
-		if(timer != null)
+		if(timer != null) {
 			timer.stop();
+			timer = null;
+		}
 	}
 	
 	public static boolean isRunning() {
