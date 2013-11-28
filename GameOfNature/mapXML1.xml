@@ -55,18 +55,15 @@
 		    type="FINAL"
 		    questionTxt="NATUR"
 		    />
-	    	
-	</TaskMarker>
-	    
-	<FinalQuestion
-			>
-		<clue
-		id="2453"
+	    <Clue
+		id="0"
+		code="2453"
 		item="Ekollon"
 			/>
-		<clue
-		id="5612"
+		<Clue
+		id="1"
+		code="5612"
 		item="Boklöv"
 			/>
-	</FinalQuestion>
+	</TaskMarker>
 </Map>

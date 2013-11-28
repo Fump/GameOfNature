@@ -21,13 +21,17 @@ import com.google.android.gms.maps.model.LatLng;
 
 import se.lth.gameofnature.R;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
+import se.lth.gameofnature.questions.Clue;
 import se.lth.gameofnature.questions.FinalQuestion;
 import se.lth.gameofnature.questions.Question;
 import se.lth.gameofnature.questions.TextQuestion;
 
 public class XMLReader {
+
+	static ArrayList<Clue> clues;
 	public static TreeMap<String, TaskMarker> readTaskMarkers(Context mContext) {
 		TreeMap<String, TaskMarker> markers = new TreeMap<String, TaskMarker>();
+		clues = new ArrayList<Clue>();
 		
 		InputStream is = mContext.getResources().openRawResource(R.raw.map);
 		
@@ -47,6 +51,23 @@ public class XMLReader {
 				if(markerNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element markerElement = (Element) markerNode;
 					TaskMarker m = getMarker(markerElement, mContext);
+					
+					/*Nytt: Hämta clues och lägg in i lokal Clue-arraylist.
+					 * Denna skickas sedan med ifall frågan som läggs till är en slutfråga (se getQuestion)
+					 */
+					
+					NodeList clueNodes = markerElement.getElementsByTagName("Clue");
+					
+					for(int j = 0; j < clueNodes.getLength(); j++){
+						Node clueNode = clueNodes.item(j);
+						
+						if(clueNode.getNodeType() == Node.ELEMENT_NODE){
+							Element clueElement = (Element) clueNode;
+							
+							Clue c = getClue(clueElement);
+							clues.add(c);
+						}
+					}
 					
 					NodeList questionNodes = markerElement.getElementsByTagName("Question");
 					
@@ -107,11 +128,21 @@ public class XMLReader {
 		if(type.equals(Question.QUESTION_TYPE_TEXT)) {
 			return new TextQuestion(id, questionTxt, answers, correctAnswer);
 		} else if(type.equals(Question.QUESTION_TYPE_FINAL)){
-			return new FinalQuestion(id,questionTxt,answers,correctAnswer);
+			
+			return new FinalQuestion(id,questionTxt,answers,correctAnswer, clues);
 		}else {
 			return new TextQuestion(id, questionTxt, answers, correctAnswer);
 		}
 		
 	}
+	
+	private static Clue getClue(Element e){
+		String id = e.getAttribute("id");
+		String code = e.getAttribute("code");
+		String item = e.getAttribute("item");
+		return new Clue(id,code,item);
+	}
+	
+
 	
 }

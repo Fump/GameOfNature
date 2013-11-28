@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import se.lth.gameofnature.data.Database;
+import se.lth.gameofnature.questions.Clue;
 import se.lth.gameofnature.questions.Question;
 
 import android.content.Context;
