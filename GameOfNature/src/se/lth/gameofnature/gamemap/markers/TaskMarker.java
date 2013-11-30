@@ -17,7 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 //Behövs nog fler attribut och metoder, implementerade bara vad som behövdes
 //För att få igång spårningen av punkter.
 public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
-	private static final String ICON_DRAWABLE_ID_BASE = "marker_icon_";
+	private static final String ICON_DRAWABLE_ID_BASE = "marker_";
 	
 	private Context mContext;
 	
@@ -163,7 +163,7 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 			case STATUS_ACTIVE:
 				return mContext.
 						getResources().
-						getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + colorId, 
+						getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_white", 
 						"drawable", "se.lth.gameofnature");
 			
 			case STATUS_LOCKED:
@@ -174,7 +174,7 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 			default:
 				return mContext
 						.getResources()
-						.getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + "green", 
+						.getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + colorId, 
 						"drawable", "se.lth.gameofnature");
 		}
 	}
