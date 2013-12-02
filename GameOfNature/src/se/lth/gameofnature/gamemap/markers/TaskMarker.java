@@ -180,7 +180,7 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 	}
 	
 	public int getDrawableId() {
-		return getDrawableId(iconId, teamColorId, status);
+		return getDrawableId(iconId, teamColorId, TaskMarker.STATUS_ACTIVE);
 	}
 	
 	@Override

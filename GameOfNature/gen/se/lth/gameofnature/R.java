@@ -133,6 +133,7 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f01000d;
     }
     public static final class color {
+        public static final int black=0x7f05000a;
         public static final int common_action_bar_splitter=0x7f050009;
         /**  Sign-in Button Colors 
          */
@@ -145,8 +146,9 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f050006;
         public static final int common_signin_btn_light_text_focused=0x7f050007;
         public static final int common_signin_btn_light_text_pressed=0x7f050005;
-        public static final int common_signin_btn_text_dark=0x7f05000a;
-        public static final int common_signin_btn_text_light=0x7f05000b;
+        public static final int common_signin_btn_text_dark=0x7f05000c;
+        public static final int common_signin_btn_text_light=0x7f05000d;
+        public static final int whitegrey=0x7f05000b;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -219,39 +221,40 @@ containing a value of this type.
         public static final int treasure_cheast=0x7f020039;
     }
     public static final class id {
-        public static final int ContinueButton=0x7f060015;
+        public static final int ContinueButton=0x7f060017;
         public static final int LagfärgView=0x7f060007;
         public static final int LagnamnText=0x7f060006;
         public static final int LagnamnView=0x7f060005;
+        public static final int LinearBarLayout=0x7f06000e;
         public static final int SpelkaraktärView=0x7f060009;
-        public static final int StartButton=0x7f060014;
-        public static final int TimeWin=0x7f06001b;
-        public static final int action_settings=0x7f06001e;
+        public static final int StartButton=0x7f060016;
+        public static final int TimeWin=0x7f06001d;
+        public static final int action_settings=0x7f06001f;
         public static final int alternative_confirmButton=0x7f06000c;
-        public static final int badge=0x7f06001f;
+        public static final int badge=0x7f060020;
         public static final int character_image=0x7f06000b;
         public static final int character_spinner=0x7f06000a;
         public static final int choose_colors=0x7f060008;
-        public static final int distanceWin=0x7f06001c;
+        public static final int distanceWin=0x7f06001e;
         public static final int hybrid=0x7f060004;
-        public static final int icon1=0x7f060020;
-        public static final int icon2=0x7f060021;
+        public static final int icon1=0x7f060021;
+        public static final int icon2=0x7f060022;
         public static final int map=0x7f06000d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int notif_count=0x7f06001d;
-        public static final int question_btnAnswer1=0x7f060010;
-        public static final int question_btnAnswer2=0x7f060013;
-        public static final int question_btnAnswer3=0x7f060011;
-        public static final int question_btnAnswer4=0x7f060012;
-        public static final int question_content=0x7f06000f;
-        public static final int question_title=0x7f06000e;
+        public static final int notif_count=0x7f06000f;
+        public static final int question_btnAnswer1=0x7f060012;
+        public static final int question_btnAnswer2=0x7f060015;
+        public static final int question_btnAnswer3=0x7f060013;
+        public static final int question_btnAnswer4=0x7f060014;
+        public static final int question_content=0x7f060011;
+        public static final int question_title=0x7f060010;
         public static final int satellite=0x7f060002;
-        public static final int task_dialog_ButtonCancel=0x7f060019;
-        public static final int task_dialog_ButtonOk=0x7f060018;
-        public static final int task_dialog_content=0x7f060017;
-        public static final int task_dialog_title=0x7f060016;
-        public static final int teamNameWin=0x7f06001a;
+        public static final int task_dialog_ButtonCancel=0x7f06001b;
+        public static final int task_dialog_ButtonOk=0x7f06001a;
+        public static final int task_dialog_content=0x7f060019;
+        public static final int task_dialog_title=0x7f060018;
+        public static final int teamNameWin=0x7f06001c;
         public static final int terrain=0x7f060003;
     }
     public static final class layout {
@@ -414,11 +417,12 @@ containing a value of this type.
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0a0001;
-        public static final int ButtonText=0x7f0a0002;
-        public static final int colourText=0x7f0a0003;
-        public static final int questionText=0x7f0a0005;
-        public static final int questionTopic=0x7f0a0004;
+        public static final int AppTheme=0x7f0a0002;
+        public static final int ButtonText=0x7f0a0003;
+        public static final int colourText=0x7f0a0004;
+        public static final int dialog_light=0x7f0a0001;
+        public static final int questionText=0x7f0a0006;
+        public static final int questionTopic=0x7f0a0005;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
