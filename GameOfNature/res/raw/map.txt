@@ -7,7 +7,7 @@
 		title="Stora Eken"
 		snippet="En väldigt stor ek"
 		infoTxt="Eken kan bli valdigt gammal"
-		iconId="a">
+		iconId="tree">
 		
 		<Question
 			id="1"
@@ -18,28 +18,8 @@
 			answer2="6"
 			answer3="8"
 			correctAnswer="2"/>
-<!--
-		<Question
-			id="2"
-			type="imageQuestion"
-			questionTxt="Hur manga ben har en myra?"
-			questionImageId="8"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
-		<Question
-			id="3"
-			type="imageAnswer"
-			questionTxt="Vilket av foljande lov ar ett eklov?"
-			answer0ImgId="1"
-			answer1ImgId="2"
-			answer2ImgId="3"
-			answer3ImgId="4"
-			correctAnswer="2"/> 
--->
 	</TaskMarker>
+	
 	<TaskMarker
 		id="2"
 		latitude="56.149081"
@@ -47,20 +27,19 @@
 		title="Bänken"
 		snippet="Bänken på andra sidan ängen"
 		infoTxt="Runt bänken finns det många olika sorters lövträd."
-		iconId="b">
+		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
+			questionTxt="lol"
 			answer0="2"
 			answer1="4"
 			answer2="6"
 			answer3="8"
 			correctAnswer="2"/>
 	</TaskMarker>
-	
-		</TaskMarker>
+
 	<TaskMarker
 		id="3"
 		latitude="56.148558"
@@ -68,20 +47,18 @@
 		title="Sälg"
 		snippet="På sälgen växer det idekissar."
 		infoTxt="Här växer det även hasselträd."
-		iconId="c">
-		
+		iconId="tree">
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
-			answer0=""
-			answer1=""
-			answer2=""
-			answer3=""
-			correctAnswer=""/>
+			questionTxt="lol"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="2"/>
 	</TaskMarker>
 	
-			</TaskMarker>
 	<TaskMarker
 		id="4"
 		latitude="56.149133"
@@ -89,20 +66,19 @@
 		title="Bron"
 		snippet="Under bron rinner det vatten"
 		infoTxt="På andra sidan bron står det en ensam tall."
-		iconId="d">
+		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
-			answer0=""
-			answer1=""
-			answer2=""
-			answer3=""
-			correctAnswer=""/>
+			questionTxt="lol"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="2"/>
 	</TaskMarker>
 	
-			</TaskMarker>
 	<TaskMarker
 		id="5"
 		latitude="56.146654"
@@ -110,20 +86,19 @@
 		title="Fläder"
 		snippet="Här växer det fläderbuskar."
 		infoTxt="Av fläder kan man göra saft."
-		iconId="e">
+		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
-			answer0=""
-			answer1=""
-			answer2=""
-			answer3=""
-			correctAnswer=""/>
+			questionTxt="lol"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="2"/>
 	</TaskMarker>
 	
-			</TaskMarker>
 	<TaskMarker
 		id="6"
 		latitude="56.145890"
@@ -131,20 +106,19 @@
 		title="Bok"
 		snippet="Här står det en bok."
 		infoTxt="Bokens stam ser ut som elefanthud."
-		iconId="f">
+		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
-			answer0=""
-			answer1=""
-			answer2=""
-			answer3=""
-			correctAnswer=""/>
+			questionTxt="lol"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="2"/>
 	</TaskMarker>
 	
-			</TaskMarker>
 	<TaskMarker
 		id="7"
 		latitude="56.14461"
@@ -152,20 +126,19 @@
 		title="Fågel"
 		snippet="Här finns det en fågelholk."
 		infoTxt="Kan du se om det bor några fåglar i holken?"
-		iconId="g">
+		iconId="birdhouse">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
-			answer0=""
-			answer1=""
-			answer2=""
-			answer3=""
-			correctAnswer=""/>
+			questionTxt="lol"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="2"/>
 	</TaskMarker>
 	
-			</TaskMarker>
 	<TaskMarker
 		id="8"
 		latitude="56.147860"
@@ -173,20 +146,18 @@
 		title="Stenmur"
 		snippet="Här går en av många stenmurar som finns runt ängen."
 		infoTxt="En av stenmurarna är extra bred kan du se vilken?"
-		iconId="">
-		
+		iconId="tree">
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
-			answer0=""
-			answer1=""
-			answer2=""
-			answer3=""
-			correctAnswer=""/>
+			questionTxt="lol"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="2"/>
 	</TaskMarker>
 	
-			</TaskMarker>
 	<TaskMarker
 		id="9"
 		latitude="56.14786"
@@ -194,21 +165,21 @@
 		title="Slutuppgift"
 		snippet="En dold plats?!?"
 		infoTxt="Kan ni låsa upp hemligheten på platsen?"
-		iconId="">
+		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt=""
-			answer0=""
-			answer1=""
-			answer2=""
-			answer3=""
-			correctAnswer=""/>
+			questionTxt="lol"
+			answer0="2"
+			answer1="4"
+			answer2="6"
+			answer3="8"
+			correctAnswer="2"/>
 	</TaskMarker>
 	
 	<FinalQuestion
-
+		
 			>
 		<clue
 

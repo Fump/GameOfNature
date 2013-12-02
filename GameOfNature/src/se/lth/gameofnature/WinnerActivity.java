@@ -44,4 +44,10 @@ public class WinnerActivity extends Activity {
 		Intent intent = new Intent(this, GameBoardActivity.class);
 		startActivity(intent);
 	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent i = new Intent(this, StartActivity.class);
+		startActivity(i);
+	}
 }

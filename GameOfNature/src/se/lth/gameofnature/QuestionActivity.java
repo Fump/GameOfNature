@@ -157,4 +157,9 @@ public class QuestionActivity extends Activity {
 		};
 	}
 	
+	@Override
+	public void onBackPressed() {
+		//DO NOTHING
+	}
+	
 }
