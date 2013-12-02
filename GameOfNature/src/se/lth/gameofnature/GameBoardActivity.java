@@ -10,6 +10,7 @@ import se.lth.gameofnature.data.Team;
 import se.lth.gameofnature.data.XMLReader;
 import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
+import se.lth.gameofnature.gamemap.OrientationManager;
 import se.lth.gameofnature.gamemap.markers.MyLocationMarker;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 import se.lth.gameofnature.gametimer.GameTimer;
@@ -23,12 +24,14 @@ import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
+import android.hardware.SensorManager;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -43,7 +46,7 @@ public class GameBoardActivity extends Activity {
 	
 	private MyLocationMarker myLocation;
 	private LocationHandler mLocationHandler;
-	private GameTimer timer;
+	private OrientationManager mRotation;
 	
 	private boolean a_blue=false;
 	private boolean b_blue=false;
@@ -94,6 +97,9 @@ public class GameBoardActivity extends Activity {
 		
 		if(mLocationHandler != null)
 			mLocationHandler.stopTracking();
+		
+		if(mRotation != null)
+			mRotation.Unregister();
 	}
 	
 	@Override
@@ -117,6 +123,7 @@ public class GameBoardActivity extends Activity {
 		
 		initMapIfNeeded(teamStatus.getIconId());
 		initLocationHandlerIfNeeded();
+		initRotationManagerIfNeeded();
 		
 		handleIntent();
 		
@@ -210,6 +217,14 @@ public class GameBoardActivity extends Activity {
 		}
 	}
 	
+	private void initRotationManagerIfNeeded() {
+		if(mRotation == null) {
+			mRotation = new OrientationManager((SensorManager)this.getSystemService(Service.SENSOR_SERVICE), myLocation, null);
+		}
+		
+		mRotation.Register(this, SensorManager.SENSOR_DELAY_NORMAL);
+	}
+	
 	private void unlockAllMarkers() {
 		Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
 		
@@ -228,5 +243,11 @@ public class GameBoardActivity extends Activity {
 	private boolean checkWin() {
 		return GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() ==
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers();
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent i = new Intent(this, StartActivity.class);
+		startActivity(i);
 	}
 }

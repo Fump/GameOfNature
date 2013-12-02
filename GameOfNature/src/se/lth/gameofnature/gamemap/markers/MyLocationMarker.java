@@ -11,7 +11,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MyLocationMarker extends GameMarker {
 	
 	private Bitmap icon;
-
+	private float rotation;
+	
 	public MyLocationMarker(LatLng position, Bitmap icon, String title, String snippet) {
 		super(position, title, snippet);
 		
@@ -22,12 +23,16 @@ public class MyLocationMarker extends GameMarker {
 	 * Rotates the markers icon.
 	 */
 	public void setRotation(float rotation) {
-		Matrix matrix = new Matrix();
-		
-		matrix.postRotate(rotation);
-		icon = Bitmap.createBitmap(icon, 0, 0, icon.getWidth(), icon.getHeight(), matrix, true);
-		
-		myMarker.setIcon(BitmapDescriptorFactory.fromBitmap(icon));
+		if(Math.abs(this.rotation - rotation) >= 20) {
+			this.rotation = rotation;
+			
+			Matrix matrix = new Matrix();
+			
+			matrix.postRotate(rotation);
+			//Bitmap.createBitmap(icon, 0, 0, icon.getWidth(), icon.getHeight(), matrix, true);
+			
+			myMarker.setIcon(BitmapDescriptorFactory.fromBitmap(Bitmap.createBitmap(icon, 0, 0, icon.getWidth(), icon.getHeight(), matrix, true)));
+		}
 	}
 	
 
