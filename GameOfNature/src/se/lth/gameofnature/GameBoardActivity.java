@@ -91,10 +91,6 @@ public class GameBoardActivity extends Activity {
 		
 		getMenuInflater().inflate(R.menu.game_board, menu);
 		
-		View count = menu.findItem(R.id.badge).getActionView();
-		Button countButton = (Button)count.findViewById(R.id.notif_count);
-		countButton.setText(markerCount);
-		
 		return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -131,13 +127,12 @@ public class GameBoardActivity extends Activity {
 		initMapIfNeeded(teamStatus.getIconId());
 		initLocationHandlerIfNeeded();
 		initRotationManagerIfNeeded();
-		initIconBar();
 		
 		handleIntent();
 		
 		setMarkerCount(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers(), 
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
-		
+		initIconBar();
 		db.close();
 		
 		if(!GameTimer.isRunning())
@@ -286,6 +281,9 @@ public class GameBoardActivity extends Activity {
 				l.addView(img);
 				l.setGravity(Gravity.CENTER_VERTICAL);
 			}
+			
+			Button countButton = (Button)findViewById(R.id.count);
+			countButton.setText(markerCount);
 		}
 	}
 	
