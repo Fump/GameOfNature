@@ -65,7 +65,7 @@ public class GameTimer {
 			
 			@Override
 			public void run() {
-				seconds += 1000;
+				seconds++;
 				db.setGameTime(seconds);
 			}
 		};

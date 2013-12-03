@@ -253,9 +253,17 @@ public class GameBoardActivity extends Activity {
 				img.setAdjustViewBounds(true);
 				img.setScaleType(ScaleType.CENTER_CROP);
 				img.setImageDrawable(icon);
-				img.setMaxWidth(70);
+				//img.setMaxWidth(70);
 				
 				markerIcons.put(m.getId(), icon);
+				
+				LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+					     LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+				layoutParams.setMargins(30, 0, 0, 0);
+				
+				img.setLayoutParams(layoutParams);
+				
 				l.addView(img);
 				l.setGravity(Gravity.CENTER_VERTICAL);
 			}
@@ -266,7 +274,7 @@ public class GameBoardActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		Intent i = new Intent(this, StartActivity.class);
+		Intent i = new Intent(this, WinnerActivity.class);
 		startActivity(i);
 	}
 }

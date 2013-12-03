@@ -29,8 +29,8 @@
     
     <!-- Statistikskärm -->
     <string name="title_activity_statistics">StatisticsActivity</string>
-    <string name="team_name">Götes Pojkar</string>
-    <string name="game_time">35:10:11</string>
+    <string name="team_name">Lag:</string>
+    <string name="game_time">Tid:</string>
     
     <!-- Frågeskärm -->
     <string name="title_activity_question">QuestionActivity</string>
@@ -45,6 +45,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_task_dialog">TaskDialog</string>
+    <string name="winner_title">Grattis! Du har vunnit spelet!</string>
+    <string name="distance">Avstånd: </string>
     
     
 
