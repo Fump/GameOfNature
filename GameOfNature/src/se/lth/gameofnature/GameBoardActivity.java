@@ -247,6 +247,8 @@ public class GameBoardActivity extends Activity {
 				
 				if(m.getStatus() != TaskMarker.STATUS_DONE)
 					icon.setAlpha(80);
+				else if(m.getStatus() == TaskMarker.STATUS_DONE)
+					icon.setAlpha(200);
 				
 				img.setAdjustViewBounds(true);
 				img.setScaleType(ScaleType.CENTER_CROP);
