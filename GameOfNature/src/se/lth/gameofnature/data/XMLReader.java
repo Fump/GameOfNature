@@ -82,8 +82,6 @@ public class XMLReader {
 						}
 					}
 					
-					m.setTeamColor("blue");
-					
 					markers.put(m.getId(), m);
 				}
 			}

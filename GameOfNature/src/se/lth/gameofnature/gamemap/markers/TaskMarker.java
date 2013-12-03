@@ -163,7 +163,7 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 			case STATUS_ACTIVE:
 				return mContext.
 						getResources().
-						getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_white", 
+						getIdentifier(ICON_DRAWABLE_ID_BASE + iconId, 
 						"drawable", "se.lth.gameofnature");
 			
 			case STATUS_LOCKED:
@@ -174,12 +174,12 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 			default:
 				return mContext
 						.getResources()
-						.getIdentifier(ICON_DRAWABLE_ID_BASE + iconId + "_" + colorId, 
+						.getIdentifier(ICON_DRAWABLE_ID_BASE + colorId, 
 						"drawable", "se.lth.gameofnature");
 		}
 	}
 	
-	public int getDrawableId() {
+	public int getDrawableIdActive() {
 		return getDrawableId(iconId, teamColorId, TaskMarker.STATUS_ACTIVE);
 	}
 	

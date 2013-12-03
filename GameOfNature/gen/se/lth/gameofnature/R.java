@@ -193,32 +193,19 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_dark=0x7f02001d;
         public static final int common_signin_btn_text_pressed_light=0x7f02001e;
         public static final int ic_launcher=0x7f02001f;
-        public static final int marker_birdhouse_blue=0x7f020020;
-        public static final int marker_birdhouse_green=0x7f020021;
-        public static final int marker_birdhouse_megant=0x7f020022;
-        public static final int marker_birdhouse_orange=0x7f020023;
-        public static final int marker_birdhouse_purple=0x7f020024;
-        public static final int marker_birdhouse_red=0x7f020025;
-        public static final int marker_birdhouse_turkos=0x7f020026;
-        public static final int marker_birdhouse_white=0x7f020027;
-        public static final int marker_birdhouse_yellow=0x7f020028;
-        public static final int marker_blocked=0x7f020029;
-        public static final int marker_icon_a_blue=0x7f02002a;
-        public static final int marker_icon_a_green=0x7f02002b;
-        public static final int marker_icon_b_blue=0x7f02002c;
-        public static final int marker_icon_b_green=0x7f02002d;
-        public static final int marker_icon_locked=0x7f02002e;
-        public static final int marker_tree_blue=0x7f02002f;
-        public static final int marker_tree_green=0x7f020030;
-        public static final int marker_tree_megant=0x7f020031;
-        public static final int marker_tree_orange=0x7f020032;
-        public static final int marker_tree_purple=0x7f020033;
-        public static final int marker_tree_red=0x7f020034;
-        public static final int marker_tree_turkos=0x7f020035;
-        public static final int marker_tree_white=0x7f020036;
-        public static final int marker_tree_yellow=0x7f020037;
-        public static final int shape_notification=0x7f020038;
-        public static final int treasure_cheast=0x7f020039;
+        public static final int marker_birdhouse=0x7f020020;
+        public static final int marker_ff00008b=0x7f020021;
+        public static final int marker_ff0000ff=0x7f020022;
+        public static final int marker_ff8b0000=0x7f020023;
+        public static final int marker_ffa020f0=0x7f020024;
+        public static final int marker_ffff0000=0x7f020025;
+        public static final int marker_ffff00ff=0x7f020026;
+        public static final int marker_ffffff00=0x7f020027;
+        public static final int marker_fffffff=0x7f020028;
+        public static final int marker_locked=0x7f020029;
+        public static final int marker_tree=0x7f02002a;
+        public static final int shape_notification=0x7f02002b;
+        public static final int treasure_cheast=0x7f02002c;
     }
     public static final class id {
         public static final int ContinueButton=0x7f060017;
@@ -231,15 +218,12 @@ containing a value of this type.
         public static final int TimeWin=0x7f06001d;
         public static final int action_settings=0x7f060020;
         public static final int alternative_confirmButton=0x7f06000c;
-        public static final int badge=0x7f060021;
         public static final int character_image=0x7f06000b;
         public static final int character_spinner=0x7f06000a;
         public static final int choose_colors=0x7f060008;
         public static final int count=0x7f06000f;
         public static final int distanceWin=0x7f06001e;
         public static final int hybrid=0x7f060004;
-        public static final int icon1=0x7f060022;
-        public static final int icon2=0x7f060023;
         public static final int map=0x7f06000d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
@@ -269,8 +253,7 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int alternativsida=0x7f0b0000;
-        public static final int game_board=0x7f0b0001;
-        public static final int start=0x7f0b0002;
+        public static final int start=0x7f0b0001;
     }
     public static final class raw {
         public static final int map=0x7f040000;

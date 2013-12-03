@@ -56,7 +56,7 @@
                 android:background="#FF0000FF"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF0000FF"
+                android:tag="ff0000ff"
                 android:onClick="colorClicked" />
 
             <ImageButton
@@ -66,7 +66,7 @@
                 android:background="#FFFF0000"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFF0000"
+                android:tag="ffff0000"
                 android:onClick="colorClicked" />
 
             <ImageButton
@@ -76,7 +76,7 @@
                 android:background="#FFFF00FF"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFF00FF"
+                android:tag="ffff00ff"
                 android:onClick="colorClicked" />
 
             <ImageButton
@@ -86,7 +86,7 @@
                 android:background="#FFFFFFFF"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFFFFFF"
+                android:tag="fffffff"
                 android:onClick="colorClicked" />
         </LinearLayout>
         <!-- Bottom Row -->
@@ -102,7 +102,7 @@
                 android:background="#FF00008B"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF00008B"
+                android:tag="ff00008b"
                 android:onClick="colorClicked" />
 
             <ImageButton
@@ -112,7 +112,7 @@
                 android:background="#FF8B0000"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FF8B0000"
+                android:tag="ff8b0000"
                 android:onClick="colorClicked" />
             
    			<ImageButton
@@ -122,7 +122,7 @@
                 android:background="#FFA020F0"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFA020F0"
+                android:tag="ffa020f0"
                 android:onClick="colorClicked" />
    
             <ImageButton
@@ -132,7 +132,7 @@
                 android:background="#FFFFFF00"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="#FFFFFF00"
+                android:tag="ffffff00"
                 android:onClick="colorClicked" />
              </LinearLayout>
     </LinearLayout>

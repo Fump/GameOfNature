@@ -52,10 +52,8 @@ public class GameBoardActivity extends Activity {
 	private MyLocationMarker myLocation;
 	private LocationHandler mLocationHandler;
 	private OrientationManager mRotation;
-	
-	private boolean a_blue=false;
-	private boolean b_blue=false;
-	private String markerCount = "";
+
+	private Button count;
 	
 	private HashMap<String, Drawable> markerIcons;
 	
@@ -70,28 +68,6 @@ public class GameBoardActivity extends Activity {
         //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		setContentView(R.layout.activity_game_board);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getActionBar().setDisplayShowHomeEnabled(false);
-		Drawable iconTree = getResources().getDrawable(R.drawable.marker_icon_a_blue);
-		Drawable iconHouse = getResources().getDrawable(R.drawable.marker_icon_b_blue);  
-		if(!a_blue){
-			iconTree.setAlpha(40);
-		}else{
-			iconTree.setAlpha(200);
-		}
-		if(!b_blue){
-			iconHouse.setAlpha(40);
-		}else{
-			
-		}
-		
-		getMenuInflater().inflate(R.menu.game_board, menu);
-		
-		return super.onCreateOptionsMenu(menu);
 	}
 	
 	@Override
@@ -124,19 +100,22 @@ public class GameBoardActivity extends Activity {
 		
 		Team teamStatus = db.getTeamStatus();
 		
-		initMapIfNeeded(teamStatus.getIconId());
+		initMapIfNeeded(teamStatus.getIconId(), teamStatus.getColor());
 		initLocationHandlerIfNeeded();
 		initRotationManagerIfNeeded();
 		
+		initIconBar();
 		handleIntent();
 		
 		setMarkerCount(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers(), 
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
-		initIconBar();
+		
 		db.close();
 		
 		if(!GameTimer.isRunning())
 			GameTimer.startTimer(this);
+		
+		checkWin();
 	}
 	
 	private void handleIntent() {
@@ -157,22 +136,11 @@ public class GameBoardActivity extends Activity {
 				if(isCorrectAnswer){
 					marker.setDone();
 					markerIcons.get(marker.getId()).setAlpha(200);
-					
-				switch(marker.getDrawableId()){
-				case R.drawable.marker_icon_a_green: a_blue=true;
-				break;
-					default:
-						break;
-				}
-					
 				}else{
 					marker.setLocked();
 				}
 				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
-				if(checkWin()) {
-					Intent i = new Intent(this, WinnerActivity.class);
-					startActivity(i);
-				}
+				checkWin();
 				
 			} else if(source.equals(Alternativsida.ACTIVITY_NAME)) {
 				
@@ -182,7 +150,7 @@ public class GameBoardActivity extends Activity {
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
 	 */
-	private void initMapIfNeeded(int iconId) { 
+	private void initMapIfNeeded(int iconId, String colorId) { 
 		if(map == null) {
 			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 			        .getMap();
@@ -199,7 +167,10 @@ public class GameBoardActivity extends Activity {
 			Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
 			
 			while(itr.hasNext()) {
-				map.addGameMarker(itr.next());
+				TaskMarker m = itr.next();
+				m.setTeamColor(colorId);
+				
+				map.addGameMarker(m);
 			}
 		}
 	}
@@ -241,12 +212,17 @@ public class GameBoardActivity extends Activity {
 	}
 	
 	private void setMarkerCount(int current, int total) {
-		markerCount = current + " / " + total;
+		count.setText(current + " / " + total);
 	}
 	
-	private boolean checkWin() {
-		return GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() ==
+	private void checkWin() {
+		boolean win = GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() ==
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers();
+	
+		if(win) {
+			Intent i = new Intent(this, WinnerActivity.class);
+			startActivity(i);
+		}
 	}
 	
 	private void initIconBar() {
@@ -265,9 +241,9 @@ public class GameBoardActivity extends Activity {
 				
 				img.setVisibility(View.VISIBLE);
 				img.setTag(m.getId());
-				img.setImageResource(R.drawable.marker_birdhouse_blue);
+				img.setImageResource(R.drawable.marker_birdhouse);
 				
-				Drawable icon = getResources().getDrawable(m.getDrawableId());
+				Drawable icon = getResources().getDrawable(m.getDrawableIdActive());
 				
 				if(m.getStatus() != TaskMarker.STATUS_DONE)
 					icon.setAlpha(80);
@@ -282,8 +258,7 @@ public class GameBoardActivity extends Activity {
 				l.setGravity(Gravity.CENTER_VERTICAL);
 			}
 			
-			Button countButton = (Button)findViewById(R.id.count);
-			countButton.setText(markerCount);
+			count = (Button)findViewById(R.id.count);
 		}
 	}
 	
