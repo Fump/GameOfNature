@@ -9,4 +9,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.MapFragment" />
+    
+    <LinearLayout
+        android:id="@+id/LinearBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:orientation="horizontal"
+        android:background="#162252"
+        android:layout_alignParentTop="true" >
+        
+  	   <Button 
+          android:id="@+id/count"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:minWidth="32dp"
+          android:minHeight="32dp"
+          android:background="@drawable/shape_notification"
+          android:text="0 / 0"
+          android:textSize="16sp"
+          android:textColor="@android:color/white"
+          android:gravity="center"
+          android:padding="2dp"
+          android:singleLine="true"/>     
+    </LinearLayout>   	
 </RelativeLayout> 

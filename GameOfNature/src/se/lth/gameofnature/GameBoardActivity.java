@@ -2,6 +2,7 @@ package se.lth.gameofnature;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import se.lth.gameofnature.data.Database;
@@ -29,6 +30,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.hardware.SensorManager;
@@ -38,6 +40,9 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -47,10 +52,10 @@ public class GameBoardActivity extends Activity {
 	private MyLocationMarker myLocation;
 	private LocationHandler mLocationHandler;
 	private OrientationManager mRotation;
+
+	private Button count;
 	
-	private boolean a_blue=false;
-	private boolean b_blue=false;
-	private String markerCount = "";
+	private HashMap<String, Drawable> markerIcons;
 	
 	public static final String INTENT_SOURCE = "INTENT_SOURCE";
 	
@@ -59,36 +64,10 @@ public class GameBoardActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		//Fullscreen
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+        //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		
 		setContentView(R.layout.activity_game_board);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getActionBar().setDisplayShowHomeEnabled(false);
-		Drawable iconTree = getResources().getDrawable(R.drawable.marker_icon_a_blue);
-		Drawable iconHouse = getResources().getDrawable(R.drawable.marker_icon_b_blue);  
-		if(!a_blue){
-			iconTree.setAlpha(40);
-		}else{
-			iconTree.setAlpha(200);
-		}
-		if(!b_blue){
-			iconHouse.setAlpha(40);
-		}else{
-			
-		}
-		
-		getMenuInflater().inflate(R.menu.game_board, menu);
-		
-		View count = menu.findItem(R.id.badge).getActionView();
-		Button countButton = (Button)count.findViewById(R.id.notif_count);
-		countButton.setText(markerCount);
-		
-		return super.onCreateOptionsMenu(menu);
 	}
 	
 	@Override
@@ -121,10 +100,11 @@ public class GameBoardActivity extends Activity {
 		
 		Team teamStatus = db.getTeamStatus();
 		
-		initMapIfNeeded(teamStatus.getIconId());
+		initMapIfNeeded(teamStatus.getIconId(), teamStatus.getColor());
 		initLocationHandlerIfNeeded();
 		initRotationManagerIfNeeded();
 		
+		initIconBar();
 		handleIntent();
 		
 		setMarkerCount(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers(), 
@@ -134,6 +114,8 @@ public class GameBoardActivity extends Activity {
 		
 		if(!GameTimer.isRunning())
 			GameTimer.startTimer(this);
+		
+		checkWin();
 	}
 	
 	private void handleIntent() {
@@ -153,22 +135,12 @@ public class GameBoardActivity extends Activity {
 				
 				if(isCorrectAnswer){
 					marker.setDone();
-					
-				switch(marker.getDrawableId()){
-				case R.drawable.marker_icon_a_green: a_blue=true;
-				break;
-					default:
-						break;
-				}
-					
+					markerIcons.get(marker.getId()).setAlpha(200);
 				}else{
 					marker.setLocked();
 				}
 				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
-				if(checkWin()) {
-					Intent i = new Intent(this, WinnerActivity.class);
-					startActivity(i);
-				}
+				checkWin();
 				
 			} else if(source.equals(Alternativsida.ACTIVITY_NAME)) {
 				
@@ -178,7 +150,7 @@ public class GameBoardActivity extends Activity {
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
 	 */
-	private void initMapIfNeeded(int iconId) { 
+	private void initMapIfNeeded(int iconId, String colorId) { 
 		if(map == null) {
 			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 			        .getMap();
@@ -195,7 +167,10 @@ public class GameBoardActivity extends Activity {
 			Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
 			
 			while(itr.hasNext()) {
-				map.addGameMarker(itr.next());
+				TaskMarker m = itr.next();
+				m.setTeamColor(colorId);
+				
+				map.addGameMarker(m);
 			}
 		}
 	}
@@ -237,12 +212,56 @@ public class GameBoardActivity extends Activity {
 	}
 	
 	private void setMarkerCount(int current, int total) {
-		markerCount = current + " / " + total;
+		count.setText(current + " / " + total);
 	}
 	
-	private boolean checkWin() {
-		return GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() ==
+	private void checkWin() {
+		boolean win = GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() ==
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers();
+	
+		if(win) {
+			Intent i = new Intent(this, WinnerActivity.class);
+			startActivity(i);
+		}
+	}
+	
+	private void initIconBar() {
+		if(markerIcons == null) {
+		
+			Iterator<TaskMarker> itr = GameMapData.getCurrentSessionInstance(this).getMarkerIterator();
+			markerIcons = new HashMap<String, Drawable>();
+			
+			LinearLayout l = (LinearLayout) findViewById(R.id.LinearBarLayout);
+			
+			while(itr.hasNext()) {
+				
+				TaskMarker m = itr.next();
+				
+				ImageView img = new ImageView(this);
+				
+				img.setVisibility(View.VISIBLE);
+				img.setTag(m.getId());
+				img.setImageResource(R.drawable.marker_birdhouse);
+				
+				Drawable icon = getResources().getDrawable(m.getDrawableIdActive());
+				
+				if(m.getStatus() != TaskMarker.STATUS_DONE)
+					icon.setAlpha(80);
+				else if(m.getStatus() == TaskMarker.STATUS_DONE)
+					icon.setAlpha(200);
+				
+				img.setAdjustViewBounds(true);
+				img.setScaleType(ScaleType.CENTER_CROP);
+				img.setImageDrawable(icon);
+				img.setMaxWidth(70);
+				
+				markerIcons.put(m.getId(), icon);
+				l.addView(img);
+				l.setGravity(Gravity.CENTER_VERTICAL);
+			}
+			
+			count = (Button)findViewById(R.id.count);
+		}
 	}
 	
 	@Override
