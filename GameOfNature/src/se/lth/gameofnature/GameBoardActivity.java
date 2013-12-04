@@ -273,7 +273,7 @@ public class GameBoardActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		Intent i = new Intent(this, WinnerActivity.class);
+		Intent i = new Intent(this, StartActivity.class);
 		startActivity(i);
 	}
 }
