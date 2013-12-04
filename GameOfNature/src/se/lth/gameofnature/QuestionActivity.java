@@ -100,30 +100,30 @@ public class QuestionActivity extends Activity {
 		if (b.getText().toString().compareTo(answers[correctAnswer]) == 0) {
 			System.out.println("Rätt");
 			// när grafiken har fixats måste vi ändra denna till en bild
-			b.setBackgroundColor(Color.GREEN);
+			b.setBackgroundResource(R.drawable.green_button);
 			isCorrect = true;
 		} else {
 			System.out.println("fel");
 			//Sätter det felaktiga svaret till röds
-			b.setBackgroundColor(Color.RED);
+			b.setBackgroundResource(R.drawable.red_button);
 			isCorrect = false;
 			
 			//Ändra rätt svar till gul
 			if (correctAnswer == 0) {
 				Button b1 = (Button) findViewById(R.id.question_btnAnswer1);
-				b1.setBackgroundColor(Color.YELLOW);
+				b1.setBackgroundResource(R.drawable.yellow_button);
 			}
 			else if (correctAnswer == 1) {
 				Button b2 = (Button) findViewById(R.id.question_btnAnswer2);
-				b2.setBackgroundColor(Color.YELLOW);
+				b2.setBackgroundResource(R.drawable.yellow_button);
 			}
 			else if (correctAnswer == 2) {
 				Button b3 = (Button) findViewById(R.id.question_btnAnswer3);
-				b3.setBackgroundColor(Color.YELLOW);
+				b3.setBackgroundResource(R.drawable.yellow_button);
 			}
 			else if (correctAnswer == 3) {
 				Button b4 = (Button) findViewById(R.id.question_btnAnswer4);
-				b4.setBackgroundColor(Color.YELLOW);
+				b4.setBackgroundResource(R.drawable.yellow_button);
 			}
 			// gul: 0xffff00
 			// Här sätter vi färg på "rätt"-knappen; detta måste vi göra i
