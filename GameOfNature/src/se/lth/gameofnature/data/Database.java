@@ -106,6 +106,7 @@ public class Database {
 		}
 		
 		cursor.close();
+		
 		return markerStatuses;
 	}
 	

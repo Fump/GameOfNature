@@ -62,11 +62,6 @@ public class GameBoardActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//Fullscreen
-		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-        //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		
 		setContentView(R.layout.activity_game_board);
 	}
 	
@@ -136,7 +131,11 @@ public class GameBoardActivity extends Activity {
 				if(isCorrectAnswer){
 					marker.setDone();
 					markerIcons.get(marker.getId()).setAlpha(200);
-				}else{
+				}else if(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers()
+						== GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers() - 1) {
+					marker.getNextQuestion().startQuestionActivity(this, marker.getId());
+				}
+				else{
 					marker.setLocked();
 				}
 				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
