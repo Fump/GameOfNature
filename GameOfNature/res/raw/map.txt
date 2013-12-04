@@ -158,26 +158,6 @@
 			correctAnswer="2"/>
 	</TaskMarker>
 	
-	<TaskMarker
-		id="9"
-		latitude="56.14786"
-		longitude="13.391659"
-		title="Slutuppgift"
-		snippet="En dold plats?!?"
-		infoTxt="Kan ni låsa upp hemligheten på platsen?"
-		iconId="tree">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
-	</TaskMarker>
-	
 	<FinalQuestion
 		
 			>
