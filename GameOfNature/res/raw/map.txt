@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 <Map>
 	<TaskMarker
 		id="1"
@@ -6,13 +6,13 @@
 		longitude="13.392947"
 		title="Stora Eken"
 		snippet="En väldigt stor ek"
-		infoTxt="Eken kan bli valdigt gammal"
+		infoTxt="Eken kan bli väldigt gammal"
 		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt="Hur manga ben har en myra?"
+			questionTxt="Hur många ben har en myra?"
 			answer0="2"
 			answer1="4"
 			answer2="6"

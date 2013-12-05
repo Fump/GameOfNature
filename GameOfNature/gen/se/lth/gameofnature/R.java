@@ -281,7 +281,7 @@ containing a value of this type.
         public static final int answer_2=0x7f070026;
         public static final int answer_3=0x7f070027;
         public static final int answer_4=0x7f070028;
-        /**  Startskärm 
+        /**  StartskÃ¤rm 
          */
         public static final int app_name=0x7f070015;
         /**   Title for notification shown when GooglePlayServices needs to be
