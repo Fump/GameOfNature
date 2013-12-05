@@ -208,26 +208,27 @@ containing a value of this type.
         public static final int treasure_cheast=0x7f02002c;
     }
     public static final class id {
-        public static final int ContinueButton=0x7f060017;
+        public static final int ContinueButton=0x7f060019;
         public static final int LagfärgView=0x7f060007;
         public static final int LagnamnText=0x7f060006;
         public static final int LagnamnView=0x7f060005;
         public static final int LinearBarLayout=0x7f06000e;
         public static final int SpelkaraktärView=0x7f060009;
-        public static final int StartButton=0x7f060016;
-        public static final int TimeWin=0x7f06001d;
-        public static final int action_settings=0x7f060020;
+        public static final int StartButton=0x7f060018;
+        public static final int TimeWin=0x7f06001f;
+        public static final int action_settings=0x7f060022;
         public static final int alternative_confirmButton=0x7f06000c;
         public static final int character_image=0x7f06000b;
         public static final int character_spinner=0x7f06000a;
         public static final int choose_colors=0x7f060008;
         public static final int count=0x7f06000f;
-        public static final int distanceWin=0x7f06001e;
+        public static final int distanceWin=0x7f060020;
         public static final int hybrid=0x7f060004;
+        public static final int linearLayout1=0x7f060016;
         public static final int map=0x7f06000d;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int notif_count=0x7f06001f;
+        public static final int notif_count=0x7f060021;
         public static final int question_btnAnswer1=0x7f060012;
         public static final int question_btnAnswer2=0x7f060015;
         public static final int question_btnAnswer3=0x7f060013;
@@ -235,21 +236,23 @@ containing a value of this type.
         public static final int question_content=0x7f060011;
         public static final int question_title=0x7f060010;
         public static final int satellite=0x7f060002;
-        public static final int task_dialog_ButtonCancel=0x7f06001b;
-        public static final int task_dialog_ButtonOk=0x7f06001a;
-        public static final int task_dialog_content=0x7f060019;
-        public static final int task_dialog_title=0x7f060018;
-        public static final int teamNameWin=0x7f06001c;
+        public static final int task_dialog_ButtonCancel=0x7f06001d;
+        public static final int task_dialog_ButtonOk=0x7f06001c;
+        public static final int task_dialog_content=0x7f06001b;
+        public static final int task_dialog_title=0x7f06001a;
+        public static final int teamNameWin=0x7f06001e;
         public static final int terrain=0x7f060003;
+        public static final int videoView1=0x7f060017;
     }
     public static final class layout {
         public static final int activity_alternativsida=0x7f030000;
         public static final int activity_game_board=0x7f030001;
         public static final int activity_question=0x7f030002;
-        public static final int activity_start=0x7f030003;
-        public static final int activity_task_dialog=0x7f030004;
-        public static final int activity_winner=0x7f030005;
-        public static final int feed_update_count=0x7f030006;
+        public static final int activity_splash=0x7f030003;
+        public static final int activity_start=0x7f030004;
+        public static final int activity_task_dialog=0x7f030005;
+        public static final int activity_winner=0x7f030006;
+        public static final int feed_update_count=0x7f030007;
     }
     public static final class menu {
         public static final int alternativsida=0x7f0b0000;
@@ -257,6 +260,7 @@ containing a value of this type.
     }
     public static final class raw {
         public static final int map=0x7f040000;
+        public static final int testintro=0x7f040001;
     }
     public static final class string {
         public static final int action_settings=0x7f07002a;
