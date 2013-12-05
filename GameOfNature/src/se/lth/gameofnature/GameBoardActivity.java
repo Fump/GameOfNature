@@ -245,26 +245,23 @@ public class GameBoardActivity extends Activity {
 				Drawable icon = getResources().getDrawable(m.getDrawableIdActive());
 				
 				if(m.getStatus() != TaskMarker.STATUS_DONE)
-					icon.setAlpha(80);
+					icon.setAlpha(40);
 				else if(m.getStatus() == TaskMarker.STATUS_DONE)
 					icon.setAlpha(200);
 				
-				img.setAdjustViewBounds(true);
-				img.setScaleType(ScaleType.CENTER_CROP);
 				img.setImageDrawable(icon);
-				//img.setMaxWidth(70);
-				
 				markerIcons.put(m.getId(), icon);
 				
 				LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-					     LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+					     LinearLayout.LayoutParams.MATCH_PARENT, 
+					     LinearLayout.LayoutParams.WRAP_CONTENT,
+					     0.11f);
 
-				layoutParams.setMargins(30, 0, 0, 0);
+				layoutParams.setMargins(10, 0, 0, 0);
 				
 				img.setLayoutParams(layoutParams);
 				
 				l.addView(img);
-				l.setGravity(Gravity.CENTER_VERTICAL);
 			}
 			
 			count = (Button)findViewById(R.id.count);

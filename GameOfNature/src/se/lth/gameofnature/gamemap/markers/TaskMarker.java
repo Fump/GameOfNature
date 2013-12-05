@@ -51,7 +51,7 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 		
 		status = STATUS_ACTIVE;
 		
-		lastQuestionId = null;
+		lastQuestionId = "";
 		
 		
 	}
@@ -111,19 +111,21 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 	}
 	
 	public void setActive() {
-		setStatus(STATUS_ACTIVE);
+		setStatus(STATUS_ACTIVE, true);
 	}
 	
 	public void setLocked() {
-		setStatus(STATUS_LOCKED);
+		setStatus(STATUS_LOCKED, true);
 	}
 	
 	public void setDone() {
-		setStatus(STATUS_DONE);
+		setStatus(STATUS_DONE, true);
 	}
 	
-	public void setStatus(int status) {
+	public void setStatus(int status, boolean saveToDb) {
 		this.status = status;
+		
+		Log.d("SETTING STATUS:" , "ID: " + id + " STATUS: " + status);
 		
 		if(myMarker != null) {
 			myMarker.setIcon(
@@ -132,14 +134,16 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 			);
 		}
 		
-		Database db = new Database(mContext);
+		if(saveToDb) {
+			Database db = new Database(mContext);
+			
+			db.open();
 		
-		db.open();
-	
-		db.setCurrentStatus(id, status);
-		db.close();
-		
-		db = null;
+			db.setCurrentStatus(id, status);
+			db.close();
+			
+			db = null;
+		}
 	}
 	
 	public int getStatus() {

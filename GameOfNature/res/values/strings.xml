@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Startskärm -->
-    <string name="app_name">GameOfNature</string>
+    <string name="app_name">Game of Nature</string>
     <string name="start_button">Starta Nytt Spel</string>
     <string name="continue_button">Fortsätt Spel</string>
 

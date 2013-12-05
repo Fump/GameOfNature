@@ -157,7 +157,7 @@
 			answer3="8"
 			correctAnswer="2"/>
 	</TaskMarker>
-	
+	<!--
 	<TaskMarker
 		id="9"
 		latitude="56.147698"
@@ -177,6 +177,7 @@
 			answer3="8"
 			correctAnswer="2"/>
 	</TaskMarker>
+	-->
 	<FinalQuestion
 		
 			>
