@@ -11,9 +11,6 @@ import com.google.android.gms.maps.model.Marker;
 
 public class GameMap {
 	private GoogleMap map;
-	private Context mContext;
-	
-	private MyLocationMarker myLocation;
 	
 	public static final LatLng ANDREASSONS_MEDOW = 
 			new LatLng(56.148370, 13.393320);
@@ -21,9 +18,8 @@ public class GameMap {
 	
 	private static final int START_ZOOM = 15;
 	
-	public GameMap(GoogleMap map, Context mContext) {
+	public GameMap(GoogleMap map) {
 		this.map = map;
-		this.mContext = mContext;
 		
 		setUpMap();
 	}

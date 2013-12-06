@@ -157,8 +157,8 @@
 			answer3="8"
 			correctAnswer="2"/>
 	</TaskMarker>
-	<!--
-	<TaskMarker
+
+	<FinalTaskMarker
 		id="9"
 		latitude="56.147698"
 		longitude="13.393988"
@@ -166,26 +166,11 @@
 		snippet="En dold plats?!?"
 		infoTxt="Kan ni låsa upp hemligheten på platsen?"
 		iconId="chest">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
-	</TaskMarker>
-	-->
+	
 	<FinalQuestion
+		id="1"
+		type="text"
+		questionTxt="lol"/>
 		
-			>
-		<clue
-
-			/>
-		<clue
-
-			/>
-	</FinalQuestion>
+	</FinalTaskMarker>
 </Map>

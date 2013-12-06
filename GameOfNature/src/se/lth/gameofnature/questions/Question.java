@@ -21,17 +21,11 @@ public abstract class Question {
 	
 	protected String questionType; 
 	protected String questionTxt;
-	
-	protected String[] answers;
-	protected int correctAnswer;
 
-	public Question(String id, String questionType, String questionTxt,
-			String[] answers, int correctAnswer) {
+	public Question(String id, String questionType, String questionTxt) {
 		this.id = id;
 		this.questionType = questionType;
 		this.questionTxt = questionTxt;
-		this.answers = answers;
-		this.correctAnswer = correctAnswer;
 	}
 	
 	public String getId() {
@@ -44,14 +38,6 @@ public abstract class Question {
 	
 	public String getQuestionTxt() {
 		return questionTxt;
-	}
-	
-	public String[] getAnswerOptions() {
-		return answers;
-	}
-	
-	public int getCorrectAnswerIndex() {
-		return correctAnswer;
 	}
 	
 	public abstract void startQuestionActivity(Context source, String taskMarkerId);

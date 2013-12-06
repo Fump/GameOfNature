@@ -51,14 +51,17 @@ public class LocationHandler implements
 	private ArrayList<Geofence> geofencesToAdd;
 	private ArrayList<String> geofencesToRemove;
 	
-	private static final int TRACK_RADIUS = 15;
+	private static final int TRACK_RADIUS = 10;
+	
+	private static final int UPDATE_INTERVAL = 3000;
+	private static final int FASTEST_INTERVAL = 16;
 	
 	private Location lastLocation;
 	private int distanceTraveled;
 	
     private static final LocationRequest REQUEST = LocationRequest.create()
-            .setInterval(5000)         // 5 seconds
-            .setFastestInterval(16)    // 16ms = 60fps
+            .setInterval(UPDATE_INTERVAL)         // 5 seconds
+            .setFastestInterval(FASTEST_INTERVAL)    // 16ms = 60fps
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 	
 	public LocationHandler(Context mContext, GameMap map, MyLocationMarker myLocation) {

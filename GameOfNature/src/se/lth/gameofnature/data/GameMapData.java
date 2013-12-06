@@ -28,9 +28,11 @@ public class GameMapData {
 	
 	private TreeMap<String, TaskMarker> taskMarkers;
 	
+	private TaskMarker finalMarker;
+	
 	public GameMapData(Context mContext) {
 		taskMarkers = XMLReader.readTaskMarkers(mContext);
-		
+	
 		Database db = new Database(mContext);
 		db.open();
 		
@@ -51,9 +53,14 @@ public class GameMapData {
 		
 		db.close();
 		db = null;
+		
+		finalMarker = XMLReader.getFinalTaskMarker(mContext);
 	}
 	
 	public TaskMarker getTaskMarker(String id) {
+		if(id.equals(finalMarker.getId()))
+			return finalMarker;
+		
 		return taskMarkers.get(id);
 	}
 	
@@ -78,5 +85,9 @@ public class GameMapData {
 		}
 		
 		return count;
+	}
+	
+	public TaskMarker getFinalMarker() {
+		return finalMarker;
 	}
 }

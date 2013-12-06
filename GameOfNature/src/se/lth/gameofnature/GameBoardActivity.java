@@ -1,14 +1,11 @@
 package se.lth.gameofnature;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 import se.lth.gameofnature.data.Database;
 import se.lth.gameofnature.data.GameMapData;
 import se.lth.gameofnature.data.Team;
-import se.lth.gameofnature.data.XMLReader;
 import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
 import se.lth.gameofnature.gamemap.OrientationManager;
@@ -19,32 +16,19 @@ import se.lth.gameofnature.questions.Question;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.hardware.SensorManager;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
@@ -106,6 +90,7 @@ public class GameBoardActivity extends Activity {
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
 		
 		db.close();
+		db = null;
 		
 		if(!GameTimer.isRunning())
 			GameTimer.startTimer(this);
@@ -154,7 +139,7 @@ public class GameBoardActivity extends Activity {
 			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 			        .getMap();
 			
-			map = new GameMap(gMap, this);
+			map = new GameMap(gMap);
 			
 			Bitmap icon = BitmapFactory.decodeResource(getResources(), iconId);
 			
@@ -171,6 +156,9 @@ public class GameBoardActivity extends Activity {
 				
 				map.addGameMarker(m);
 			}
+			
+			map.addGameMarker(GameMapData.getCurrentSessionInstance(this).getFinalMarker());
+			GameMapData.getCurrentSessionInstance(this).getFinalMarker().setVisibility(false);
 		}
 	}
 	
@@ -219,8 +207,10 @@ public class GameBoardActivity extends Activity {
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers();
 	
 		if(win) {
-			Intent i = new Intent(this, WinnerActivity.class);
-			startActivity(i);
+			TaskMarker fMarker = GameMapData.getCurrentSessionInstance(this).getFinalMarker();
+			fMarker.setVisibility(true);
+
+			mLocationHandler.trackTaskMarker(GameMapData.getCurrentSessionInstance(this).getFinalMarker());
 		}
 	}
 	
@@ -270,6 +260,8 @@ public class GameBoardActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
+		GameTimer.stopTimer();
+		
 		Intent i = new Intent(this, StartActivity.class);
 		startActivity(i);
 	}
