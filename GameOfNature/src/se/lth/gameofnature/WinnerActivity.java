@@ -31,7 +31,7 @@ public class WinnerActivity extends Activity {
 		
 		teamName.setText(t.getName());
 		
-		int hours = (t.getGameTime() / 60*60) % 24;
+		int hours = (t.getGameTime() / (60*60));
 		int minutes = (t.getGameTime() / 60) % 60;
 		int seconds = t.getGameTime() % 60;
 		
