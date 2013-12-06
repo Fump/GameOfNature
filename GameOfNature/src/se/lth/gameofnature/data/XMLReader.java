@@ -1,8 +1,6 @@
 package se.lth.gameofnature.data;
 
-import java.io.File;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.TreeMap;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -12,26 +10,21 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 
 import se.lth.gameofnature.R;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
-import se.lth.gameofnature.questions.Clue;
 import se.lth.gameofnature.questions.FinalQuestion;
 import se.lth.gameofnature.questions.Question;
 import se.lth.gameofnature.questions.TextQuestion;
 
 public class XMLReader {
 
-	static ArrayList<Clue> clues;
 	public static TreeMap<String, TaskMarker> readTaskMarkers(Context mContext) {
 		TreeMap<String, TaskMarker> markers = new TreeMap<String, TaskMarker>();
-		clues = new ArrayList<Clue>();
 		
 		InputStream is = mContext.getResources().openRawResource(R.raw.map);
 		
@@ -39,7 +32,7 @@ public class XMLReader {
 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(is, "UTF-8");
+			Document doc = dBuilder.parse(is, "ISO-8859-1");
 			
 			doc.getDocumentElement().normalize();
 			
@@ -51,23 +44,6 @@ public class XMLReader {
 				if(markerNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element markerElement = (Element) markerNode;
 					TaskMarker m = getMarker(markerElement, mContext);
-					
-					/*Nytt: Hämta clues och lägg in i lokal Clue-arraylist.
-					 * Denna skickas sedan med ifall frågan som läggs till är en slutfråga (se getQuestion)
-					 */
-					
-					NodeList clueNodes = markerElement.getElementsByTagName("Clue");
-					
-					for(int j = 0; j < clueNodes.getLength(); j++){
-						Node clueNode = clueNodes.item(j);
-						
-						if(clueNode.getNodeType() == Node.ELEMENT_NODE){
-							Element clueElement = (Element) clueNode;
-							
-							Clue c = getClue(clueElement);
-							clues.add(c);
-						}
-					}
 					
 					NodeList questionNodes = markerElement.getElementsByTagName("Question");
 					
@@ -93,6 +69,54 @@ public class XMLReader {
 		return markers;
 	}
 	
+	public static TaskMarker getFinalTaskMarker(Context mContext) {
+		InputStream is = mContext.getResources().openRawResource(R.raw.map);
+	
+		TaskMarker m = null;
+		
+		try {
+
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(is, "ISO-8859-1");
+			
+			doc.getDocumentElement().normalize();
+			
+			NodeList markerNodes = doc.getElementsByTagName("FinalTaskMarker");
+			
+			if(markerNodes.getLength() > 0) {
+				Node markerNode = markerNodes.item(0);
+				
+				if(markerNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element markerElement = (Element) markerNode;
+					
+					m = getMarker(markerElement, mContext);
+					
+					NodeList questionNodes = markerElement.getElementsByTagName("FinalQuestion");
+					
+					if(questionNodes.getLength() > 0) {
+						
+						Node questionNode = questionNodes.item(0);
+						
+						if(questionNode.getNodeType() == Node.ELEMENT_NODE) {
+							Element questionElement = (Element) questionNode;
+							
+							Question q = getFinalQuestion(questionElement);
+							m.addQuestion(q);
+						}
+						
+					}
+				}
+			}
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return m;
+	}
+	
 	private static TaskMarker getMarker(Element e, Context mContext) {
 		String id = e.getAttribute("id");
 		
@@ -111,7 +135,6 @@ public class XMLReader {
 	
 	private static Question getQuestion(Element e) {
 		String id = e.getAttribute("id");
-		String type = e.getAttribute("type");
 		String questionTxt = e.getAttribute("questionTxt");
 
 		String[] answers = new String[4];
@@ -123,23 +146,15 @@ public class XMLReader {
 		
 		int correctAnswer = Integer.parseInt(e.getAttribute("correctAnswer"));
 		
-		if(type.equals(Question.QUESTION_TYPE_TEXT)) {
-			return new TextQuestion(id, questionTxt, answers, correctAnswer);
-		} else if(type.equals(Question.QUESTION_TYPE_FINAL)){
-			return new FinalQuestion(id,questionTxt,answers,correctAnswer, clues);
-		}else {
-			return new TextQuestion(id, questionTxt, answers, correctAnswer);
-		}
-		
+		return new TextQuestion(id, questionTxt, answers, correctAnswer);
 	}
 	
-	private static Clue getClue(Element e){
+	private static Question getFinalQuestion(Element e) {
 		String id = e.getAttribute("id");
-		String code = e.getAttribute("code");
-		String item = e.getAttribute("item");
-		return new Clue(id,code,item);
-	}
-	
+		String type = e.getAttribute("type");
+		String questionTxt = e.getAttribute("questionTxt");
+		
+		return new FinalQuestion(id, questionTxt);
 
-	
+	}
 }

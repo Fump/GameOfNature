@@ -99,20 +99,20 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="2dp"
-                android:background="#FF00008B"
+                android:background="#FFFF6600"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="ff00008b"
+                android:tag="ffff6600"
                 android:onClick="colorClicked" />
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="2dp"
-                android:background="#FF8B0000"
+                android:background="#FF00FFFF"
                 android:contentDescription="@string/colorbackgroundproperties"
                 android:src="@drawable/colorbackgroundproperties"
-                android:tag="ff8b0000"
+                android:tag="ff00ffff"
                 android:onClick="colorClicked" />
             
    			<ImageButton

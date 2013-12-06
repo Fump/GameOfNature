@@ -1,14 +1,11 @@
 package se.lth.gameofnature;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 import se.lth.gameofnature.data.Database;
 import se.lth.gameofnature.data.GameMapData;
 import se.lth.gameofnature.data.Team;
-import se.lth.gameofnature.data.XMLReader;
 import se.lth.gameofnature.gamemap.GameMap;
 import se.lth.gameofnature.gamemap.LocationHandler;
 import se.lth.gameofnature.gamemap.OrientationManager;
@@ -19,32 +16,19 @@ import se.lth.gameofnature.questions.Question;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.hardware.SensorManager;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
@@ -62,11 +46,6 @@ public class GameBoardActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//Fullscreen
-		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
-        //        WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		
 		setContentView(R.layout.activity_game_board);
 	}
 	
@@ -111,6 +90,7 @@ public class GameBoardActivity extends Activity {
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
 		
 		db.close();
+		db = null;
 		
 		if(!GameTimer.isRunning())
 			GameTimer.startTimer(this);
@@ -136,7 +116,11 @@ public class GameBoardActivity extends Activity {
 				if(isCorrectAnswer){
 					marker.setDone();
 					markerIcons.get(marker.getId()).setAlpha(200);
-				}else{
+				}else if(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers()
+						== GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers() - 1) {
+					marker.getNextQuestion().startQuestionActivity(this, marker.getId());
+				}
+				else{
 					marker.setLocked();
 				}
 				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
@@ -155,7 +139,7 @@ public class GameBoardActivity extends Activity {
 			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 			        .getMap();
 			
-			map = new GameMap(gMap, this);
+			map = new GameMap(gMap);
 			
 			Bitmap icon = BitmapFactory.decodeResource(getResources(), iconId);
 			
@@ -172,6 +156,9 @@ public class GameBoardActivity extends Activity {
 				
 				map.addGameMarker(m);
 			}
+			
+			map.addGameMarker(GameMapData.getCurrentSessionInstance(this).getFinalMarker());
+			GameMapData.getCurrentSessionInstance(this).getFinalMarker().setVisibility(false);
 		}
 	}
 	
@@ -220,8 +207,10 @@ public class GameBoardActivity extends Activity {
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers();
 	
 		if(win) {
-			Intent i = new Intent(this, WinnerActivity.class);
-			startActivity(i);
+			TaskMarker fMarker = GameMapData.getCurrentSessionInstance(this).getFinalMarker();
+			fMarker.setVisibility(true);
+
+			mLocationHandler.trackTaskMarker(GameMapData.getCurrentSessionInstance(this).getFinalMarker());
 		}
 	}
 	
@@ -246,18 +235,23 @@ public class GameBoardActivity extends Activity {
 				Drawable icon = getResources().getDrawable(m.getDrawableIdActive());
 				
 				if(m.getStatus() != TaskMarker.STATUS_DONE)
-					icon.setAlpha(80);
+					icon.setAlpha(40);
 				else if(m.getStatus() == TaskMarker.STATUS_DONE)
 					icon.setAlpha(200);
 				
-				img.setAdjustViewBounds(true);
-				img.setScaleType(ScaleType.CENTER_CROP);
 				img.setImageDrawable(icon);
-				img.setMaxWidth(70);
-				
 				markerIcons.put(m.getId(), icon);
+				
+				LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+					     LinearLayout.LayoutParams.MATCH_PARENT, 
+					     LinearLayout.LayoutParams.WRAP_CONTENT,
+					     0.11f);
+
+				layoutParams.setMargins(10, 0, 0, 0);
+				
+				img.setLayoutParams(layoutParams);
+				
 				l.addView(img);
-				l.setGravity(Gravity.CENTER_VERTICAL);
 			}
 			
 			count = (Button)findViewById(R.id.count);
@@ -266,6 +260,8 @@ public class GameBoardActivity extends Activity {
 	
 	@Override
 	public void onBackPressed() {
+		GameTimer.stopTimer();
+		
 		Intent i = new Intent(this, StartActivity.class);
 		startActivity(i);
 	}

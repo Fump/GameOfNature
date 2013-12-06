@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.widget.Toast;
 
 
@@ -106,6 +107,7 @@ public class Database {
 		}
 		
 		cursor.close();
+		
 		return markerStatuses;
 	}
 	
@@ -118,7 +120,12 @@ public class Database {
 		String iconId = cursor.getString(cursor.getColumnIndex("iconId"));
 		String color =  cursor.getString(cursor.getColumnIndex("color"));
 		String name =  cursor.getString(cursor.getColumnIndex("name"));;
+		
+		cursor.close();
+		
 		return (name + " " + color + " " + iconId); 
+		
+		
 	}
 
 	public void modifyTaskMarkerStatus(String task_ID, int current_status,
@@ -126,21 +133,23 @@ public class Database {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.CURRENT_STATUS, current_status);
 		values.put(MySQLiteHelper.LAST_QUESTION, lastQuestionId);
-		database.update(MySQLiteHelper.TASK_MARKER, values, task_ID, null);
+		database.update(MySQLiteHelper.TASK_MARKER, values, 
+				MySQLiteHelper.TASK_MARKER_ID + " = " + task_ID, null);
 	}
 	
 	public void setLastQuestionId(String task_ID, String lastQuestionId) {
 		ContentValues values = new ContentValues();
 		
 		values.put(MySQLiteHelper.LAST_QUESTION, lastQuestionId);
-		database.update(MySQLiteHelper.TASK_MARKER, values, task_ID, null);
+		database.update(MySQLiteHelper.TASK_MARKER, values, 
+				MySQLiteHelper.TASK_MARKER_ID + " = " + task_ID, null);
 	}
 	
 	public void setCurrentStatus(String task_ID, int current_status) {
 		ContentValues values = new ContentValues();
 		values.put(MySQLiteHelper.CURRENT_STATUS, current_status);
-		
-		database.update(MySQLiteHelper.TASK_MARKER, values, task_ID, null);
+		database.update(MySQLiteHelper.TASK_MARKER, values, 
+				MySQLiteHelper.TASK_MARKER_ID + " = " + task_ID, null);
 	}
 
 	public void modifyTeam(String name, int game_time, int distanceTraveled,
@@ -151,7 +160,7 @@ public class Database {
 		values.put(MySQLiteHelper.DISTANCE_TRAVELED, distanceTraveled);
 		values.put(MySQLiteHelper.HAS_ACTIVE_SESSION, hasActiveSession);
 		values.put(MySQLiteHelper.CLUES, clues);
-		database.update(MySQLiteHelper.TEAM, values, name, null);
+		database.update(MySQLiteHelper.TEAM, values, null, null);
 	}
 	
 	public void setGameTime(int game_time) {

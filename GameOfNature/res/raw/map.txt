@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 <Map>
 	<TaskMarker
 		id="1"
@@ -6,13 +6,13 @@
 		longitude="13.392947"
 		title="Stora Eken"
 		snippet="En väldigt stor ek"
-		infoTxt="Eken kan bli valdigt gammal"
+		infoTxt="Eken kan bli väldigt gammal"
 		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt="Hur manga ben har en myra?"
+			questionTxt="Hur många ben har en myra?"
 			answer0="2"
 			answer1="4"
 			answer2="6"
@@ -27,7 +27,7 @@
 		title="Bänken"
 		snippet="Bänken på andra sidan ängen"
 		infoTxt="Runt bänken finns det många olika sorters lövträd."
-		iconId="tree">
+		iconId="bench">
 		
 		<Question
 			id="1"
@@ -47,7 +47,7 @@
 		title="Sälg"
 		snippet="På sälgen växer det idekissar."
 		infoTxt="Här växer det även hasselträd."
-		iconId="tree">
+		iconId="bird">
 		<Question
 			id="1"
 			type="text"
@@ -66,7 +66,7 @@
 		title="Bron"
 		snippet="Under bron rinner det vatten"
 		infoTxt="På andra sidan bron står det en ensam tall."
-		iconId="tree">
+		iconId="flower">
 		
 		<Question
 			id="1"
@@ -86,7 +86,7 @@
 		title="Fläder"
 		snippet="Här växer det fläderbuskar."
 		infoTxt="Av fläder kan man göra saft."
-		iconId="tree">
+		iconId="grass">
 		
 		<Question
 			id="1"
@@ -106,7 +106,7 @@
 		title="Bok"
 		snippet="Här står det en bok."
 		infoTxt="Bokens stam ser ut som elefanthud."
-		iconId="tree">
+		iconId="leaf1">
 		
 		<Question
 			id="1"
@@ -146,7 +146,7 @@
 		title="Stenmur"
 		snippet="Här går en av många stenmurar som finns runt ängen."
 		infoTxt="En av stenmurarna är extra bred kan du se vilken?"
-		iconId="tree">
+		iconId="wall">
 		<Question
 			id="1"
 			type="text"
@@ -157,35 +157,20 @@
 			answer3="8"
 			correctAnswer="2"/>
 	</TaskMarker>
-	
-	<TaskMarker
+
+	<FinalTaskMarker
 		id="9"
-		latitude="56.14786"
-		longitude="13.391659"
+		latitude="56.147698"
+		longitude="13.393988"
 		title="Slutuppgift"
 		snippet="En dold plats?!?"
 		infoTxt="Kan ni låsa upp hemligheten på platsen?"
-		iconId="tree">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
-	</TaskMarker>
+		iconId="chest">
 	
 	<FinalQuestion
+		id="1"
+		type="text"
+		questionTxt="lol"/>
 		
-			>
-		<clue
-
-			/>
-		<clue
-
-			/>
-	</FinalQuestion>
+	</FinalTaskMarker>
 </Map>

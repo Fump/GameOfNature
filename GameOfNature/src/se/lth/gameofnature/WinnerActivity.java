@@ -31,13 +31,16 @@ public class WinnerActivity extends Activity {
 		
 		teamName.setText(t.getName());
 		
-		int hours = (t.getGameTime() / 60*60) % 24;
+		int hours = (t.getGameTime() / (60*60));
 		int minutes = (t.getGameTime() / 60) % 60;
 		int seconds = t.getGameTime() % 60;
 		
 		time.setText(hours + ":" + minutes + ":" + seconds);
 		
 		distance.setText(t.getDistanceTraveled() + " m");
+		
+		db.close();
+		db = null;
 	}
 	
 	public void GameBoardScreen(View view){
