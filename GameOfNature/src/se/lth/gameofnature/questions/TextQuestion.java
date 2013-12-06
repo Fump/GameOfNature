@@ -4,13 +4,26 @@ import se.lth.gameofnature.QuestionActivity;
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
 
 public class TextQuestion extends Question {
-
+	
+	private String[] answers;
+	private int correctAnswer;
+	
 	public TextQuestion(String id, String questionTxt,
 			String[] answers, int correctAnswer) {
-		super(id, Question.QUESTION_TYPE_TEXT, questionTxt, answers, correctAnswer);
+		super(id, Question.QUESTION_TYPE_TEXT, questionTxt);
+		
+		this.answers = answers;
+		this.correctAnswer = correctAnswer;
+	}
+	
+	public String[] getAnswerOptions() {
+		return answers;
+	}
+	
+	public int getCorrectAnswerIndex() {
+		return correctAnswer;
 	}
 	
 	@Override

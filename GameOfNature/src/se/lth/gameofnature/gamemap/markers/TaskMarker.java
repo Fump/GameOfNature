@@ -122,6 +122,12 @@ public class TaskMarker extends GameMarker implements Comparable<TaskMarker> {
 		setStatus(STATUS_DONE, true);
 	}
 	
+	public void setVisibility(boolean visible) {
+		if(myMarker != null) {
+			myMarker.setVisible(visible);
+		}
+	}
+	
 	public void setStatus(int status, boolean saveToDb) {
 		this.status = status;
 		
