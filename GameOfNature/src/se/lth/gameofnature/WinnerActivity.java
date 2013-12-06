@@ -38,6 +38,9 @@ public class WinnerActivity extends Activity {
 		time.setText(hours + ":" + minutes + ":" + seconds);
 		
 		distance.setText(t.getDistanceTraveled() + " m");
+		
+		db.close();
+		db = null;
 	}
 	
 	public void GameBoardScreen(View view){

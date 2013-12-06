@@ -90,6 +90,7 @@ public class GameBoardActivity extends Activity {
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers());
 		
 		db.close();
+		db = null;
 		
 		if(!GameTimer.isRunning())
 			GameTimer.startTimer(this);
