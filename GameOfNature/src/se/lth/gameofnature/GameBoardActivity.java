@@ -17,13 +17,17 @@ import se.lth.gameofnature.questions.Question;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 
+import android.R.color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.hardware.SensorManager;
 import android.view.View;
 import android.widget.Button;
@@ -115,6 +119,7 @@ public class GameBoardActivity extends Activity {
 				
 				if(isCorrectAnswer){
 					marker.setDone();
+					
 					markerIcons.get(marker.getId()).setAlpha(200);
 				}else if(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers()
 						== GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers() - 1) {
@@ -230,15 +235,15 @@ public class GameBoardActivity extends Activity {
 				
 				img.setVisibility(View.VISIBLE);
 				img.setTag(m.getId());
-				img.setImageResource(R.drawable.marker_birdhouse);
 				
 				Drawable icon = getResources().getDrawable(m.getDrawableIdActive());
 				
-				if(m.getStatus() != TaskMarker.STATUS_DONE)
+				if(m.getStatus() != TaskMarker.STATUS_DONE) {
 					icon.setAlpha(40);
-				else if(m.getStatus() == TaskMarker.STATUS_DONE)
+				}else if(m.getStatus() == TaskMarker.STATUS_DONE) {
 					icon.setAlpha(200);
-				
+				}
+
 				img.setImageDrawable(icon);
 				markerIcons.put(m.getId(), icon);
 				
@@ -264,5 +269,26 @@ public class GameBoardActivity extends Activity {
 		
 		Intent i = new Intent(this, StartActivity.class);
 		startActivity(i);
+	}
+	
+	public void zoomIn(View v) {
+		boolean hasMaxZoom = map.zoomIn();
+		
+		if(hasMaxZoom)
+			v.setEnabled(false);
+		
+		if(!findViewById(R.id.zoomOutButton).isEnabled())
+			findViewById(R.id.zoomOutButton).setEnabled(true);
+	}
+	
+	public void zoomOut(View v) {
+		boolean hasMinZoom = map.zoomOut();
+		
+		if(hasMinZoom)
+			v.setEnabled(false);
+		
+		if(!findViewById(R.id.zoomInButton).isEnabled())
+			findViewById(R.id.zoomInButton).setEnabled(true);
+	
 	}
 }

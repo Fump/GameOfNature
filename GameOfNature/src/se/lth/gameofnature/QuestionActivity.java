@@ -130,7 +130,12 @@ public class QuestionActivity extends Activity {
 			// samband med setQuestion
 		}
 		
+		
+		
 		//Fixat ny delay som inte buggar knapparnas grafik.
+		
+		setButtonsEnabled(false);
+		
 		Handler myHandler = new Handler();
 		myHandler.postDelayed(getDelayedSendBack(isCorrect), 3000);
 	}
@@ -142,9 +147,23 @@ public class QuestionActivity extends Activity {
 				QuestionActivity.ACTIVITY_NAME);
 		intent.putExtra(Question.USER_ANSWER, isCorrectAnswer);
 		intent.putExtra(TaskMarker.TASK_MARKER_ID, sourceTaskMarkerId);
-
+		
+		setButtonsEnabled(true);
+		
 		startActivity(intent);
 
+	}
+	
+	private void setButtonsEnabled(boolean enabled) {
+		Button b1 = (Button) findViewById(R.id.question_btnAnswer1);
+		Button b2 = (Button) findViewById(R.id.question_btnAnswer2);
+		Button b3 = (Button) findViewById(R.id.question_btnAnswer3);
+		Button b4 = (Button) findViewById(R.id.question_btnAnswer4);
+		
+		b1.setEnabled(enabled);
+		b2.setEnabled(enabled);
+		b3.setEnabled(enabled);
+		b4.setEnabled(enabled);
 	}
 	
 	private Runnable getDelayedSendBack(final boolean correctAnswer) {

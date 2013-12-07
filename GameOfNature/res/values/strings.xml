@@ -43,6 +43,12 @@
     <string name="answer_3">6</string>
     <string name="answer_4">8</string>
 
+    <!-- Slutuppgiftsskärm -->
+    <string name="title_activity_finalquestion">FinalQuestionActivity</string>
+    <string name="finalquestion_topic">Slutuppgift</string>
+    <string name="finalquestion">Samla tre grankottar och visa för din lärare!</string>
+    <string name="finalquestioncode">Kod för bekräftande</string>
+    
     <!-- Övriga -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

@@ -13,11 +13,11 @@
     <LinearLayout
         android:id="@+id/LinearBarLayoutTop"
         android:layout_width="fill_parent"
-        android:layout_height="40sp"
+        android:layout_height="45sp"
         android:orientation="horizontal"
-        android:background="#162252"
+        android:background="@drawable/marker_bar"
         android:layout_alignParentTop="true" >
-        
+         <!--  android:background="#162252"-->
   	   <Button 
           android:id="@+id/count"
           android:layout_width="wrap_content"
@@ -48,7 +48,32 @@
 		        
 		    </LinearLayout>
 		    
-		    
 		</RelativeLayout>
     </LinearLayout>   	
+    
+    <LinearLayout 
+        android:id="@+id/ZoomButtonsLayout"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/zoomInButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_plus" 
+            android:onClick="zoomIn"/>
+
+        <Button
+            android:id="@+id/zoomOutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_minus" 
+            android:onClick="zoomOut"/>
+
+    </LinearLayout>
+    
 </RelativeLayout> 
