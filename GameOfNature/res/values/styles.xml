@@ -56,5 +56,18 @@
                 <item name="android:textColor">#000000</item>
                 <item name="android:textSize">20dp</item>
     </style>
+	
+<color name="transparent_color">#00000000</color>
+    <style name="CustomAlertDialog" parent="@android:style/Theme.Dialog">
+    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <item name="android:windowFrame">@null</item>
+    <item name="android:windowIsFloating">true</item> 
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    <item name="android:windowBackground">@color/transparent_color</item>
+    <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:gravity">left</item>
+</style>
 
 </resources>
