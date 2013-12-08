@@ -169,8 +169,7 @@
 	
 	<FinalQuestion
 		id="1"
-		type="text"
-		questionTxt="lol"/>
-		
+		code="1234"
+		questionTxt="Samla tre grankottar och visa för din lärare!"/>
 	</FinalTaskMarker>
 </Map>

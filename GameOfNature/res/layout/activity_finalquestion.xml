@@ -10,7 +10,7 @@
     android:background="@drawable/background_clear" >
    
     <TextView
-        android:id="@+id/question_title"
+        android:id="@+id/finalquestion_title"
         style="@style/questionTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,37 +18,26 @@
         android:layout_centerHorizontal="true"
         android:text="@string/finalquestion_topic" />
 
+    <TextView
+        android:id="@+id/finalquestion_content"
+        style="@style/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/finalquestion_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="@string/finalquestion" />
+
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/finalquestion_codebox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="45dp"
         android:ems="10"
         android:inputType="number"
         android:text="@string/finalquestioncode"
-        android:visibility="visible" >
-
-        <requestFocus />
-    </EditText>
-
-    <ImageView
-        android:id="@+id/finalquestion_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/tree" />
-
-    <TextView
-        android:id="@+id/question_content"
-        style="@style/questionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/question_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="@string/finalquestion" />
+        android:visibility="visible" />
 
 </RelativeLayout>

@@ -13,6 +13,7 @@ public abstract class Question {
 	public static final String QUESTION_TXT = "QUESTION_TXT";
 	public static final String ANSWERS = "ANSWERS";
 	public static final String CORRECT_ANSWER = "CORRECT_ANSWER";
+	public static final String FINAL_CODE = "FINAL_CODE";
 	
 	public static final String QUESTION_TYPE_TEXT = "text";
 	public static final String QUESTION_TYPE_FINAL = "FINAL";

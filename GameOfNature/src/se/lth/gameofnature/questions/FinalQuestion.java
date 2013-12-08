@@ -8,8 +8,12 @@ import android.content.Intent;
 
 public class FinalQuestion extends Question{
 	
-	public FinalQuestion(String id, String type, String questionTxt) {
+	private String code;
+	
+	public FinalQuestion(String id, String code, String questionTxt) {
 		super(id, Question.QUESTION_TYPE_FINAL, questionTxt);
+		
+		this.code = code;
 	}
 	
 	@Override
@@ -17,6 +21,7 @@ public class FinalQuestion extends Question{
 		Intent intent = new Intent (source,FinalQuestionActivity.class);
 		intent.putExtra(TaskMarker.TASK_MARKER_ID, taskMarkerId);
 		intent.putExtra(Question.QUESTION_TXT, questionTxt);
+		intent.putExtra(Question.FINAL_CODE, code);
 		source.startActivity(intent);
 	}
 }
