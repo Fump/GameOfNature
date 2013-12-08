@@ -151,10 +151,10 @@ public class XMLReader {
 	
 	private static Question getFinalQuestion(Element e) {
 		String id = e.getAttribute("id");
-		String type = e.getAttribute("type");
+		String code = e.getAttribute("code");
 		String questionTxt = e.getAttribute("questionTxt");
 		
-		return new FinalQuestion(id, type, questionTxt);
+		return new FinalQuestion(id, code, questionTxt);
 
 	}
 }
