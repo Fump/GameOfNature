@@ -154,7 +154,7 @@ public class XMLReader {
 		String type = e.getAttribute("type");
 		String questionTxt = e.getAttribute("questionTxt");
 		
-		return new FinalQuestion(id, questionTxt);
+		return new FinalQuestion(id, type, questionTxt);
 
 	}
 }
