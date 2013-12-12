@@ -2,8 +2,8 @@
 <Map>
 	<TaskMarker
 		id="1"
-		latitude="56.148161"
-		longitude="13.392947"
+		latitude="56.038640"
+		longitude="12.698899"
 		title="Stora Eken"
 		snippet="En väldigt stor ek"
 		infoTxt="Eken kan bli väldigt gammal"
@@ -32,8 +32,8 @@
 	
 	<TaskMarker
 		id="2"
-		latitude="56.149081"
-		longitude="13.393626"
+		latitude="56.038385"
+		longitude="12.698894"
 		title="Bänken"
 		snippet="Bänken på andra sidan ängen"
 		infoTxt="Runt bänken finns det många olika sorters lövträd."
@@ -62,8 +62,8 @@
 
 	<TaskMarker
 		id="3"
-		latitude="56.148558"
-		longitude="13.395340"
+		latitude="56.037867"
+		longitude="12.699134"
 		title="Sälg"
 		snippet="På sälgen växer det idekissar."
 		infoTxt="Här växer det även hasselträd."
@@ -89,163 +89,11 @@
 			answer3="Citronfjäril"
 			correctAnswer="3"/>
 	</TaskMarker>
-	
-	<TaskMarker
-		id="4"
-		latitude="56.149133"
-		longitude="13.396384"
-		title="Bron"
-		snippet="Under bron rinner det vatten"
-		infoTxt="På andra sidan bron står det en ensam tall."
-		iconId="flower">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="Vilken färg har blomman hundkex?"
-			answer0="Blå"
-			answer1="Röd"
-			answer2="Gul"
-			answer3="Vit"
-			correctAnswer="3"/>
-			
-		<Question
-			id="2"
-			type="text"
-			questionTxt="Vilken är den vanligaste födan för en nyckelpiga?"
-			answer0="Nektar"
-			answer1="Bladlöss"
-			answer2="Svamp"
-			answer3="Blad"
-			correctAnswer="1"/>
-			
-
-	</TaskMarker>
-	
-	<TaskMarker
-		id="5"
-		latitude="56.146654"
-		longitude="13.392356"
-		title="Fläder"
-		snippet="Här växer det fläderbuskar."
-		infoTxt="Av fläder kan man göra saft."
-		iconId="grass">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="Vilken av följande buskar har en vit blomma och används ofta för att göra saft?"
-			answer0="Fläder"
-			answer1="Rododendron"
-			answer2="Havtorn"
-			answer3="Olvon"
-			correctAnswer="0"/>
-			
-		<Question
-			id="2"
-			type="text"
-			questionTxt="Vilket träd är känt för att ha röda sura bär?"
-			answer0="Rönn"
-			answer1="Ask"
-			answer2="En"
-			answer3="Sälg"
-			correctAnswer="0"/>
-	</TaskMarker>
-	
-	<TaskMarker
-		id="6"
-		latitude="56.145890"
-		longitude="13.392087"
-		title="Bok"
-		snippet="Här står det en bok."
-		infoTxt="Bokens stam ser ut som elefanthud."
-		iconId="leaf1">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="Vilket träd har bar som liknar elefanthud?"
-			answer0="Bok"
-			answer1="Tall"
-			answer2="Ek"
-			answer3="Björk"
-			correctAnswer="0"/>
-			
-		<Question
-			id="2"
-			type="text"
-			questionTxt="Vilken av följande är en insekt?"
-			answer0="Gråsugga"
-			answer1="Spindel"
-			answer2="Citronfjäril"
-			answer3="Tusenfoting"
-			correctAnswer="2"/>
-	</TaskMarker>
-	
-	<TaskMarker
-		id="7"
-		latitude="56.14461"
-		longitude="13.389717"
-		title="Fågel"
-		snippet="Här finns det en fågelholk."
-		infoTxt="Kan du se om det bor några fåglar i holken?"
-		iconId="birdhouse">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="Många fåglar flyttar söderut över vintern. Vilken av dessa stannar kvar även på vintern?"
-			answer0="Svala"
-			answer1="Bofink"
-			answer2="Sädesärla"
-			answer3="Blåmes"
-			correctAnswer="4"/>
-			
-		<Question
-				id="2"
-				type="text"
-				questionTxt="Hur många olika hackspettar finns det i sverige?"
-				answer0="6"
-				answer1="10"
-				answer2="14"
-				answer3="8"
-				correctAnswer="8"/>
-	</TaskMarker>
-	
-	<TaskMarker
-		id="8"
-		latitude="56.147860"
-		longitude="13.391659"
-		title="Stenmur"
-		snippet="Här går en av många stenmurar som finns runt ängen."
-		infoTxt="En av stenmurarna är extra bred kan du se vilken?"
-		iconId="wall">
-		
-		<Question
-			id="1"
-			type="text"
-			questionTxt="I en stenmur kan man ofta hitta gråsuggor. Till vilken klass tillhör gråsuggan?"
-			answer0="Insekter"
-			answer1="Spindeldjur"
-			answer2="Mångfotingar"
-			answer3="Kräftdjur"
-			correctAnswer="3"/>
-			
-			<Question
-				id="2"
-				type="text"
-				questionTxt="Man kan ofta se tvesjärtar under stenar. Till vilken klass tillhör tvestjärten?"
-				answer0="Leddjur"
-				answer1="Insekter"
-				answer2="Kräftdjur"
-				answer3="Spindeldjur"
-				correctAnswer="1"/>
-	</TaskMarker>
 
 	<FinalTaskMarker
 		id="9"
-		latitude="56.147698"
-		longitude="13.393988"
+		latitude="56.038089"
+		longitude="12.699176"
 		title="Slutuppgift"
 		snippet="En dold plats?!?"
 		infoTxt="Kan ni låsa upp hemligheten på platsen?"
