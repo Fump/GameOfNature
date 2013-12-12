@@ -16,13 +16,15 @@
 
     <string-array name="character_list">
         <item>Välj markör</item>
-        <item>android</item>
+        <item>Groda</item>
+        <item>Fjäril</item>
         <item>Nyckelpiga</item>
     </string-array>
 
     <integer-array name="character_img_list">
         <item>@android:color/transparent</item>
-        <item>@drawable/ic_launcher</item>
+        <item>@drawable/frog</item>
+        <item>@drawable/butterfly</item>
         <item>@drawable/bug</item>
     </integer-array>
 
