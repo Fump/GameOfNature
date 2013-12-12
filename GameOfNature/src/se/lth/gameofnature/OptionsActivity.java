@@ -74,7 +74,7 @@ public class OptionsActivity extends Activity implements OnItemSelectedListener 
 		//alertbox = new AlertDialog.Builder(this);  
 		switch(spinner.getSelectedItemPosition()){
 		case 1:
-			alertbox.setMessage("Android Gubben är ful!");
+			alertbox.setMessage("Groda");
 			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
 				public void onClick(DialogInterface arg0, int arg1) {
 				}
@@ -82,7 +82,15 @@ public class OptionsActivity extends Activity implements OnItemSelectedListener 
 			alertbox.show();
 			break;
 		case 2:  
-			alertbox.setMessage("Luddes fina lilla piga :)");
+			alertbox.setMessage("Fjäril");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
+			break;
+		case 3:
+			alertbox.setMessage("Pigge");
 			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
 				public void onClick(DialogInterface arg0, int arg1) {
 				}
