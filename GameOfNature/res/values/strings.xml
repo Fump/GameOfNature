@@ -48,7 +48,7 @@
     <string name="finalquestion_topic">Slutuppgift</string>
     <string name="finalquestion">Samla tre grankottar och visa för din lärare!</string>
     <string name="finalquestioncode">Kod för bekräftande</string>
-    
+
     <!-- Övriga -->
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -56,5 +56,6 @@
     <string name="winner_title">Grattis! Du har vunnit spelet!</string>
     <string name="distance">Avstånd: </string>
     <string name="title_activity_info_dialog">InfoDialog</string>
+    <string name="title_activity_dialog">Dialog</string>
 
 </resources>

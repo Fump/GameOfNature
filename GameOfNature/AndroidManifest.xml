@@ -95,6 +95,10 @@
             android:name="se.lth.gameofnature.InfoDialog"
             android:label="@string/title_activity_info_dialog" >
         </activity>
+        <activity
+            android:name="se.lth.gameofnature.Dialog"
+            android:label="@string/title_activity_dialog" >
+        </activity>
     </application>
 
 </manifest>
