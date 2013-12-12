@@ -43,7 +43,7 @@ public class WinnerActivity extends Activity {
 		TextView teamName = (TextView)findViewById(R.id.teamNameWin);	
 		TextView time = (TextView)findViewById(R.id.TimeWin);
 		TextView distance = (TextView)findViewById(R.id.distanceWin);
-		TextView winInfo = (TextView)findViewById(R.id.WinTitle);
+		
 		
 		Database db = new Database(this);
 		db.open();
@@ -59,9 +59,6 @@ public class WinnerActivity extends Activity {
 		time.setText(hours + ":" + minutes + ":" + seconds);
 		
 		distance.setText(t.getDistanceTraveled() + " m");
-		
-		winInfo.setText("Grattis " + t.getName() + "\n" +
-				"Ni har vunnit spelet!");
 		
 		db.close();
 		db = null;

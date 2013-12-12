@@ -84,8 +84,8 @@ public class GameBoardActivity extends Activity {
 		Team teamStatus = db.getTeamStatus();
 		
 		initMapIfNeeded(teamStatus.getIconId(), teamStatus.getColor());
-		initLocationHandlerIfNeeded();
 		initRotationManagerIfNeeded();
+		initLocationHandlerIfNeeded();
 		
 		initIconBar();
 		handleIntent();

@@ -199,7 +199,7 @@
 			answer1="Bofink"
 			answer2="Sädesärla"
 			answer3="Blåmes"
-			correctAnswer="4"/>
+			correctAnswer="3"/>
 			
 		<Question
 				id="2"
@@ -209,7 +209,7 @@
 				answer1="10"
 				answer2="14"
 				answer3="8"
-				correctAnswer="8"/>
+				correctAnswer="3"/>
 	</TaskMarker>
 	
 	<TaskMarker

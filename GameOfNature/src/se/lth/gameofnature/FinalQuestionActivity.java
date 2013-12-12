@@ -22,7 +22,6 @@ public class FinalQuestionActivity extends Activity{
 	private String question; 
 	private String code;
 	private String sourceTaskMarkerId;
-	private TextView.OnEditorActionListener codeBoxListener;
 	private EditText codeBox;
 	
 	@Override

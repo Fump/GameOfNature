@@ -8,6 +8,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.view.Surface;
+import android.view.WindowManager;
 
 public class OrientationManager implements SensorEventListener {
 	
@@ -119,8 +120,10 @@ public class OrientationManager implements SensorEventListener {
                 m_NormNorthVector[0] = North_x / norm_North; m_NormNorthVector[1] = North_y / norm_North; m_NormNorthVector[2] = North_z / norm_North;
 
                 // take account of screen rotation away from its natural rotation
-                int rotation = m_activity.getWindowManager().getDefaultDisplay().getRotation();
-                float screen_adjustment = 0;
+                
+                int rotation = Surface.ROTATION_0;
+
+                float screen_adjustment = 90;
                 switch(rotation) {
                     case Surface.ROTATION_0:   screen_adjustment =          0;         break;
                     case Surface.ROTATION_90:  screen_adjustment =   (float)Math.PI/2; break;

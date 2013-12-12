@@ -25,7 +25,9 @@
             android:id="@+id/LagnamnText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10" />
+            android:ems="10"
+            android:inputType="text"
+            android:imeOptions="actionDone"/>
 	<!-- Lagfärg -->
     <LinearLayout
         android:layout_width="234dp"

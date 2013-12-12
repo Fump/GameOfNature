@@ -23,7 +23,7 @@ public class MyLocationMarker extends GameMarker {
 	 * Rotates the markers icon.
 	 */
 	public void setRotation(float rotation) {
-		if(Math.abs(this.rotation - rotation) >= 15) {
+		if(Math.abs(this.rotation - rotation) >= 20) {
 			this.rotation = rotation;
 			
 			Matrix matrix = new Matrix();
