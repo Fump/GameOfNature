@@ -74,6 +74,7 @@
            android:layout_width="wrap_content"
            android:layout_marginTop="10dp"
            android:layout_height="wrap_content"
+           android:gravity="center"
            android:layout_gravity="center"
            android:text="@string/question_topic"
            android:textColor="#FF000000" />
@@ -83,6 +84,7 @@
            style="@style/questionText"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:gravity="center"
            android:layout_gravity="center"
            android:layout_marginTop="20dp"
            android:text="@string/question"

@@ -8,47 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".QuestionActivity"
     android:background="@drawable/background_clear" >
-   
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/layout_round_corners"
-        android:orientation="vertical"
-        android:textStyle="bold" >
-    <TextView
-            android:id="@+id/finalquestion_title"
-            style="@style/questionTopic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Slutuppgift"
-            android:textColor="#FFFFFF" />
-	</LinearLayout>
-	
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/layout_round_corners"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/finalquestion_content"
-            style="@style/questionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:padding="5dp"
-            android:text="@string/question"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
-    </LinearLayout>
     
 	<LinearLayout
 	    android:layout_width="wrap_content"
@@ -73,4 +32,36 @@
 	        android:layout_height="wrap_content"
 	        android:text="Godkänn upppgift"/>
 	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="39dp"
+	    android:background="@drawable/layout_round_corners"
+	    android:orientation="vertical" >
+
+		<TextView
+		    android:id="@+id/finalquestion_title"
+		    style="@style/questionTopic"
+		    android:layout_marginTop="10dp"
+		    android:layout_gravity="center"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="Slutuppgift"
+		    android:textColor="#000000" />
+
+	    <TextView
+	        android:id="@+id/finalquestion_content"
+	        style="@style/questionText"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:layout_marginTop="20dp"
+	        android:padding="5dp"
+	        android:text="hasdjfokgvhjklöjknbhvgcfxcgvbunijokplkojinbuyvtcrxtvybunimo,lominubyvtcvybunimol,minubyvtcrtvybhnjuikminubyvtcr"
+	        android:textColor="#000000"/>
+	</LinearLayout>
+
 </RelativeLayout>
