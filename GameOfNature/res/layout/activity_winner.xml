@@ -1,68 +1,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@drawable/bakgrunden_vinst"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/background_clear"
     tools:context=".WinnerActivity" >
-    
-       		<TextView
-	            android:id="@+id/WinTitle"
-	            android:textStyle="bold"
-				style="@style/colourText"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_marginTop="70dp"
-	            android:text="@string/winner_title"
-	            android:textAppearance="?android:attr/textAppearanceLarge" />
-		    <TextView	
-		        android:id="@+id/teamNameWinTitle"
-		        android:layout_width="wrap_content"
-       		    android:layout_height="wrap_content"
-       		    android:layout_marginTop="30dp"
-       		    android:text="@string/team_name"
-       		    style="@style/colourText"/>
 
-       		<TextView
-       		    android:id="@+id/teamNameWin"
-       		    android:layout_width="wrap_content"
-       		    android:layout_height="wrap_content"
-       		    android:text="@string/team_name"
-       		    android:textAppearance="?android:attr/textAppearanceLarge"
-       		    android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="300dp"
+        android:orientation="horizontal" >
 
-	    	<TextView	
-		        android:id="@+id/TimeWinTitle"
-		        android:layout_width="wrap_content"
-       		    android:layout_height="wrap_content"
-       		    android:text="@string/game_time"
-       		    style="@style/colourText"/>
+        <TextView
+            android:id="@+id/teamNameWinTitle"
+            style="@style/colourText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/team_name" />
 
-            <TextView
+        <TextView
+            android:id="@+id/teamNameWin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="7.57"
+            android:text="@string/team_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/TimeWinTitle"
+            style="@style/colourText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_time" />
+
+        <TextView
             android:id="@+id/TimeWin"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/game_time"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    	<TextView	
-		        android:id="@+id/distanceWinTitle"
-		        android:layout_width="wrap_content"
-       		    android:layout_height="wrap_content"
-       		    android:text="@string/distance"
-       		    style="@style/colourText"/>
-            <TextView
-                android:id="@+id/distanceWin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/distance"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold" />
-    
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/distanceWinTitle"
+            style="@style/colourText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/distance" />
+
+        <TextView
+            android:id="@+id/distanceWin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/distance"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </LinearLayout>
