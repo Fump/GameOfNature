@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,17 @@ public class FinalQuestionActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_finalquestion);
+		
+		((Button)findViewById(R.id.approveButton)).setOnClickListener(
+				new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						((Button)findViewById(R.id.approveButton)).setBackgroundResource(R.drawable.button_down);
+						tryCode();
+						
+					}
+				});
 	}
 	
 	@Override
@@ -56,16 +68,6 @@ public class FinalQuestionActivity extends Activity{
 			questionView.setText(question);
 			
 			codeBox = (EditText) findViewById(R.id.finalquestion_codebox);
-					
-			codeBoxListener = new TextView.OnEditorActionListener(){
-				public boolean onEditorAction(TextView finalquestion_codebox, int actionId, KeyEvent event) {
-					   if (actionId == EditorInfo.IME_NULL  
-					      && event.getAction() == KeyEvent.ACTION_DOWN) { 
-					      tryCode();
-					   }
-					   return true;
-					}
-			};
 		}
 	}
 	

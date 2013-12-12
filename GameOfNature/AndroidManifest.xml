@@ -69,6 +69,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
+            android:name="se.lth.gameofnature.FinalQuestionActivity"
+            android:label="@string/title_activity_question"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
             android:name="se.lth.gameofnature.TaskMarkerDialog"
             android:label="@string/title_activity_task_dialog"
             android:screenOrientation="portrait"
