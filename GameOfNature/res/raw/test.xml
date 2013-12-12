@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<Map>
+	<TaskMarker
+		id="1"
+		latitude="56.039273"
+		longitude="12.698437"
+		title="Stora Eken"
+		snippet="En väldigt stor ek"
+		infoTxt="Eken kan bli väldigt gammal"
+		iconId="tree">
+		
+		<Question
+			id="1"
+			type="text"
+			questionTxt="Vad heter den största skalbaggen som finns i Sverige?"
+			answer0="Virvelbagge"
+			answer1="Bladhorning"
+			answer2="Ekoxe"
+			answer3="Kulbagge"
+			correctAnswer="2"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilket träd har frön som kallas för ollon?"
+			answer0="Tall"
+			answer1="Ek"
+			answer2="Rönn"
+			answer3="Kastanj"
+			correctAnswer="1"/>
+	</TaskMarker>
+	
+	<TaskMarker
+		id="2"
+		latitude="56.039367"
+		longitude="12.698199"
+		title="Bänken"
+		snippet="Bänken på andra sidan ängen"
+		infoTxt="Runt bänken finns det många olika sorters lövträd."
+		iconId="bench">
+		
+		<Question
+			id="1"
+			type="text"
+			questionTxt="Näver kallas barken på ett träd som har en vit och svart stam. Vilket träd är det?"
+			answer0="Bok"
+			answer1="Björk"
+			answer2="Ek"
+			answer3="Rönn"
+			correctAnswer="1"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilket lövträd har kottar?"
+			answer0="Ask"
+			answer1="Björk"
+			answer2="Al"
+			answer3="Ek"
+			correctAnswer="2"/>
+	</TaskMarker>
+
+	<TaskMarker
+		id="3"
+		latitude="56.039100"
+		longitude="12.698037"
+		title="Sälg"
+		snippet="På sälgen växer det idekissar."
+		infoTxt="Här växer det även hasselträd."
+		iconId="bird">
+		
+		<Question
+			id="1"
+			type="text"
+			questionTxt="Tidigt på våren kan man se något som liknar små vita kuddar som kallas för videkissar. På vilket träd växer videkissarna?"
+			answer0="Sälg"
+			answer1="Asp"
+			answer2="Kastanj"
+			answer3="Rönn"
+			correctAnswer="0"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilken av följande fjärlar har en tydlig gul färg?"
+			answer0="Påfågelsöga"
+			answer1="Amiral"
+			answer2="Skogsvisslare"
+			answer3="Citronfjäril"
+			correctAnswer="3"/>
+	</TaskMarker>
+
+	<FinalTaskMarker
+		id="9"
+		latitude="56.039128"
+		longitude="12.698354"
+		title="Slutuppgift"
+		snippet="En dold plats?!?"
+		infoTxt="Kan ni låsa upp hemligheten på platsen?"
+		iconId="chest">
+	
+	<FinalQuestion
+		id="1"
+		code="1234"
+		questionTxt="Samla tre grankottar och visa för din lärare!"/>
+	</FinalTaskMarker>
+</Map>
