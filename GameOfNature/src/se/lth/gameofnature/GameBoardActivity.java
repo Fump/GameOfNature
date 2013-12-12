@@ -33,6 +33,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
@@ -163,8 +164,11 @@ public class GameBoardActivity extends Activity {
 			}
 			
 			map.addGameMarker(GameMapData.getCurrentSessionInstance(this).getFinalMarker());
-			GameMapData.getCurrentSessionInstance(this).getFinalMarker().setVisibility(false);
-		}
+			
+			if(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() !=
+					GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers())
+				GameMapData.getCurrentSessionInstance(this).getFinalMarker().setVisibility(false);
+		} 
 	}
 	
 	/* Sets up a locationHandler object to track the current location of the user 
@@ -214,7 +218,7 @@ public class GameBoardActivity extends Activity {
 		if(win) {
 			TaskMarker fMarker = GameMapData.getCurrentSessionInstance(this).getFinalMarker();
 			fMarker.setVisibility(true);
-
+			
 			mLocationHandler.trackTaskMarker(GameMapData.getCurrentSessionInstance(this).getFinalMarker());
 		}
 	}
@@ -266,7 +270,7 @@ public class GameBoardActivity extends Activity {
 	@Override
 	public void onBackPressed() {
 		GameTimer.stopTimer();
-		
+
 		Intent i = new Intent(this, StartActivity.class);
 		startActivity(i);
 	}

@@ -70,7 +70,7 @@ public class XMLReader {
 	}
 	
 	public static TaskMarker getFinalTaskMarker(Context mContext) {
-		InputStream is = mContext.getResources().openRawResource(R.raw.map);
+		InputStream is = mContext.getResources().openRawResource(R.raw.test);
 	
 		TaskMarker m = null;
 		

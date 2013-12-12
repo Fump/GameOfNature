@@ -199,6 +199,10 @@ public class LocationHandler implements
 			geofencesToRemove.clear();
 			hasPendingRemove = false;
 		}
+		
+		map.setPosition(
+				new LatLng(mLocationClient.getLastLocation().getLatitude(),
+						mLocationClient.getLastLocation().getLongitude()));
 	}
 
 	@Override
