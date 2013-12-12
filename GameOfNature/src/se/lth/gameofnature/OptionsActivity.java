@@ -72,34 +72,22 @@ public class OptionsActivity extends Activity implements OnItemSelectedListener 
 		image.setImageResource(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
 		//Fakta till varje markör med popUp box.             
 		//alertbox = new AlertDialog.Builder(this);  
-		
-		Intent i;
-		
-		String txt;
 		switch(spinner.getSelectedItemPosition()){
 		case 1:
-			txt = "ANDROID";
-			i = new Intent(this, Dialog.class);
-			i.putExtra(Dialog.DIALOG_TXT, txt);
-			startActivity(i);
-			//alertbox.setMessage("Android Gubben är ful!");
-			//alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
-			//	public void onClick(DialogInterface arg0, int arg1) {
-			//	}
-			//});
-			//alertbox.show();
+			alertbox.setMessage("Android Gubben är ful!");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
 			break;
 		case 2:  
-			txt = "NYCKEL";
-			i = new Intent(this, Dialog.class);
-			i.putExtra(Dialog.DIALOG_TXT, txt);
-			startActivity(i);
-			//alertbox.setMessage("Luddes fina lilla piga :)");
-			//alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
-			//	public void onClick(DialogInterface arg0, int arg1) {
-			//	}
-			//});
-			//alertbox.show();
+			alertbox.setMessage("Luddes fina lilla piga :)");
+			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
+				public void onClick(DialogInterface arg0, int arg1) {
+				}
+			});
+			alertbox.show();
 			break;
 		} 
 	}

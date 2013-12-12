@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:background="@drawable/dialog"
+android:layout_width="300dp"
+android:layout_height="wrap_content"
+android:background="@drawable/d_back"
 android:gravity="center"
 android:orientation="vertical" >
 <TextView
