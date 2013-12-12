@@ -60,7 +60,7 @@ public class StartActivity extends Activity {
 		
 		Button button = (Button) findViewById(R.id.StartButton);
 		button.setBackgroundResource(R.drawable.button_down);
-		Intent intent = new Intent(this, Alternativsida.class);
+		Intent intent = new Intent(this, OptionsActivity.class);
 		startActivity(intent);
 	}
 	

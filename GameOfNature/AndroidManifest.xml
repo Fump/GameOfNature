@@ -57,7 +57,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="se.lth.gameofnature.Alternativsida"
+            android:name="se.lth.gameofnature.OptionsActivity"
             android:label="@string/title_activity_alternativsida"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >

@@ -25,7 +25,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Alternativsida extends Activity implements OnItemSelectedListener {
+public class OptionsActivity extends Activity implements OnItemSelectedListener {
 	public static final String ACTIVITY_NAME = "OPTIONS_ACTIVITY";
 
 	private ImageButton currentColor;
@@ -38,7 +38,7 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_alternativsida);
+		setContentView(R.layout.activity_options);
 
 		//Förvald färg vid start
 		LinearLayout paintLayout = (LinearLayout)findViewById(R.id.choose_colors);
