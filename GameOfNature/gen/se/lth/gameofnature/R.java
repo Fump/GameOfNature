@@ -288,19 +288,21 @@ containing a value of this type.
         public static final int zoomOutButton=0x7f060010;
     }
     public static final class layout {
-        public static final int activity_finalquestion=0x7f030000;
-        public static final int activity_game_board=0x7f030001;
-        public static final int activity_options=0x7f030002;
-        public static final int activity_question=0x7f030003;
-        public static final int activity_splash=0x7f030004;
-        public static final int activity_start=0x7f030005;
-        public static final int activity_task_dialog=0x7f030006;
-        public static final int activity_winner=0x7f030007;
-        public static final int feed_update_count=0x7f030008;
+        public static final int activity_dialog=0x7f030000;
+        public static final int activity_finalquestion=0x7f030001;
+        public static final int activity_game_board=0x7f030002;
+        public static final int activity_options=0x7f030003;
+        public static final int activity_question=0x7f030004;
+        public static final int activity_splash=0x7f030005;
+        public static final int activity_start=0x7f030006;
+        public static final int activity_task_dialog=0x7f030007;
+        public static final int activity_winner=0x7f030008;
+        public static final int feed_update_count=0x7f030009;
     }
     public static final class menu {
         public static final int alternativsida=0x7f0b0000;
-        public static final int start=0x7f0b0001;
+        public static final int dialog=0x7f0b0001;
+        public static final int start=0x7f0b0002;
     }
     public static final class raw {
         public static final int map=0x7f040000;
@@ -414,6 +416,7 @@ containing a value of this type.
         /**  Alternativskärm 
          */
         public static final int title_activity_alternativsida=0x7f070018;
+        public static final int title_activity_dialog=0x7f070033;
         /**  Slutuppgiftsskärm 
          */
         public static final int title_activity_finalquestion=0x7f070029;
