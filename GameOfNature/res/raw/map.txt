@@ -5,19 +5,29 @@
 		latitude="56.148161"
 		longitude="13.392947"
 		title="Stora Eken"
-		snippet="En väldigt stor ek"
-		infoTxt="Eken kan bli väldigt gammal"
+		snippet="Stora eken är det största trädet på ängen."
+		infoTxt="Eken är ett träd som kan bli väldigt gammalt."
 		iconId="tree">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt="Hur många ben har en myra?"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
+			questionTxt="Vad heter den största skalbaggen som finns i Sverige?"
+			answer0="Virvelbagge"
+			answer1="Bladhorning"
+			answer2="Ekoxe"
+			answer3="Kulbagge"
 			correctAnswer="2"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilket träd har frön som kallas för ollon?"
+			answer0="Tall"
+			answer1="Ek"
+			answer2="Rönn"
+			answer3="Kastanj"
+			correctAnswer="1"/>
 	</TaskMarker>
 	
 	<TaskMarker
@@ -26,17 +36,27 @@
 		longitude="13.393626"
 		title="Bänken"
 		snippet="Bänken på andra sidan ängen"
-		infoTxt="Runt bänken finns det många olika sorters lövträd."
+		infoTxt="Om du tittar runt omkring bänken kan du se många olika sorters lövträd."
 		iconId="bench">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
+			questionTxt="Näver kallas barken på ett träd som har en vit och svart stam. Vilket träd är det?"
+			answer0="Bok"
+			answer1="Björk"
+			answer2="Ek"
+			answer3="Rönn"
+			correctAnswer="1"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilket lövträd har kottar?"
+			answer0="Ask"
+			answer1="Björk"
+			answer2="Al"
+			answer3="Ek"
 			correctAnswer="2"/>
 	</TaskMarker>
 
@@ -44,26 +64,37 @@
 		id="3"
 		latitude="56.148558"
 		longitude="13.395340"
-		title="Sälg"
-		snippet="På sälgen växer det idekissar."
-		infoTxt="Här växer det även hasselträd."
+		title="Fågel"
+		snippet="Sälg"
+		infoTxt="På andra sidan vägen växer det en sälg. Tidigt på våren kan man se videkissar på sälgen."
 		iconId="bird">
+		
 		<Question
 			id="1"
 			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
+			questionTxt="Tidigt på våren kan man se något som liknar små vita kuddar som kallas för videkissar. På vilket träd växer videkissarna?"
+			answer0="Sälg"
+			answer1="Asp"
+			answer2="Kastanj"
+			answer3="Rönn"
+			correctAnswer="0"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilken av följande fjärlar har en tydlig gul färg?"
+			answer0="Påfågelsöga"
+			answer1="Amiral"
+			answer2="Skogsvisslare"
+			answer3="Citronfjäril"
+			correctAnswer="3"/>
 	</TaskMarker>
 	
 	<TaskMarker
 		id="4"
 		latitude="56.149133"
 		longitude="13.396384"
-		title="Bron"
+		title="Blomma"
 		snippet="Under bron rinner det vatten"
 		infoTxt="På andra sidan bron står det en ensam tall."
 		iconId="flower">
@@ -71,12 +102,24 @@
 		<Question
 			id="1"
 			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
+			questionTxt="Vilken färg har blomman hundkex?"
+			answer0="Blå"
+			answer1="Röd"
+			answer2="Gul"
+			answer3="Vit"
+			correctAnswer="3"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilken är den vanligaste födan för en nyckelpiga?"
+			answer0="Nektar"
+			answer1="Bladlöss"
+			answer2="Svamp"
+			answer3="Blad"
+			correctAnswer="1"/>
+			
+
 	</TaskMarker>
 	
 	<TaskMarker
@@ -91,12 +134,22 @@
 		<Question
 			id="1"
 			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
+			questionTxt="Vilken av följande buskar har en vit blomma och används ofta för att göra saft?"
+			answer0="Fläder"
+			answer1="Rododendron"
+			answer2="Havtorn"
+			answer3="Olvon"
+			correctAnswer="0"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilket träd är känt för att ha röda sura bär?"
+			answer0="Rönn"
+			answer1="Ask"
+			answer2="En"
+			answer3="Sälg"
+			correctAnswer="0"/>
 	</TaskMarker>
 	
 	<TaskMarker
@@ -104,18 +157,28 @@
 		latitude="56.145890"
 		longitude="13.392087"
 		title="Bok"
-		snippet="Här står det en bok."
+		snippet="Här kan du se en stor bok."
 		infoTxt="Bokens stam ser ut som elefanthud."
 		iconId="leaf1">
 		
 		<Question
 			id="1"
 			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
+			questionTxt="Vilket träd har bark som liknar elefanthud?"
+			answer0="Bok"
+			answer1="Tall"
+			answer2="Ek"
+			answer3="Björk"
+			correctAnswer="0"/>
+			
+		<Question
+			id="2"
+			type="text"
+			questionTxt="Vilken av följande är en insekt?"
+			answer0="Gråsugga"
+			answer1="Spindel"
+			answer2="Citronfjäril"
+			answer3="Tusenfoting"
 			correctAnswer="2"/>
 	</TaskMarker>
 	
@@ -131,12 +194,22 @@
 		<Question
 			id="1"
 			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
+			questionTxt="Många fåglar flyttar söderut över vintern. Vilken av dessa stannar kvar även på vintern?"
+			answer0="Svala"
+			answer1="Bofink"
+			answer2="Sädesärla"
+			answer3="Blåmes"
+			correctAnswer="4"/>
+			
+		<Question
+				id="2"
+				type="text"
+				questionTxt="Hur många olika hackspettar finns det i sverige?"
+				answer0="6"
+				answer1="10"
+				answer2="14"
+				answer3="8"
+				correctAnswer="8"/>
 	</TaskMarker>
 	
 	<TaskMarker
@@ -147,15 +220,26 @@
 		snippet="Här går en av många stenmurar som finns runt ängen."
 		infoTxt="En av stenmurarna är extra bred kan du se vilken?"
 		iconId="wall">
+		
 		<Question
 			id="1"
 			type="text"
-			questionTxt="lol"
-			answer0="2"
-			answer1="4"
-			answer2="6"
-			answer3="8"
-			correctAnswer="2"/>
+			questionTxt="I en stenmur kan man ofta hitta gråsuggor. Till vilken klass tillhör gråsuggan?"
+			answer0="Insekter"
+			answer1="Spindeldjur"
+			answer2="Mångfotingar"
+			answer3="Kräftdjur"
+			correctAnswer="3"/>
+			
+			<Question
+				id="2"
+				type="text"
+				questionTxt="Man kan ofta se tvesjärtar under stenar. Till vilken klass tillhör tvestjärten?"
+				answer0="Leddjur"
+				answer1="Insekter"
+				answer2="Kräftdjur"
+				answer3="Spindeldjur"
+				correctAnswer="1"/>
 	</TaskMarker>
 
 	<FinalTaskMarker
@@ -170,6 +254,6 @@
 	<FinalQuestion
 		id="1"
 		code="1234"
-		questionTxt="Samla tre grankottar och visa för din lärare!"/>
+		questionTxt="Hitta 1 rönnbär och 1 ekollon och visa för din lärare!"/>
 	</FinalTaskMarker>
 </Map>

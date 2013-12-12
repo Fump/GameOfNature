@@ -16,7 +16,7 @@ public class GameMap {
 			new LatLng(56.148370, 13.393320);
 			
 	private int zoom;
-	private final static int[] zoomLevels = {15, 16, 17, 18}; 
+	private final static int[] zoomLevels = {15, 16, 17, 18, 20}; 
 	
 	public GameMap(GoogleMap map) {
 		this.map = map;
@@ -27,11 +27,12 @@ public class GameMap {
 	private void setUpMap() {
 		zoom = 1;
 		
-		setPosAndZoom(ANDREASSONS_MEDOW, zoomLevels[1]);
+		setZoom(zoomLevels[1]);
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 		
 		map.getUiSettings().setZoomControlsEnabled(false);
-		map.getUiSettings().setZoomGesturesEnabled(false);
+		map.getUiSettings().setAllGesturesEnabled(false);
+		map.getUiSettings().setCompassEnabled(false);
 	}
 	
 	public void setPosition(LatLng pos) {

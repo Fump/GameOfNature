@@ -53,7 +53,7 @@ public class LocationHandler implements
 	
 	private static final int TRACK_RADIUS = 10;
 	
-	private static final int UPDATE_INTERVAL = 3000;
+	private static final int UPDATE_INTERVAL = 5000;
 	private static final int FASTEST_INTERVAL = 16;
 	
 	private Location lastLocation;
@@ -237,7 +237,7 @@ public class LocationHandler implements
 	public void onAddGeofencesResult(int statusCode, String[] geofenceRequestIds) {
 		 // If adding the geofences was successful
         if (LocationStatusCodes.SUCCESS == statusCode) {
-            Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
+        	Log.e("Added geofences", "Added geofences");
         } else {
         	for(String id : geofenceRequestIds)
         		Log.e("geofences", "Failed to add geofence with id: " + id);
@@ -249,7 +249,7 @@ public class LocationHandler implements
 			PendingIntent intent) {
 		 // If adding the geofences was successful
         if (LocationStatusCodes.SUCCESS == statusCode) {
-            Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
+        	Log.e("Added geofences", "Added geofences");
         } else {
         	Log.e("Failed to add geofences", "Failed to add geofences");
         }
@@ -259,7 +259,7 @@ public class LocationHandler implements
 	public void onRemoveGeofencesByRequestIdsResult(int statusCode, String[] requestIds) {
 		 // If adding the geofences was successful
         if (LocationStatusCodes.SUCCESS == statusCode) {
-            Toast.makeText(mContext, "Geofences added", Toast.LENGTH_SHORT).show();
+            Log.d("REMOVED GEOFENCE", "REMOVED");
         } else {
         	Log.e("Failed to add geofences", "Failed to remove geofences");
         }

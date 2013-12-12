@@ -19,9 +19,11 @@ public class FinalQuestion extends Question{
 	@Override
 	public void startQuestionActivity(Context source, String taskMarkerId) {
 		Intent intent = new Intent (source,FinalQuestionActivity.class);
+		
 		intent.putExtra(TaskMarker.TASK_MARKER_ID, taskMarkerId);
 		intent.putExtra(Question.QUESTION_TXT, questionTxt);
 		intent.putExtra(Question.FINAL_CODE, code);
+		
 		source.startActivity(intent);
 	}
 }
