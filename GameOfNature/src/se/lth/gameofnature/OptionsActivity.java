@@ -71,10 +71,10 @@ public class OptionsActivity extends Activity implements OnItemSelectedListener 
 		charImg = getResources().obtainTypedArray(R.array.character_img_list);
 		image.setImageResource(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
 		//Fakta till varje markör med popUp box.             
-		//alertbox = new AlertDialog.Builder(this);  
+		alertbox = new AlertDialog.Builder(this);  
 		switch(spinner.getSelectedItemPosition()){
 		case 1:
-			alertbox.setMessage("Groda");
+			alertbox.setMessage("Android Gubben är ful!");
 			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
 				public void onClick(DialogInterface arg0, int arg1) {
 				}
@@ -82,15 +82,7 @@ public class OptionsActivity extends Activity implements OnItemSelectedListener 
 			alertbox.show();
 			break;
 		case 2:  
-			alertbox.setMessage("Fjäril");
-			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
-				public void onClick(DialogInterface arg0, int arg1) {
-				}
-			});
-			alertbox.show();
-			break;
-		case 3:
-			alertbox.setMessage("Pigge");
+			alertbox.setMessage("Luddes fina lilla piga :)");
 			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
 				public void onClick(DialogInterface arg0, int arg1) {
 				}

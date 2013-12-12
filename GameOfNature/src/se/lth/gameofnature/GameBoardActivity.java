@@ -267,13 +267,8 @@ public class GameBoardActivity extends Activity {
 	public void onBackPressed() {
 		GameTimer.stopTimer();
 		
-		TaskMarker m = GameMapData.getCurrentSessionInstance(this).getFinalMarker();
-		
-		m.getNextQuestion().startQuestionActivity(this, m.getId());
-		
-		/*
 		Intent i = new Intent(this, StartActivity.class);
-		startActivity(i);*/
+		startActivity(i);
 	}
 	
 	public void zoomIn(View v) {
