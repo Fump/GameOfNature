@@ -1,16 +1,30 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Dialog" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
-</RelativeLayout>
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/dialog"
+android:gravity="center"
+android:orientation="vertical" >
+<TextView
+    android:id="@+id/dialog_content"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="20dp"
+    android:gravity="center_horizontal"
+    android:textColor="#000"
+    android:textSize="16dp" >
+</TextView>	
+<Button
+    android:id="@+id/dialog_ButtonOk"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="Ok"
+    android:background="@drawable/button_up"
+    android:textColor="#000"
+    android:textSize="18sp"
+    android:textStyle="bold" 
+    android:onClick="okClicked">
+</Button>
+</LinearLayout>

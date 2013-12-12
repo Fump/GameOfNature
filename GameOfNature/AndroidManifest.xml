@@ -103,7 +103,9 @@
         </activity>
         <activity
             android:name="se.lth.gameofnature.Dialog"
-            android:label="@string/title_activity_dialog" >
+            android:label="@string/title_activity_dialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomAlertDialog" >>
         </activity>
     </application>
 
