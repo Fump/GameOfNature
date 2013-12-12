@@ -17,7 +17,7 @@
         android:layout_centerVertical="true"
         android:onClick="tryAnswer"
         android:text="@string/answer_1"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textStyle="bold" />
 
     <Button
@@ -30,7 +30,7 @@
         android:layout_alignParentRight="true"
         android:onClick="tryAnswer"
         android:text="@string/answer_4"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textStyle="bold" />
 
     <Button
@@ -42,7 +42,7 @@
         android:layout_alignLeft="@+id/question_btnAnswer4"
         android:onClick="tryAnswer"
         android:text="@string/answer_2"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textStyle="bold" />
 
     <Button
@@ -55,47 +55,38 @@
         android:background="@drawable/blue_button"
         android:onClick="tryAnswer"
         android:text="@string/answer_3"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textStyle="bold" />
-    
-   <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/layout_round_corners"
-        android:orientation="vertical"
-        android:textStyle="bold" >
-    <TextView
-            android:id="@+id/question_title"
-            style="@style/questionTopic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/question_topic"
-            android:textColor="#FFFFFF" />
-	</LinearLayout>
-	
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/layout_round_corners"
-        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/question_content"
-            style="@style/questionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="@string/question"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
-    </LinearLayout>
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="140dp"
+       android:layout_alignLeft="@+id/question_btnAnswer1"
+       android:layout_alignParentTop="true"
+       android:layout_marginTop="28dp"
+       android:background="@drawable/layout_round_corners"
+       android:orientation="vertical"
+       android:textStyle="bold" >
+
+       <TextView
+           android:id="@+id/question_title"
+           style="@style/questionTopic"
+           android:layout_width="wrap_content"
+           android:layout_marginTop="10dp"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:text="@string/question_topic"
+           android:textColor="#FF000000" />
+
+       <TextView
+           android:id="@+id/question_content"
+           style="@style/questionText"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginTop="20dp"
+           android:text="@string/question"
+           android:textColor="#FF000000" />
+   </LinearLayout>
 
 </RelativeLayout>
