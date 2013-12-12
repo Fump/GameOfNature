@@ -131,7 +131,7 @@ public class GameBoardActivity extends Activity {
 				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
 				checkWin();
 				
-			} else if(source.equals(Alternativsida.ACTIVITY_NAME)) {
+			} else if(source.equals(OptionsActivity.ACTIVITY_NAME)) {
 				
 			}
 		}

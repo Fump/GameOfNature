@@ -237,55 +237,35 @@ containing a value of this type.
         public static final int yellow_button=0x7f020048;
     }
     public static final class id {
-<<<<<<< HEAD
         public static final int ContinueButton=0x7f060022;
-=======
-        public static final int ContinueButton=0x7f060021;
->>>>>>> master
-        public static final int LagfärgView=0x7f060007;
-        public static final int LagnamnText=0x7f060006;
-        public static final int LagnamnView=0x7f060005;
-        public static final int LinearBarLayout=0x7f060014;
-        public static final int LinearBarLayoutTop=0x7f060011;
-        public static final int RelativeBarLayout=0x7f060013;
-        public static final int SpelkaraktärView=0x7f060009;
-<<<<<<< HEAD
+        public static final int LagfärgView=0x7f060013;
+        public static final int LagnamnText=0x7f060012;
+        public static final int LagnamnView=0x7f060011;
+        public static final int LinearBarLayout=0x7f06000d;
+        public static final int LinearBarLayoutTop=0x7f06000a;
+        public static final int RelativeBarLayout=0x7f06000c;
+        public static final int SpelkaraktärView=0x7f060015;
         public static final int StartButton=0x7f060021;
         public static final int TimeWin=0x7f06002b;
         public static final int TimeWinTitle=0x7f06002a;
         public static final int WinTitle=0x7f060027;
-        public static final int ZoomButtonsLayout=0x7f060016;
+        public static final int ZoomButtonsLayout=0x7f06000e;
         public static final int action_settings=0x7f060030;
-=======
-        public static final int StartButton=0x7f060020;
-        public static final int TimeWin=0x7f06002a;
-        public static final int TimeWinTitle=0x7f060029;
-        public static final int WinTitle=0x7f060026;
-        public static final int ZoomButtonsLayout=0x7f060015;
-        public static final int action_settings=0x7f06002e;
->>>>>>> master
-        public static final int alternative_confirmButton=0x7f06000c;
-        public static final int approveButton=0x7f060010;
-        public static final int character_image=0x7f06000b;
-        public static final int character_spinner=0x7f06000a;
-        public static final int choose_colors=0x7f060008;
-<<<<<<< HEAD
-        public static final int count=0x7f060013;
+        public static final int alternative_confirmButton=0x7f060018;
+        public static final int approveButton=0x7f060008;
+        public static final int character_image=0x7f060017;
+        public static final int character_spinner=0x7f060016;
+        public static final int choose_colors=0x7f060014;
+        public static final int count=0x7f06000b;
         public static final int distanceWin=0x7f06002d;
         public static final int distanceWinTitle=0x7f06002c;
         public static final int exitGame=0x7f06002e;
-=======
-        public static final int count=0x7f060012;
-        public static final int distanceWin=0x7f06002c;
-        public static final int distanceWinTitle=0x7f06002b;
->>>>>>> master
-        public static final int finalquestion_codebox=0x7f06000f;
-        public static final int finalquestion_content=0x7f06000e;
-        public static final int finalquestion_title=0x7f06000d;
+        public static final int finalquestion_codebox=0x7f060007;
+        public static final int finalquestion_content=0x7f060006;
+        public static final int finalquestion_title=0x7f060005;
         public static final int hybrid=0x7f060004;
-<<<<<<< HEAD
         public static final int linearLayout1=0x7f06001f;
-        public static final int map=0x7f060011;
+        public static final int map=0x7f060009;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int notif_count=0x7f06002f;
@@ -304,37 +284,13 @@ containing a value of this type.
         public static final int teamNameWinTitle=0x7f060028;
         public static final int terrain=0x7f060003;
         public static final int videoView1=0x7f060020;
-        public static final int zoomInButton=0x7f060017;
-        public static final int zoomOutButton=0x7f060018;
-=======
-        public static final int linearLayout1=0x7f06001e;
-        public static final int map=0x7f060010;
-        public static final int none=0x7f060000;
-        public static final int normal=0x7f060001;
-        public static final int notif_count=0x7f06002d;
-        public static final int question_btnAnswer1=0x7f060018;
-        public static final int question_btnAnswer2=0x7f06001b;
-        public static final int question_btnAnswer3=0x7f06001a;
-        public static final int question_btnAnswer4=0x7f060019;
-        public static final int question_content=0x7f06001d;
-        public static final int question_title=0x7f06001c;
-        public static final int satellite=0x7f060002;
-        public static final int task_dialog_ButtonCancel=0x7f060025;
-        public static final int task_dialog_ButtonOk=0x7f060024;
-        public static final int task_dialog_content=0x7f060023;
-        public static final int task_dialog_title=0x7f060022;
-        public static final int teamNameWin=0x7f060028;
-        public static final int teamNameWinTitle=0x7f060027;
-        public static final int terrain=0x7f060003;
-        public static final int videoView1=0x7f06001f;
-        public static final int zoomInButton=0x7f060016;
-        public static final int zoomOutButton=0x7f060017;
->>>>>>> master
+        public static final int zoomInButton=0x7f06000f;
+        public static final int zoomOutButton=0x7f060010;
     }
     public static final class layout {
-        public static final int activity_alternativsida=0x7f030000;
-        public static final int activity_finalquestion=0x7f030001;
-        public static final int activity_game_board=0x7f030002;
+        public static final int activity_finalquestion=0x7f030000;
+        public static final int activity_game_board=0x7f030001;
+        public static final int activity_options=0x7f030002;
         public static final int activity_question=0x7f030003;
         public static final int activity_splash=0x7f030004;
         public static final int activity_start=0x7f030005;
