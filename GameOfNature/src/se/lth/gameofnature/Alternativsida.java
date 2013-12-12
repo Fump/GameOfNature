@@ -123,7 +123,6 @@ public class Alternativsida extends Activity implements OnItemSelectedListener {
 		String colorCode = (String) currentColor.getTag();
 		
 		db.createTeam(name.getText().toString(), iconId, colorCode, 0, 0, 0, 0);		
-		Toast.makeText(this,db.table(), Toast.LENGTH_LONG).show();
 		
 		db.close();
 		db = null;

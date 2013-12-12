@@ -2,18 +2,11 @@ package se.lth.gameofnature;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.content.Intent;
-import android.graphics.Color;
-
-import java.util.*;
 
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
 import se.lth.gameofnature.gametimer.GameTimer;
@@ -81,9 +74,6 @@ public class QuestionActivity extends Activity {
 
 			Button answerButton3 = (Button) findViewById(R.id.question_btnAnswer3);
 			answerButton3.setText(answers[2]);
-
-			Toast.makeText(this, answerButton3.getText() + " " + correctAnswer,
-					Toast.LENGTH_LONG).show();
 
 			Button answerButton4 = (Button) findViewById(R.id.question_btnAnswer4);
 			answerButton4.setText(answers[3]);

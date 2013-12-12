@@ -14,6 +14,26 @@ public class WinnerActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_winner);
+		
+		findViewById(R.id.exitGame).setOnClickListener(
+				new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						v.setBackgroundResource(R.drawable.button_down);
+						
+						Database db = new Database(WinnerActivity.this);
+						
+						db.open();
+						db.resetDatabase();
+						db.close();
+						
+						db = null;
+						
+						Intent i = new Intent(WinnerActivity.this, StartActivity.class);
+						WinnerActivity.this.startActivity(i);
+					}
+				});
 	}
 	
 	@Override
@@ -23,6 +43,7 @@ public class WinnerActivity extends Activity {
 		TextView teamName = (TextView)findViewById(R.id.teamNameWin);	
 		TextView time = (TextView)findViewById(R.id.TimeWin);
 		TextView distance = (TextView)findViewById(R.id.distanceWin);
+		TextView winInfo = (TextView)findViewById(R.id.WinTitle);
 		
 		Database db = new Database(this);
 		db.open();
@@ -38,6 +59,9 @@ public class WinnerActivity extends Activity {
 		time.setText(hours + ":" + minutes + ":" + seconds);
 		
 		distance.setText(t.getDistanceTraveled() + " m");
+		
+		winInfo.setText("Grattis " + t.getName() + "\n" +
+				"Ni har vunnit spelet!");
 		
 		db.close();
 		db = null;

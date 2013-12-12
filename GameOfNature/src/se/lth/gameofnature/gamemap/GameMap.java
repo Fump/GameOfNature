@@ -31,7 +31,7 @@ public class GameMap {
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 		
 		map.getUiSettings().setZoomControlsEnabled(false);
-		map.getUiSettings().setZoomGesturesEnabled(false);
+		map.getUiSettings().setAllGesturesEnabled(false);
 	}
 	
 	public void setPosition(LatLng pos) {
