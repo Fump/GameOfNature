@@ -53,7 +53,7 @@ public class LocationHandler implements
 	
 	private static final int TRACK_RADIUS = 10;
 	
-	private static final int UPDATE_INTERVAL = 3000;
+	private static final int UPDATE_INTERVAL = 5000;
 	private static final int FASTEST_INTERVAL = 16;
 	
 	private Location lastLocation;

@@ -16,7 +16,7 @@ public class GameMap {
 			new LatLng(56.148370, 13.393320);
 			
 	private int zoom;
-	private final static int[] zoomLevels = {15, 16, 17, 18}; 
+	private final static int[] zoomLevels = {15, 16, 17, 18, 20}; 
 	
 	public GameMap(GoogleMap map) {
 		this.map = map;
