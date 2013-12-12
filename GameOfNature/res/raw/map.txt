@@ -2,8 +2,8 @@
 <Map>
 	<TaskMarker
 		id="1"
-		latitude="56.038640"
-		longitude="12.698899"
+		latitude="56.039273"
+		longitude="12.698437"
 		title="Stora Eken"
 		snippet="En väldigt stor ek"
 		infoTxt="Eken kan bli väldigt gammal"
@@ -32,8 +32,8 @@
 	
 	<TaskMarker
 		id="2"
-		latitude="56.038385"
-		longitude="12.698894"
+		latitude="56.039367"
+		longitude="12.698199"
 		title="Bänken"
 		snippet="Bänken på andra sidan ängen"
 		infoTxt="Runt bänken finns det många olika sorters lövträd."
@@ -62,8 +62,8 @@
 
 	<TaskMarker
 		id="3"
-		latitude="56.037867"
-		longitude="12.699134"
+		latitude="56.039100"
+		longitude="12.698037"
 		title="Sälg"
 		snippet="På sälgen växer det idekissar."
 		infoTxt="Här växer det även hasselträd."
@@ -92,8 +92,8 @@
 
 	<FinalTaskMarker
 		id="9"
-		latitude="56.038089"
-		longitude="12.699176"
+		latitude="56.039128"
+		longitude="12.698354"
 		title="Slutuppgift"
 		snippet="En dold plats?!?"
 		infoTxt="Kan ni låsa upp hemligheten på platsen?"
