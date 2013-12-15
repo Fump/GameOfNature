@@ -200,9 +200,15 @@ public class LocationHandler implements
 			hasPendingRemove = false;
 		}
 		
-		map.setPosition(
-				new LatLng(mLocationClient.getLastLocation().getLatitude(),
-						mLocationClient.getLastLocation().getLongitude()));
+		Location prevLocation = mLocationClient.getLastLocation();
+		
+		if(prevLocation!= null) {
+			LatLng pos = new LatLng(prevLocation.getLatitude(),
+					prevLocation.getLongitude());
+			
+			map.setPosition(pos);
+			myLocation.setPosition(pos);
+		}
 	}
 
 	@Override
@@ -223,15 +229,17 @@ public class LocationHandler implements
 					loc.getLatitude(), loc.getLongitude(), 
 					distance);
 			
-			distanceTraveled += distance[0];
-			
-			Database db = new Database(mContext);
-			db.open();
-			
-			db.setDistanceTravled(distanceTraveled);
-			
-			db.close();
-			db = null;
+			if(distanceTraveled <= 10){
+				distanceTraveled += distance[0];
+				
+				Database db = new Database(mContext);
+				db.open();
+				
+				db.setDistanceTravled(distanceTraveled);
+				
+				db.close();
+				db = null;
+			}
 		}
 		
 		lastLocation = loc;

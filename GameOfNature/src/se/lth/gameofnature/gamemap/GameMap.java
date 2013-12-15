@@ -29,9 +29,8 @@ public class GameMap {
 		
 		setZoom(zoomLevels[1]);
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-		
 		map.getUiSettings().setZoomControlsEnabled(false);
-		map.getUiSettings().setAllGesturesEnabled(false);
+		map.getUiSettings().setRotateGesturesEnabled(false);
 		map.getUiSettings().setCompassEnabled(false);
 	}
 	

@@ -23,7 +23,8 @@
             style="@style/colourText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/team_name" />
+            android:text="@string/team_name" 
+            android:layout_marginRight="5dp"/>
 
         <TextView
             android:id="@+id/teamNameWin"
@@ -46,7 +47,8 @@
             style="@style/colourText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/game_time" />
+            android:text="@string/game_time"
+            android:layout_marginRight="5dp" />
 
         <TextView
             android:id="@+id/TimeWin"
@@ -68,7 +70,8 @@
             style="@style/colourText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/distance" />
+            android:text="@string/distance" 
+            android:layout_marginRight="5dp"/>
 
         <TextView
             android:id="@+id/distanceWin"

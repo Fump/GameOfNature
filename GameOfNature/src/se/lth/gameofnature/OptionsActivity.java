@@ -71,33 +71,26 @@ public class OptionsActivity extends Activity implements OnItemSelectedListener 
 		charImg = getResources().obtainTypedArray(R.array.character_img_list);
 		image.setImageResource(charImg.getResourceId(spinner.getSelectedItemPosition(), -1));
 		//Fakta till varje markör med popUp box.             
-		alertbox = new AlertDialog.Builder(this);  
+		
+		Intent dialogIntent = new Intent(this, Dialog.class);
+		
 		switch(spinner.getSelectedItemPosition()){
 		case 1:
-			alertbox.setMessage("Visste du att grodor sväljer sin mat hel?");
-			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
-				public void onClick(DialogInterface arg0, int arg1) {
-				}
-			});
-			alertbox.show();
+			dialogIntent.putExtra(Dialog.DIALOG_TXT, 
+					"Visste du att grodor sväljer sin mat hel?");
 			break;
 		case 2:  
-			alertbox.setMessage("Visste du att det finns giftiga fjärilar?");
-			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
-				public void onClick(DialogInterface arg0, int arg1) {
-				}
-			});
-			alertbox.show();
+			dialogIntent.putExtra(Dialog.DIALOG_TXT, 
+					"Visste du att det finns giftiga fjärilar?");
 			break;
 		case 3:  
-			alertbox.setMessage("Visste du att nyckelpigan är köttätare?");
-			alertbox.setNeutralButton("Ok", new DialogInterface.OnClickListener() {        
-				public void onClick(DialogInterface arg0, int arg1) {
-				}
-			});
-			alertbox.show();
+			dialogIntent.putExtra(Dialog.DIALOG_TXT, 
+					"Visste du att nyckelpigan är köttätare?");
 			break;
 		} 
+		
+		if(dialogIntent.hasExtra(Dialog.DIALOG_TXT))
+			startActivity(dialogIntent);
 	}
 
 	public void onNothingSelected(AdapterView<?> parent) {

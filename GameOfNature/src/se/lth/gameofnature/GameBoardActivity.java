@@ -17,23 +17,18 @@ import se.lth.gameofnature.questions.Question;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 
-import android.R.color;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.hardware.SensorManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
@@ -84,7 +79,7 @@ public class GameBoardActivity extends Activity {
 		
 		Team teamStatus = db.getTeamStatus();
 		
-		initMapIfNeeded(teamStatus.getIconId(), teamStatus.getColor());
+		initMapIfNeeded(teamStatus.getIconId(), teamStatus.getColor(), teamStatus.getName());
 		initRotationManagerIfNeeded();
 		initLocationHandlerIfNeeded();
 		
@@ -140,7 +135,7 @@ public class GameBoardActivity extends Activity {
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
 	 */
-	private void initMapIfNeeded(int iconId, String colorId) { 
+	private void initMapIfNeeded(int iconId, String colorId, String teamName) { 
 		if(map == null) {
 			GoogleMap gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
 			        .getMap();
@@ -150,7 +145,7 @@ public class GameBoardActivity extends Activity {
 			Bitmap icon = BitmapFactory.decodeResource(getResources(), iconId);
 			
 			myLocation = new MyLocationMarker(GameMap.ANDREASSONS_MEDOW, icon, 
-					"My Location", "Here I am");
+					teamName, "Här är jag!");
 			
 			map.addGameMarker(myLocation);
 			

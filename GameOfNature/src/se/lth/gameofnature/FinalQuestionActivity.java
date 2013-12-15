@@ -1,19 +1,15 @@
 package se.lth.gameofnature;
 
 import se.lth.gameofnature.gamemap.markers.TaskMarker;
-import se.lth.gameofnature.gametimer.GameTimer;
 import se.lth.gameofnature.questions.Question;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -47,7 +43,6 @@ public class FinalQuestionActivity extends Activity{
 	@Override
 	protected void onResume() {
 		super.onResume();
-	
 		setQuestion();
 	}
 	

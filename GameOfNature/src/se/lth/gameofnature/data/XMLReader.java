@@ -26,7 +26,7 @@ public class XMLReader {
 	public static TreeMap<String, TaskMarker> readTaskMarkers(Context mContext) {
 		TreeMap<String, TaskMarker> markers = new TreeMap<String, TaskMarker>();
 		
-		InputStream is = mContext.getResources().openRawResource(R.raw.test);
+		InputStream is = mContext.getResources().openRawResource(R.raw.map);
 		
 		try {
 
@@ -70,7 +70,7 @@ public class XMLReader {
 	}
 	
 	public static TaskMarker getFinalTaskMarker(Context mContext) {
-		InputStream is = mContext.getResources().openRawResource(R.raw.test);
+		InputStream is = mContext.getResources().openRawResource(R.raw.map);
 	
 		TaskMarker m = null;
 		
