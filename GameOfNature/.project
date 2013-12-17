@@ -30,11 +30,4 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>mapXML1.xml</name>
-			<type>1</type>
-			<location>D:/Ludde/Documents/adt-bundle-windows-x86_64-20130917/eclipse/git/GameOfNature/GameOfNature/mapXML1.xml</location>
-		</link>
-	</linkedResources>
 </projectDescription>

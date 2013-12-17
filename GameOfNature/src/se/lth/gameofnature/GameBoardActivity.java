@@ -303,6 +303,8 @@ public class GameBoardActivity extends Activity {
 	}
 	
 	public void goToMyLocation(View v) {
+		Button locButton = (Button)v;
+
 		LatLng lastLocation = mLocationHandler.getLastLocation();
 		
 		if(lastLocation != null)

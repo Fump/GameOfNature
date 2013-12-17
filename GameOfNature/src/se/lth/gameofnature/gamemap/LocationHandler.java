@@ -59,6 +59,8 @@ public class LocationHandler implements
 	private Location lastLocation;
 	private int distanceTraveled;
 	
+	private boolean track;
+	
     private static final LocationRequest REQUEST = LocationRequest.create()
             .setInterval(UPDATE_INTERVAL)         // 5 seconds
             .setFastestInterval(FASTEST_INTERVAL)    // 16ms = 60fps
@@ -68,6 +70,8 @@ public class LocationHandler implements
 		this.mContext = mContext;
 		this.map = map;
 		this.myLocation = myLocation;
+		
+		track = false;
 		
 		geofencesToAdd = new ArrayList<Geofence>();
 		geofencesToRemove = new ArrayList<String>();
@@ -233,6 +237,9 @@ public class LocationHandler implements
 		
 		myLocation.setPosition(pos);	
 		
+		if(track)
+			map.setPosition(pos);
+		
 		if(lastLocation != null) {
 			float[] distance = new float[1];
 			
@@ -254,6 +261,10 @@ public class LocationHandler implements
 		}
 		
 		lastLocation = loc;
+	}
+	
+	public void setTrackLocation(boolean track) {
+		this.track = track;
 	}
 
 	@Override
