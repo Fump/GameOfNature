@@ -16,6 +16,7 @@ import se.lth.gameofnature.questions.Question;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -29,6 +30,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class GameBoardActivity extends Activity {
 	private GameMap map;
@@ -95,13 +97,13 @@ public class GameBoardActivity extends Activity {
 		if(!GameTimer.isRunning())
 			GameTimer.startTimer(this);
 		
-		checkWin();
+		checkWin(false);
 	}
 	
 	private void handleIntent() {
 		Bundle extras = getIntent().getExtras();
 		
-		if(extras != null) {
+		if(extras != null && !extras.containsKey("used")) {
 			String source = extras.getString(GameBoardActivity.INTENT_SOURCE);
 			
 			if(source.equals(QuestionActivity.ACTIVITY_NAME)) {
@@ -117,6 +119,7 @@ public class GameBoardActivity extends Activity {
 					marker.setDone();
 					
 					markerIcons.get(marker.getId()).setAlpha(200);
+					checkWin(true);
 				}else if(GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers()
 						== GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers() - 1) {
 					marker.getNextQuestion().startQuestionActivity(this, marker.getId());
@@ -124,13 +127,10 @@ public class GameBoardActivity extends Activity {
 				else{
 					marker.setLocked();
 				}
-				//Tillfälligt kod, bara för att kolla om man har vunnit lite snabbt!
-				checkWin();
-				
-			} else if(source.equals(OptionsActivity.ACTIVITY_NAME)) {
-				
-			}
+			} 
 		}
+		
+		getIntent().putExtra("used", true);
 	}
 	
 	/* Sets up a GameMap connected to Google maps if one does not already exist.
@@ -206,7 +206,7 @@ public class GameBoardActivity extends Activity {
 		count.setText(current + " / " + total);
 	}
 	
-	private void checkWin() {
+	private void checkWin(boolean first) {
 		boolean win = GameMapData.getCurrentSessionInstance(this).getNumberDoneMarkers() ==
 				GameMapData.getCurrentSessionInstance(this).getNumberOfMarkers();
 	
@@ -215,6 +215,17 @@ public class GameBoardActivity extends Activity {
 			fMarker.setVisibility(true);
 			
 			mLocationHandler.trackTaskMarker(GameMapData.getCurrentSessionInstance(this).getFinalMarker());
+		
+			if(first) {
+				map.animateTo(fMarker);
+				
+				Intent i = new Intent(this, Dialog.class);
+				i.putExtra(Dialog.DIALOG_TXT, "En skattkista dök upp på kartan! Undersök " +
+						"skatten för att komma vidare.");
+				
+				startActivity(i);
+			}
+		
 		}
 	}
 	
@@ -289,5 +300,12 @@ public class GameBoardActivity extends Activity {
 		if(!findViewById(R.id.zoomInButton).isEnabled())
 			findViewById(R.id.zoomInButton).setEnabled(true);
 	
+	}
+	
+	public void goToMyLocation(View v) {
+		LatLng lastLocation = mLocationHandler.getLastLocation();
+		
+		if(lastLocation != null)
+			map.setPosition(lastLocation);
 	}
 }

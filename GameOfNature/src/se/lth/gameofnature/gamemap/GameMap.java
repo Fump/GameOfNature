@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
@@ -15,9 +16,6 @@ public class GameMap {
 	public static final LatLng ANDREASSONS_MEDOW = 
 			new LatLng(56.148370, 13.393320);
 			
-	private int zoom;
-	private final static int[] zoomLevels = {15, 16, 17, 18, 20}; 
-	
 	public GameMap(GoogleMap map) {
 		this.map = map;
 		
@@ -25,12 +23,12 @@ public class GameMap {
 	}
 	
 	private void setUpMap() {
-		zoom = 1;
+		setZoom(16f);
 		
-		setZoom(zoomLevels[1]);
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+		
 		map.getUiSettings().setZoomControlsEnabled(false);
-		map.getUiSettings().setRotateGesturesEnabled(false);
+		map.getUiSettings().setRotateGesturesEnabled(false); 
 		map.getUiSettings().setCompassEnabled(false);
 	}
 	
@@ -42,29 +40,35 @@ public class GameMap {
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, zoom));
 	}
 	
-	public void setZoom(int zoom) {
+	public void setZoom(float zoom) {
 		map.moveCamera(CameraUpdateFactory.zoomTo(zoom));
 	}
 	
+	public void animateTo(GameMarker m) {
+		setPosAndZoom(m.getPosition(), 16);
+	}
+	
 	public boolean zoomIn() {
-		if(zoom < zoomLevels.length - 1) {
-			zoom = zoom + 1;
-			setZoom(zoomLevels[zoom]);
+		float zoom = map.getCameraPosition().zoom;
+		
+		if(zoom < map.getMaxZoomLevel()) {
+			setZoom(zoom + 1);
 		}
 		
-		if(zoom == zoomLevels.length - 1)
+		if(zoom == map.getMaxZoomLevel())
 			return true;
 		
 		return false;
 	}
 	
 	public boolean zoomOut() {
-		if(zoom > 0) {
-			zoom = zoom - 1;
-			setZoom(zoomLevels[zoom]);
+		float zoom = map.getCameraPosition().zoom;
+		
+		if(zoom > map.getMinZoomLevel()) {
+			setZoom(zoom - 1);
 		}
 		
-		if(zoom == 0)
+		if(zoom == map.getMinZoomLevel())
 			return true;
 		
 		return false;

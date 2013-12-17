@@ -51,7 +51,7 @@ public class LocationHandler implements
 	private ArrayList<Geofence> geofencesToAdd;
 	private ArrayList<String> geofencesToRemove;
 	
-	private static final int TRACK_RADIUS = 10;
+	private static final int TRACK_RADIUS = 15;
 	
 	private static final int UPDATE_INTERVAL = 5000;
 	private static final int FASTEST_INTERVAL = 16;
@@ -154,12 +154,24 @@ public class LocationHandler implements
 	 * Stops tracking the specified TaskMarker
 	 */
 	private void untrackTaskMarkers() {
-		if(mLocationClient.isConnected()) {
-			mLocationClient.removeGeofences(geofencesToRemove, this);
-			geofencesToRemove.clear();
-		} else {
-			hasPendingRemove = true;
+		if(geofencesToRemove != null && !geofencesToRemove.isEmpty()) {
+			if(mLocationClient.isConnected()) {
+				mLocationClient.removeGeofences(geofencesToRemove, this);
+				geofencesToRemove.clear();
+			} else {
+				hasPendingRemove = true;
+			}
 		}
+	}
+	
+	public LatLng getLastLocation() {
+		if(mLocationClient.isConnected()) {
+			Location l = mLocationClient.getLastLocation();
+			
+			return l != null ? new LatLng(l.getLatitude(), l.getLongitude()) : null;
+		}
+		
+		return null;
 	}
 	
 	/*
@@ -220,7 +232,6 @@ public class LocationHandler implements
 		LatLng pos = new LatLng(loc.getLatitude(), loc.getLongitude());
 		
 		myLocation.setPosition(pos);	
-		map.setPosition(pos);
 		
 		if(lastLocation != null) {
 			float[] distance = new float[1];
